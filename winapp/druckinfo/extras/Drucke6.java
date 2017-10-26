@@ -62,7 +62,7 @@ public class Drucke6 {
 
 		if (sudokuList.size() < nDruck) {
 			String sProblem = String.format(
-					"Z.Zt. sind nicht ausreichend Sudokus des Typs '%s' verfügbar. Bitte kurz warten.",
+					"Z.Zt. sind nicht ausreichend Sudokus des Typs '%s' verfÃ¼gbar. Bitte kurz warten.",
 					Schwierigkeit.gibName(typ));
 			JOptionPane.showMessageDialog(SudokuFrame.gibMainFrame(), sProblem, "Drucke 6", JOptionPane.PLAIN_MESSAGE);
 			return;
@@ -78,7 +78,7 @@ public class Drucke6 {
 		// Druck
 		boolean warDruck = InfoSudokuDruck.drucke("", druckSudokus, new MalerDrucke6(), false, statusBar);
 		if (!warDruck) {
-			// Versuchen, die ungenutzten Sudokus zurückzulegen in den Sudoku-Pool
+			// Versuchen, die ungenutzten Sudokus zurï¿½ckzulegen in den Sudoku-Pool
 			for (int i = 0; i < nDruck; i++) {
 				InfoSudoku infoSudoku = sudokuList.get(i);
 				Integer zeit = zeitList.get(i);

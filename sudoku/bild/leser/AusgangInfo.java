@@ -145,7 +145,7 @@ class AusgangInfo {
 		} // while
 
 		if (istSystemOut) {
-			System.out.println("Illegaler Ausgang au�erhalb der While-Schleife");
+			System.out.println("Illegaler Ausgang außerhalb der While-Schleife");
 		}
 		return null;
 	}
@@ -210,7 +210,7 @@ class AusgangInfo {
 		} // while
 
 		if (istSystemOut) {
-			System.out.println("Illegaler Ausgang au�erhalb der While-Schleife");
+			System.out.println("Illegaler Ausgang außerhalb der While-Schleife");
 		}
 		return false;
 	}

@@ -114,11 +114,11 @@ class SudokuNachVorlage implements LangerProzess {
 			// Hierin fehlen noch Fortschrittanzeige und der Abbruch
 			while (true) {
 				if (Thread.currentThread().isInterrupted()) {
-					systemOut("Abbruch durch Thread-Interrupt w�hrend des Wartens auf das volle Sudoku");
+					systemOut("Abbruch durch Thread-Interrupt während des Wartens auf das volle Sudoku");
 					break;
 				}
 				if (fortschrittZeiger.istAbbruchGefordert()) {
-					systemOut("Abbruch durch Fortschritt-Zeiger w�hrend des Wartens auf das volle Sudoku");
+					systemOut("Abbruch durch Fortschritt-Zeiger während des Wartens auf das volle Sudoku");
 					break;
 				}
 				NeuTyp erzeugeTyp = new NeuTyp(NeuTyp.Typ.VOLL);

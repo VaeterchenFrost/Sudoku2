@@ -54,7 +54,7 @@ public class ToolBarGruppeAnzeige {
 	@SuppressWarnings("serial")
 	class CheckBoxMoegliche extends CheckBoxOption {
 		CheckBoxMoegliche(Optionen optionen, SudokuBedienung sudoku, FeldAnzeigen feldAnzeigen) {
-			super("Mögliche", "Mögliche Zahlen (Einträge) zeigen", optionen, sudoku, feldAnzeigen);
+			super("MÃ¶gliche", "MÃ¶gliche Zahlen (EintrÃ¤ge) zeigen", optionen, sudoku, feldAnzeigen);
 		}
 
 		@Override
@@ -72,7 +72,7 @@ public class ToolBarGruppeAnzeige {
 	private class CheckBoxFeldPaare extends CheckBoxOption {
 		CheckBoxFeldPaare(Optionen optionen, SudokuBedienung sudoku, FeldAnzeigen feldAnzeigen) {
 			super("Feldpaare",
-					"Feld-Paare zeigen. (FeldPaar: Eine Zahl ist nur in zwei Feldern von Zeile/Spalte/Kasten möglich)",
+					"Feld-Paare zeigen. (FeldPaar: Eine Zahl ist nur in zwei Feldern von Zeile/Spalte/Kasten mï¿½glich)",
 					optionen, sudoku, feldAnzeigen);
 		}
 
@@ -89,10 +89,10 @@ public class ToolBarGruppeAnzeige {
 
 	public ToolBarGruppeAnzeige(ToolBarLinks toolBar, Optionen optionen, SudokuBedienung sudoku,
 			FeldAnzeigen feldAnzeigen) {
-		// Maximale Größe
+		// Maximale Grï¿½ï¿½e
 		{
 			JButton bMax = new JButton("Maximal");
-			bMax.setToolTipText("Maximal große Sudoku-Darstellung");
+			bMax.setToolTipText("Maximal groÃŸe Sudoku-Darstellung");
 			toolBar.add(bMax);
 			bMax.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -100,7 +100,7 @@ public class ToolBarGruppeAnzeige {
 				}
 			});
 		}
-		// Mögliche
+		// Mï¿½gliche
 		toolBar.add(new CheckBoxMoegliche(optionen, sudoku, feldAnzeigen));
 		// FeldPaare
 		toolBar.add(new CheckBoxFeldPaare(optionen, sudoku, feldAnzeigen));

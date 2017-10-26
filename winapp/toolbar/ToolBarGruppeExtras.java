@@ -62,7 +62,7 @@ public class ToolBarGruppeExtras {
 	// Drucke6
 	public class ButtonDrucke6 extends ButtonExtra implements ActionListener {
 		public ButtonDrucke6(JFrame frame, String applikationsTitel, SudokuBedienung sudoku, StatusBar statusBar) {
-			super("Drucke 6...", "6 Sudokus einer gew�nschten Schwierigkeit drucken", frame, applikationsTitel, sudoku,
+			super("Drucke 6...", "6 Sudokus einer gewünschten Schwierigkeit drucken", frame, applikationsTitel, sudoku,
 					statusBar);
 			this.addActionListener(this);
 			Drucke6.vorbereiten();

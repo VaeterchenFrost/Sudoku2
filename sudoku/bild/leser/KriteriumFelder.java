@@ -142,7 +142,7 @@ class KriteriumFelder implements KriteriumBildInfo {
 				sErgebnisse += String.format(" %s=%1.1f=>%1.1f%%", feldErgebnis.feldNummer, feldErgebnis.ist,
 						feldErgebnis.erfuellungsGrad);
 			}
-			System.out.println(String.format("Erf�llt=%1.1f%%  %s: %s %s", durchschnitt, this.name, sErgebnisse, this));
+			System.out.println(String.format("Erfüllt=%1.1f%%  %s: %s %s", durchschnitt, this.name, sErgebnisse, this));
 		}
 
 		return durchschnitt;

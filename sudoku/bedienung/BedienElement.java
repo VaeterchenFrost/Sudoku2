@@ -4,8 +4,8 @@ import sudoku.kern.protokoll.ProtokollKursorInfo;
 
 /**
  * @author Hendrick
- * Das ist ein Bedienelement f¸r das Sudoku, das gesperrt sein muss 
- * w‰hrend eine Sudoku-Aktion j‰uft
+ * Das ist ein Bedienelement f√ºr das Sudoku, das gesperrt sein muss 
+ * w√§hrend eine Sudoku-Aktion l√§uft
  */
 public interface BedienElement {
 	/**

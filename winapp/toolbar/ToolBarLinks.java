@@ -59,7 +59,7 @@ public class ToolBarLinks extends ToolBar0 implements EintragsModus {
 	private class ButtonGibTip extends ButtonSudoku implements ActionListener {
 		ButtonGibTip(SudokuBedienung sudoku) {
 			super("Gib Tip", sudoku);
-			setToolTipText("Anforderung eines Tips: Wie komme ich zur n�chsten zu setzenden Zahl?");
+			setToolTipText("Anforderung eines Tips: Wie komme ich zur nächsten zu setzenden Zahl?");
 			this.addActionListener(this);
 		}
 
@@ -82,7 +82,7 @@ public class ToolBarLinks extends ToolBar0 implements EintragsModus {
 	private class ButtonGibTipZahl extends ButtonSudoku implements ActionListener {
 		ButtonGibTipZahl(SudokuBedienung sudoku) {
 			super("Gib Zahl", sudoku);
-			setToolTipText("Anforderung der n�chsten zu setzenden Zahl (mit allen zur Verf�gung stehenden Mitteln)");
+			setToolTipText("Anforderung der nächsten zu setzenden Zahl (mit allen zur Verfügung stehenden Mitteln)");
 			this.addActionListener(this);
 		}
 
@@ -124,7 +124,7 @@ public class ToolBarLinks extends ToolBar0 implements EintragsModus {
 		this.addSeparator();
 
 		// Gruppe L�sen
-		this.erschaffeGruppenTitel(" L�sen ", "L�sen des Sudoku");
+		this.erschaffeGruppenTitel(" Lösen ", "Lösen des Sudoku");
 		this.addSeparator();
 		{
 
@@ -141,9 +141,9 @@ public class ToolBarLinks extends ToolBar0 implements EintragsModus {
 			// }
 
 			{
-				JButton bSetzeKlareAlle = new ButtonSudoku("Eintr�ge", sudoku);
-				String s1 = "Solange ein Feld mit nur 1 m�glichen Zahl erkannt wird, ";
-				String s2 = "erh�lt dieses Feld die Zahl als Eintrag";
+				JButton bSetzeKlareAlle = new ButtonSudoku("Einträge", sudoku);
+				String s1 = "Solange ein Feld mit nur 1 möglichen Zahl erkannt wird, ";
+				String s2 = "erhält dieses Feld die Zahl als Eintrag";
 				bSetzeKlareAlle.setToolTipText(String.format("<html>%s<br>%s</html>", s1, s2));
 				bSetzeKlareAlle.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -169,7 +169,7 @@ public class ToolBarLinks extends ToolBar0 implements EintragsModus {
 			{
 				JButton bKnacke = new ButtonSudoku("Knacke", sudoku);
 				bKnacke.setToolTipText(
-						"Es wird versucht, das Sudoku mit allen zur Verf�gung stehenden Mitteln zu l�sen");
+						"Es wird versucht, das Sudoku mit allen zur Verfügung stehenden Mitteln zu lösen");
 				bKnacke.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						sudoku.knacke();
@@ -181,7 +181,7 @@ public class ToolBarLinks extends ToolBar0 implements EintragsModus {
 			// Anzahl der L�sungen des Sudoku
 			{
 				JButton bVarianz = new ButtonSudoku("Varianz", sudoku);
-				bVarianz.setToolTipText("Die Anzahl der L�sungen des Sudoku wird ermittelt");
+				bVarianz.setToolTipText("Die Anzahl der Lösungen des Sudoku wird ermittelt");
 				bVarianz.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						int nDruckSeitenPlaetze = Seitenformat.gibMaxSudokuAnzahlA4();
@@ -190,9 +190,9 @@ public class ToolBarLinks extends ToolBar0 implements EintragsModus {
 						if (loesungen == null) {
 							JOptionPane.showMessageDialog(null, "Fehler");
 						} else {
-							String nLoesungen = String.format("Anzahl L�sungen = %d", loesungen.gibAnzahl());
+							String nLoesungen = String.format("Anzahl Lösungen = %d", loesungen.gibAnzahl());
 							if (loesungen.gibAnzahl() == nDruckSeitenPlaetze) {
-								nLoesungen = String.format("Anzahl L�sungen = %d oder mehr", loesungen.gibAnzahl());
+								nLoesungen = String.format("Anzahl Lösungen = %d oder mehr", loesungen.gibAnzahl());
 							}
 							String meldung = String.format("%s. %nSollen alle Varianten gedruckt werden?", nLoesungen);
 							int antwort = JOptionPane.showConfirmDialog(null, meldung, "Varianz des Sudoku",
@@ -228,7 +228,7 @@ public class ToolBarLinks extends ToolBar0 implements EintragsModus {
 		this.addSeparator();
 		this.addSeparator();
 		this.addSeparator();
-		this.erschaffeGruppenTitel(" Sudoku ", "Kennt man sonst als Men� 'Datei'");
+		this.erschaffeGruppenTitel(" Sudoku ", "Kennt man sonst als Menü 'Datei'");
 		this.addSeparator();
 		new ToolBarGruppeSudoku(this, toolBarRechts, frame, titel, eintragsModus, sudoku, statusBar);
 	}

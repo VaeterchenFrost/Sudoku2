@@ -101,7 +101,7 @@ public class ToolBarGruppeSudoku {
 
 		public ButtonNeu(JFrame frame, String applikationsTitel, EintragsModus eintragsModus, SudokuBedienung sudoku,
 				StatusBar statusBar) {
-			super("Neu...", ToolTip.gibToolTip(new String[] { "Neues Sudoku, neues Gl�ck" }), frame, applikationsTitel,
+			super("Neu...", ToolTip.gibToolTip(new String[] { "Neues Sudoku, neues Glück" }), frame, applikationsTitel,
 					eintragsModus, sudoku, statusBar);
 			popupMenu = new PopupMenuNeu(this);
 			dialog = new DateiDialog(frame, false);
@@ -174,7 +174,7 @@ public class ToolBarGruppeSudoku {
 					eintragsModus.setzeEintragsModus(EintragsModus.Modus.Vorgabe);
 				}
 			} else {
-				String sProblem = String.format("Z.Zt. ist kein Sudoku des Typs '%s' verf�gbar. Bitte kurz warten.",
+				String sProblem = String.format("Z.Zt. ist kein Sudoku des Typs '%s' verfügbar. Bitte kurz warten.",
 						neuTyp.gibName());
 				JOptionPane.showMessageDialog(SudokuFrame.gibMainFrame(), sProblem, "Neues Sudoku",
 						JOptionPane.PLAIN_MESSAGE);
@@ -328,7 +328,7 @@ public class ToolBarGruppeSudoku {
 	// ---------------------------------------------------------------------------------------------------
 	public class ButtonAnimation extends ButtonSudoku implements ActionListener {
 		public ButtonAnimation(SudokuBedienung sudoku) {
-			super("Animation...", "Sudoku ohne Eintr�ge animieren", null, // frame,
+			super("Animation...", "Sudoku ohne Einträge animieren", null, // frame,
 					null, // applikationsTitel,
 					null, // eintragsModus,
 					sudoku, null);// , statusBar);

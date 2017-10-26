@@ -39,7 +39,7 @@ public class ToolBarRechts extends ToolBar0 implements BedienElement {
 			super(istPlus ? "++" : "--");
 			this.istPlus = istPlus;
 			this.sudoku = sudoku;
-			this.setToolTipText("Setze die Klugheit für eine Schwierigkeit " + (istPlus ? "größer" : "kleiner"));
+			this.setToolTipText("Setze die Klugheit fÃ¼r eine Schwierigkeit " + (istPlus ? "grÃ¶ÃŸer" : "kleiner"));
 			this.addActionListener(this);
 			sudoku.registriereBedienElement(this);
 			sudoku.registriereAnzeigeElement(this);
@@ -153,7 +153,7 @@ public class ToolBarRechts extends ToolBar0 implements BedienElement {
 				String beschreibung = ToolTip.gibToolTip(texteArray);
 				String text = "Was bedeutet Logik '" + this.getText() + "'?\n\n" + beschreibung;
 
-				JOptionPane.showMessageDialog(SudokuFrame.gibMainFrame(), text, "Logik Erläuterung",
+				JOptionPane.showMessageDialog(SudokuFrame.gibMainFrame(), text, "Logik ErlÃ¤uterung",
 						JOptionPane.PLAIN_MESSAGE);
 
 			}
@@ -195,9 +195,9 @@ public class ToolBarRechts extends ToolBar0 implements BedienElement {
 		{
 			// Klugheit
 			{
-				String[] toolTip = { "Die zum Lösen des Sudoku eingesetzte Klugheit.",
-						"Die geringste nötige Klugheit ist hier nicht einstellbar, denn sie wird stets angewandt:",
-						"Ein Feld betrachtet alle Zahlen als möglich, die noch nicht in Zeile/Spalte/Kasten gesetzt sind" };
+				String[] toolTip = { "Die zum LÃ¶sen des Sudoku eingesetzte Klugheit.",
+						"Die geringste nÃ¶tige Klugheit ist hier nicht einstellbar, denn sie wird stets angewandt:",
+						"Ein Feld betrachtet alle Zahlen als mÃ¶glich, die noch nicht in Zeile/Spalte/Kasten gesetzt sind" };
 				erschaffeGruppenTitel(" Klug ", ToolTip.gibToolTip(toolTip));
 				this.addSeparator();
 
@@ -230,29 +230,29 @@ public class ToolBarRechts extends ToolBar0 implements BedienElement {
 		// Protokoll
 		{
 			erschaffeGruppenTitel(" Rec ",
-					"Im (auch teilweise) gelösten Sudoku kann durch die Vergangenheit gegangen werden.");
+					"Im (auch teilweise) gelï¿½sten Sudoku kann durch die Vergangenheit gegangen werden.");
 			this.addSeparator();
 
 			lProtokollSchrittMax = erschaffeProtokollLabel(gibProtokollText(789, 8));
 			lProtokollSchrittMax
-					.setToolTipText(gibProtokollToolTip("Nummer des jüngsten (letzten) Protokoll-Vermerkes"));
+					.setToolTipText(gibProtokollToolTip("Nummer des jÃ¼ngsten (letzten) Protokoll-Vermerkes"));
 			this.add(lProtokollSchrittMax);
 			this.add(bProtokollPlusAlle = new JButton(">>>"));
-			bProtokollPlusAlle.setToolTipText(gibProtokollToolTip("Gehe zum jüngsten (letzten) Protokoll-Vermerk"));
+			bProtokollPlusAlle.setToolTipText(gibProtokollToolTip("Gehe zum jÃ¼ngsten (letzten) Protokoll-Vermerk"));
 			bProtokollPlusAlle.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					gehe(Protokoll.Schrittweite.ALLES, true); // vorwaerts)
 				}
 			});
 			this.add(bProtokollPlusEbene = new JButton(" >> "));
-			bProtokollPlusEbene.setToolTipText(gibProtokollToolTip("Gehe zum nächsten Versuch"));
+			bProtokollPlusEbene.setToolTipText(gibProtokollToolTip("Gehe zum nÃ¤chsten Versuch"));
 			bProtokollPlusEbene.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					gehe(Protokoll.Schrittweite.VERSUCH, true); // vorwaerts)
 				}
 			});
 			this.add(bProtokollPlusSchritt = new JButton("  >  "));
-			bProtokollPlusSchritt.setToolTipText(gibProtokollToolTip("Gehe einen Protokoll-Schritt vorwärts"));
+			bProtokollPlusSchritt.setToolTipText(gibProtokollToolTip("Gehe einen Protokoll-Schritt vorwï¿½rts"));
 			bProtokollPlusSchritt.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					gehe(Protokoll.Schrittweite.EINTRAG, true); // vorwaerts)
@@ -264,7 +264,7 @@ public class ToolBarRechts extends ToolBar0 implements BedienElement {
 			this.add(lProtokollSchrittAktuell);
 			// this.addSeparator();
 			this.add(bProtokollMinusSchritt = new JButton("  <  "));
-			bProtokollMinusSchritt.setToolTipText(gibProtokollToolTip("Gehe einen Protokoll-Schritt zurück"));
+			bProtokollMinusSchritt.setToolTipText(gibProtokollToolTip("Gehe einen Protokoll-Schritt zurÃ¼ck"));
 			bProtokollMinusSchritt.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					gehe(Protokoll.Schrittweite.EINTRAG, false); // vorwaerts)
@@ -278,7 +278,7 @@ public class ToolBarRechts extends ToolBar0 implements BedienElement {
 				}
 			});
 			this.add(bProtokollMinusAlle = new JButton("<<<"));
-			bProtokollMinusAlle.setToolTipText(gibProtokollToolTip("Gehe zum ältesten (ersten) Protokoll-Vermerk"));
+			bProtokollMinusAlle.setToolTipText(gibProtokollToolTip("Gehe zum Ã¤ltesten (ersten) Protokoll-Vermerk"));
 			bProtokollMinusAlle.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					gehe(Protokoll.Schrittweite.ALLES, false);
@@ -286,7 +286,7 @@ public class ToolBarRechts extends ToolBar0 implements BedienElement {
 			});
 			lProtokollSchrittMin = erschaffeProtokollLabel(gibProtokollText(0, 0));
 			lProtokollSchrittMin
-					.setToolTipText(gibProtokollToolTip("Nummer des ältesten (ersten) Protokoll-Vermerkes"));
+					.setToolTipText(gibProtokollToolTip("Nummer des Ã¤ltesten (ersten) Protokoll-Vermerkes"));
 			this.add(lProtokollSchrittMin);
 		}
 	}

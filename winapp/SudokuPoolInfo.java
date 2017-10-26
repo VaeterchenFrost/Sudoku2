@@ -88,8 +88,8 @@ public class SudokuPoolInfo extends JTable {
 	}
 
 	static private String[] gibSpaltenUeberschriftenZustand(String titel) {
-		String[] texte = new String[] { titel, "Anzahl", "Doppel", "% voll1", "% voll2", "KB gro�", "Leicht", "Schwer",
-				"�ltestes", "J�ngstes" };
+		String[] texte = new String[] { titel, "Anzahl", "Doppel", "% voll1", "% voll2", "KB groß", "Leicht", "Schwer",
+				"Ältestes", "Jüngstes" };
 		return texte;
 	}
 

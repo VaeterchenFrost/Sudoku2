@@ -15,10 +15,10 @@ import winapp.statusbar.StatusBar;
  * @author Hendrick 
  * Druckt Frame aus.
  * In Zusammenhang mit Druck.SudokusPainter ist FrameDruck.maleSudoku() 
- * nur noch ein unbenutztes Beispiel für den Druck eines java.Frame !
+ * nur noch ein unbenutztes Beispiel fï¿½r den Druck eines java.Frame !
  */
 public class FrameDruck implements SudokuListe {
-	// Ist true nur während des Druckens des Frames
+	// Ist true nur wï¿½hrend des Druckens des Frames
 	private static boolean varIstDruck = false;
 
 	public static boolean istDruck() {
@@ -39,7 +39,7 @@ public class FrameDruck implements SudokuListe {
 	@Override
 	public void maleSudokuTitel(int sudokuIndex, Graphics g, Dimension d) {
 		Graphics2D g2d = (Graphics2D) g;
-		String s = String.format("Hallöchenne % d", sudokuIndex);
+		String s = String.format("HallÃ¶chenne % d", sudokuIndex);
 		new MalerEinfach().maleTitel(g2d, new Rectangle(d), s, s);
 	}
 
@@ -50,7 +50,7 @@ public class FrameDruck implements SudokuListe {
 		double scaleY = d.getHeight() / this.frame.getHeight();
 		try {
 			g2d.scale(scaleX, scaleY);
-			// Für die spezielle Malerei während des Druckens:
+			// Fï¿½r die spezielle Malerei wï¿½hrend des Druckens:
 			RepaintManager currentManager = RepaintManager.currentManager(frame);
 			currentManager.setDoubleBufferingEnabled(false);
 			FrameDruck.varIstDruck = true;

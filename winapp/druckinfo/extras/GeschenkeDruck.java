@@ -24,7 +24,7 @@ import winapp.toolbar.DateiDialog;
 
 /**
  * @author heroe
- * Lädt alle Sudokus eines Verzeichnisses. Dies ist die Bereitstellung für einen Druck.
+ * Lï¿½dt alle Sudokus eines Verzeichnisses. Dies ist die Bereitstellung fï¿½r einen Druck.
  */
 public class GeschenkeDruck {
 	private boolean istSystemOut = false;
@@ -58,7 +58,7 @@ public class GeschenkeDruck {
 		String wieSchwerName = Schwierigkeit.gibName(gabe.gibWieSchwer());
 		int zeit = gabe.gibZeit();
 		String adressat = gabe.gibAdressat();
-		String[] gruesse = { "XXX", "ich wünsche dir ein ", "herzerwärmendes", "wunderschönes Fest", "und viel Spaß",
+		String[] gruesse = { "XXX", "ich wÃ¼nsche dir ein ", "herzerwÃ¤rmendes", "wunderschÃ¶nes Fest", "und viel SpaÃŸ",
 				"beim Sudokuen!" };
 		String gruss = gruesse[gabeIndex];
 		if (gruss == "XXX") {
@@ -87,7 +87,7 @@ public class GeschenkeDruck {
 		}
 
 		if (fileList.length != 6) {
-			JOptionPane.showMessageDialog(null, "Es dürfen nur genau 6 Sudokus sein als Geschenk!");
+			JOptionPane.showMessageDialog(null, "Es dÃ¼rfen nur genau 6 Sudokus sein als Geschenk!");
 			return;
 		}
 

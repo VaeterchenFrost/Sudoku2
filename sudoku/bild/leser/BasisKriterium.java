@@ -48,7 +48,7 @@ class BasisKriterium {
 
 	// -----------------------------------------------------------------------------
 	static public KriteriumBildInfo grosserKreisOben9() {
-		return new KriteriumFelder("Gro�er Kreis oben", schwarzAb80,
+		return new KriteriumFelder("Großer Kreis oben", schwarzAb80,
 				new FeldNummer[] { new FeldNummer(2, 1), new FeldNummer(3, 1), new FeldNummer(4, 1),
 						new FeldNummer(5, 1), new FeldNummer(1, 2), new FeldNummer(6, 2), new FeldNummer(1, 3),
 						new FeldNummer(6, 3), new FeldNummer(2, 4), new FeldNummer(3, 4), new FeldNummer(4, 4),
@@ -56,7 +56,7 @@ class BasisKriterium {
 	}
 
 	static public KriteriumBildInfo grosserKreisUnten68() {
-		return new KriteriumFelder("Gro�er Kreis unten", schwarzAb80,
+		return new KriteriumFelder("Großer Kreis unten", schwarzAb80,
 				new FeldNummer[] { new FeldNummer(2, 3), new FeldNummer(3, 3), new FeldNummer(4, 3),
 						new FeldNummer(5, 3), new FeldNummer(1, 4), new FeldNummer(6, 4), new FeldNummer(1, 5),
 						new FeldNummer(6, 5), new FeldNummer(2, 6), new FeldNummer(3, 6), new FeldNummer(4, 6),
@@ -64,14 +64,14 @@ class BasisKriterium {
 	}
 
 	static public KriteriumBildInfo grosserKreisUntenOffen35() {
-		return new KriteriumFelder("Gro�er Kreis unten offen", schwarzAb80,
+		return new KriteriumFelder("Großer Kreis unten offen", schwarzAb80,
 				new FeldNummer[] { new FeldNummer(4, 3), new FeldNummer(5, 3), new FeldNummer(6, 4),
 						new FeldNummer(1, 5), new FeldNummer(6, 5), new FeldNummer(2, 6), new FeldNummer(3, 6),
 						new FeldNummer(4, 6), new FeldNummer(5, 6), });
 	}
 
 	static public KriteriumBildInfo grosserHalbkreisOben26() {
-		return new KriteriumFelder("Gro�er Halbkreis oben", schwarzAb80,
+		return new KriteriumFelder("Großer Halbkreis oben", schwarzAb80,
 				new FeldNummer[] { new FeldNummer(2, 1), new FeldNummer(3, 1), new FeldNummer(4, 1),
 						new FeldNummer(5, 1), new FeldNummer(1, 2), new FeldNummer(6, 2) });
 	}
@@ -100,24 +100,24 @@ class BasisKriterium {
 
 	// -----------------------------------------------------------------------------
 	static public KriteriumBildInfo lochGrossOben9() {
-		return new KriteriumFelder("Wei� Mitte oben", weiss, new FeldNummer(3, 2), new FeldNummer(4, 3));
+		return new KriteriumFelder("Weiß Mitte oben", weiss, new FeldNummer(3, 2), new FeldNummer(4, 3));
 	}
 
 	static public KriteriumBildInfo lochGrossUnten3568() {
-		return new KriteriumFelder("Wei� Mitte unten", weissAb80, new FeldNummer(3, 4), new FeldNummer(4, 5));
+		return new KriteriumFelder("Weiß Mitte unten", weissAb80, new FeldNummer(3, 4), new FeldNummer(4, 5));
 	}
 
 	static public KriteriumBildInfo lochHalbGrossOben2() {
-		return new KriteriumFelder("Wei� Mitte oben", weiss, new FeldNummer(3, 2), new FeldNummer(4, 2));
+		return new KriteriumFelder("Weiß Mitte oben", weiss, new FeldNummer(3, 2), new FeldNummer(4, 2));
 	}
 
 	static public KriteriumBildInfo lochKleinOben68() {
-		return new KriteriumFelder("Wei� Mitte oben", weiss, new FeldNummer(3, 2), new FeldNummer(4, 2));
+		return new KriteriumFelder("Weiß Mitte oben", weiss, new FeldNummer(3, 2), new FeldNummer(4, 2));
 	}
 
 	// -----------------------------------------------------------------------------
 	static public KriteriumBildInfo ausgangLinksOben14() {
-		return new KriteriumFelder("Wei� Links oben", weiss, new FeldNummer(1, 1), new FeldNummer(2, 1));
+		return new KriteriumFelder("Weiß Links oben", weiss, new FeldNummer(1, 1), new FeldNummer(2, 1));
 	}
 
 	static public KriteriumBildInfo ausgangLinksUnten1() {
@@ -125,24 +125,24 @@ class BasisKriterium {
 	}
 
 	static public KriteriumBildInfo ausgangLinks2() {
-		return new KriteriumFelder("Wei� Links oben", weiss,
+		return new KriteriumFelder("Weiß Links oben", weiss,
 				new FeldNummer[] { new FeldNummer(1, 3), new FeldNummer(2, 3), new FeldNummer(1, 4) });
 	}
 
 	static public KriteriumBildInfo ausgangLinks3() {
-		return new KriteriumFelder("Wei� Links Mitte", weissAb90, new FeldNummer(1, 3), new FeldNummer(2, 4));
+		return new KriteriumFelder("Weiß Links Mitte", weissAb90, new FeldNummer(1, 3), new FeldNummer(2, 4));
 	}
 
 	static public KriteriumBildInfo ausgangLinksUnten4() {
-		return new KriteriumFelder("Wei� Links Unten", weiss, new FeldNummer(1, 6), new FeldNummer(3, 6));
+		return new KriteriumFelder("Weiß Links Unten", weiss, new FeldNummer(1, 6), new FeldNummer(3, 6));
 	}
 
 	static public KriteriumBildInfo ausgangLinks5() {
-		return new KriteriumFelder("Wei� Links", weissAb70, new FeldNummer(1, 4), new FeldNummer(2, 4));
+		return new KriteriumFelder("Weiß Links", weissAb70, new FeldNummer(1, 4), new FeldNummer(2, 4));
 	}
 
 	static public KriteriumBildInfo ausgangLinks7() {
-		return new KriteriumFelder("Wei� Links", weiss,
+		return new KriteriumFelder("Weiß Links", weiss,
 				new FeldNummer[] { new FeldNummer(1, 2), new FeldNummer(2, 2), new FeldNummer(3, 2),
 						new FeldNummer(1, 3), new FeldNummer(1, 4), new FeldNummer(1, 5), new FeldNummer(1, 6) });
 	}
@@ -152,11 +152,11 @@ class BasisKriterium {
 	}
 
 	static public KriteriumBildInfo ausgangLinks9() {
-		return new KriteriumFelder("Wei� Links", weissPunkt50, new FeldNummer(1, 4), new FeldNummer(1, 5));
+		return new KriteriumFelder("Weiß Links", weissPunkt50, new FeldNummer(1, 4), new FeldNummer(1, 5));
 	}
 
 	static public KriteriumBildInfo ausgangRechts7() {
-		return new KriteriumFelder("Wei� Rechts", weiss, new FeldNummer(5, 4), new FeldNummer(6, 6));
+		return new KriteriumFelder("Weiß Rechts", weiss, new FeldNummer(5, 4), new FeldNummer(6, 6));
 	}
 
 	static public KriteriumBildInfo ausgangRechtsOben4() {

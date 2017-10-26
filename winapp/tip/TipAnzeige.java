@@ -91,7 +91,7 @@ public class TipAnzeige extends JFrame implements ActionListener {
 		buttonPane.setBorder(BorderFactory.createLoweredBevelBorder());
 		{
 			JPanel buttonTipPane = new JPanel();
-			buttonTipKomprimiert = erstelleButton(buttonTipPane, "Nötige");
+			buttonTipKomprimiert = erstelleButton(buttonTipPane, "NÃ¶tige");
 			erstelleLabel(buttonTipPane, "Tip");
 			buttonTip = erstelleButton(buttonTipPane, "Alle");
 			buttonPane.add(buttonTipPane);
@@ -258,7 +258,7 @@ public class TipAnzeige extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * @param richtung >0 Sudoku vergrößern, <0 verkleinern (also mehr Sudokus zeigen)
+	 * @param richtung >0 Sudoku vergrï¿½ï¿½ern, <0 verkleinern (also mehr Sudokus zeigen)
 	 * @param bereich 0=Maximal, 1=um eines
 	 */
 	private void zoom(int richtung, int bereich) {
@@ -344,8 +344,8 @@ public class TipAnzeige extends JFrame implements ActionListener {
 		this.textePane.removeAll();
 		sudokuPane.removeAll();
 		// Wenn dem Frame sein zentrales Anzeigeelement genommen wird, verkleinert er sich.
-		// Deshalb: erst alle neuen Sudoku-Anzeigen hinzufügen vor dem löschen der alten:
-		// Nützte leider auch nichts! Aber setMinimumSize!!!
+		// Deshalb: erst alle neuen Sudoku-Anzeigen hinzufï¿½gen vor dem lï¿½schen der alten:
+		// Nï¿½tzte leider auch nichts! Aber setMinimumSize!!!
 		// int nAlteSudokuAnzeigen = sudokuPane.getComponentCount();
 
 		AnzeigeAusschnitt anzeigeAusschnitt = this.anzeigeZustand.gibAusschnitt();

@@ -17,7 +17,7 @@ import winapp.statusbar.StatusBar;
 import winapp.toolbar.ToolBarLinks;
 import winapp.toolbar.ToolBarRechts;
 
-public class FeldAnzeigen implements ComponentListener // Anpassung der FeldAnzeigen an die Applikationsgr��e
+public class FeldAnzeigen implements ComponentListener // Anpassung der FeldAnzeigen an die Applikationsgröße
 {
 	private ToolBarLinks toolBarLinks;
 	private ToolBarRechts toolBarRechts;

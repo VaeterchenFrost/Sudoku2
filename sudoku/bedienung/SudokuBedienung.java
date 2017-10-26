@@ -546,7 +546,7 @@ public class SudokuBedienung {
 			}
 
 			if ((zahlErgebnis.zahl == null) & (zahlErgebnis.problem == null)) {
-				problem = new Problem("Das Sudoku scheint nicht l�sbar");
+				problem = new Problem("Das Sudoku scheint nicht lösbar");
 			}
 
 			anzeige();

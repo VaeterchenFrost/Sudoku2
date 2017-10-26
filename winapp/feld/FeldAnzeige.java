@@ -24,13 +24,13 @@ import winapp.tools.ToolTip;
 
 /**
  * @author Hendrick
- * Ist die Repr�sentation eines Sudoku-Feldes an der Oberfl�che
+ * Ist die Repräsentation eines Sudoku-Feldes an der Oberfläche
  */
 @SuppressWarnings("serial")
 public class FeldAnzeige extends JButton implements AnzeigeElement {
 	/**
 	 * @param istLinks
-	 * @return Platz f�r die Zusatz-Infos zum Eintrag: Versuchsebene bzw. Tip
+	 * @return Platz für die Zusatz-Infos zum Eintrag: Versuchsebene bzw. Tip
 	 */
 	private static Rectangle gibEintragInfoPlatz(boolean istLinks, Rectangle feldRechteck) {
 		int teiler = 4;
@@ -109,13 +109,13 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 			return; // ===========================================>
 		}
 
-		// Die m�glichen Zahlen
+		// Die möglichen Zahlen
 		ArrayList<Rectangle> zahlenPlaetze = FeldMaler.gibZahlenPlaetze(rFeld, moegliche.size());
 		for (int iZahl = 0; iZahl < moegliche.size(); iZahl++) {
 			Rectangle rPlatz = zahlenPlaetze.get(iZahl);
 			MoeglicheZahl mZahl = moegliche.get(iZahl);
 			Color cHintergrund = cHintergrundFeld;
-			// FeldPaare ver�ndern den Hintergrund (nur) der Zahl.
+			// FeldPaare verändern den Hintergrund (nur) der Zahl.
 			if (feldInfo.istFeldPaar() && zeigeFeldPaare) {
 				ZahlenFeldNummern feldPaare = feldInfo.gibFeldParter();
 
@@ -133,7 +133,7 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	}
 
 	/**
-	 * Malt Vorgabe schwarz auf grau (wie Feldanzeige), Eintrag blau auf wei�, leeres Feld wei�.
+	 * Malt Vorgabe schwarz auf grau (wie Feldanzeige), Eintrag blau auf weiß, leeres Feld weiß.
 	 * @param feldInfo
 	 * @param g
 	 * @param rectangle
@@ -157,11 +157,11 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	 * @param feldInfo
 	 * @param g
 	 * @param rectangle des Feldes
-	 * @param maleMoegliche bei true werden die m�glichen Zahlen gemalt
-	 * @param zeigeFeldPaare bei true werden die Feldpaare der m�glichen Zahlen gemalt
-	 * @param moeglicheMarkierungSichtbarkeit Sichtbarkeit einer markierten m�glichen Zahl:
+	 * @param maleMoegliche bei true werden die möglichen Zahlen gemalt
+	 * @param zeigeFeldPaare bei true werden die Feldpaare der möglichen Zahlen gemalt
+	 * @param moeglicheMarkierungSichtbarkeit Sichtbarkeit einer markierten möglichen Zahl:
 	 * 					0.0=Zahl ist unsichtbar, 
-	 * 					0.5=L��t den Hintergrund zur H�lfte durchschimmern, 
+	 * 					0.5=Läßt den Hintergrund zur Hälfte durchschimmern, 
 	 * 					1.0=Zahl verdeckt komplett den Hintergrund
 	 */
 	public static void male(FeldInfo feldInfo, Graphics g, Rectangle rectangle, boolean maleMoegliche,
@@ -183,7 +183,7 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 			return;
 		}
 		if (markierung.equals(Boolean.TRUE)) {
-			// Diese Markierung wird beim Malen der M�glichen realisiert.
+			// Diese Markierung wird beim Malen der Möglichen realisiert.
 			return;
 		}
 
@@ -222,9 +222,9 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 		this.tipZahlBlinker = null;
 		this.malZustand = null;
 
-		// Den Behandler f�r die Maus-Ereignisse erstellen und bei mir einklinken
+		// Den Behandler für die Maus-Ereignisse erstellen und bei mir einklinken
 		new FeldMaus(this, aEintragsModus, this.optionen);
-		// Den Behandler f�r die Tastatur-Ereignisse erstellen und bei mir einklinken
+		// Den Behandler für die Tastatur-Ereignisse erstellen und bei mir einklinken
 		new FeldTasten(this, feldAnzeigen, aEintragsModus);
 
 		this.setToolTipText(stdToolTip);
@@ -245,7 +245,7 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	}
 
 	/**
-	 * Die FeldAnzeige wird (neu) positioniert und es wird seine (neu) Gr��e gestellt
+	 * Die FeldAnzeige wird (neu) positioniert und es wird seine (neu) Größe gestellt
 	 * @param sudokuBreite
 	 * @param sudokuHohe
 	 */
@@ -293,14 +293,14 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	}
 
 	/**
-	 * Setzt im sudoku die Vorgabe: Entweder wird sie gel�scht oder sie wird
-	 * gesetzt sie falls die Zahl in den M�glichen des Feldes enthalten ist
+	 * Setzt im sudoku die Vorgabe: Entweder wird sie gelöscht oder sie wird
+	 * gesetzt sie falls die Zahl in den Möglichen des Feldes enthalten ist
 	 * 
 	 * @param zahl
 	 */
 	public void setzeVorgabe(int zahl) {
 		tipZahlBlinker = null;
-		// Vorgabe l�schen:
+		// Vorgabe löschen:
 		if (zahl == 0) {
 			sudoku.setzeVorgabe(feldNummer, zahl);
 			return;
@@ -315,9 +315,9 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	}
 
 	/**
-	 * Setzt im sudoku den Eintrag: Entweder wird er gel�scht oder setzt ihn
+	 * Setzt im sudoku den Eintrag: Entweder wird er gelöscht oder setzt ihn
 	 * falls: - das Feld nicht schob eine Vorgabe besitzt und - die Zahl in den
-	 * M�glichen des Feldes enthalten ist
+	 * Möglichen des Feldes enthalten ist
 	 * 
 	 * @param zahl
 	 * @return
@@ -330,7 +330,7 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 			if (feldInfo.istVorgabe())
 				return;
 
-			// Eintrag l�schen
+			// Eintrag löschen
 			if (zahl == 0) {
 				if (feldInfo.istEintrag()) {
 					sudoku.setzeEintrag(feldNummer, 0);
@@ -340,12 +340,12 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 
 			// Eintrag setzen
 
-			// Aber nicht wenn keine M�glichen da sind
+			// Aber nicht wenn keine Möglichen da sind
 			if (feldInfo.gibMoegliche().isEmpty()) {
 				return; // false;
 			}
 
-			// Aber nicht wenn sie nicht m�glich ist
+			// Aber nicht wenn sie nicht möglich ist
 			if (!feldInfo.istMoeglich(zahl)) {
 				return; // false;
 			}

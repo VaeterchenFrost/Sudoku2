@@ -123,7 +123,7 @@ public class EntnommeneDialog extends JDialog implements ActionListener, ItemLis
 		{
 			cbZeit = new JComboBox<Integer>();
 			cbZeit.addItemListener(this);
-			erstelleComboBoxGruppe(" L�sungszeit: ", cbZeit, BorderLayout.SOUTH, wertePane);
+			erstelleComboBoxGruppe(" Lösungszeit: ", cbZeit, BorderLayout.SOUTH, wertePane);
 		}
 		werteRahmen.add(wertePane, BorderLayout.CENTER);
 
