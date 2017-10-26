@@ -5,3 +5,6 @@ target/
 .classpath
 .springBeans
 SudokuPool/
+
+# Compiled class file
+*.class
