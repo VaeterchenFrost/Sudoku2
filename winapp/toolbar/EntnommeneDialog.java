@@ -44,7 +44,7 @@ public class EntnommeneDialog extends JDialog implements ActionListener, ItemLis
 
 	/**
 	 * @author heroe
-	 * Diese Klasse gibt der JList die Componenten für die Darstellung der Infosudokus 
+	 * Diese Klasse gibt der JList die Componenten fï¿½r die Darstellung der Infosudokus 
 	 */
 	private class InfoSudoku_ListRenderer extends DefaultListCellRenderer {
 		/**
@@ -90,7 +90,8 @@ public class EntnommeneDialog extends JDialog implements ActionListener, ItemLis
 	 * @param sudoku In den wird das benannte Sudoku geladen
 	 * @param eintragsModus Wird nach dem Laden eines Sudoku auf "Eintrag" gesetzt
 	 */
-	public EntnommeneDialog(JFrame frame, String applikationsTitel, SudokuBedienung sudoku, EintragsModus eintragsModus) {
+	public EntnommeneDialog(JFrame frame, String applikationsTitel, SudokuBedienung sudoku,
+			EintragsModus eintragsModus) {
 		super(frame, true);
 		this.frame = frame;
 		this.applikationsTitel = applikationsTitel;
@@ -122,7 +123,7 @@ public class EntnommeneDialog extends JDialog implements ActionListener, ItemLis
 		{
 			cbZeit = new JComboBox<Integer>();
 			cbZeit.addItemListener(this);
-			erstelleComboBoxGruppe(" Lösungszeit: ", cbZeit, BorderLayout.SOUTH, wertePane);
+			erstelleComboBoxGruppe(" Lï¿½sungszeit: ", cbZeit, BorderLayout.SOUTH, wertePane);
 		}
 		werteRahmen.add(wertePane, BorderLayout.CENTER);
 

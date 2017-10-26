@@ -32,22 +32,23 @@ class Logik_Kasten2 extends LogikKastenN {
 
 	@Override
 	public String[] gibWo() {
-		return new String[] { "Im Kasten bezogen auf 2 Nachbarkästen waagerecht bzw. senkrecht" };
+		return new String[] { "Im Kasten bezogen auf 2 Nachbarkï¿½sten waagerecht bzw. senkrecht" };
 	}
 
 	@Override
 	public String[] gibSituationAbstrakt() {
-		return new String[] { "Auf 2 gemeinsamen Linien sind in den 2 Nachbar-Kästen eine Zahl festgelegt." };
+		return new String[] { "Auf 2 gemeinsamen Linien sind in den 2 Nachbar-Kï¿½sten eine Zahl festgelegt." };
 	}
 
 	@Override
 	public String[] gibSituation() {
-		return new String[] { "Auf 2 gemeinsamen Linien (Spalte bzw. Zeile) sind in den 2 Nachbar-Kästen eine Zahl festgelegt." };
+		return new String[] {
+				"Auf 2 gemeinsamen Linien (Spalte bzw. Zeile) sind in den 2 Nachbar-Kï¿½sten eine Zahl festgelegt." };
 	}
 
 	@Override
 	public String[] gibErgebnis() {
-		return new String[] {"Im Kasten wird die Zahl auf diesen 2 Linien aus den möglichen dieser Felder gelöscht."};
+		return new String[] { "Im Kasten wird die Zahl auf diesen 2 Linien aus den mï¿½glichen dieser Felder gelï¿½scht." };
 	}
 
 	@Override
@@ -66,11 +67,11 @@ class Logik_Kasten2 extends LogikKastenN {
 
 		// Jede Zahl wird kontrolliert
 		for (int basisZahl = 1; basisZahl < 10; basisZahl++) {
-			// Für jeden der beiden Nachbarn (0 und 1) dessen Linien bereitstellen
+			// Fï¿½r jeden der beiden Nachbarn (0 und 1) dessen Linien bereitstellen
 			LinienListe nachbar0Linien = linienDerNachbarn.get(0);
 			LinienListe nachbar1Linien = linienDerNachbarn.get(1);
 
-			// Die Indizees der Linien der beiden Nachbarn ermitteln, die Zahl als Mögliche enthalten
+			// Die Indizees der Linien der beiden Nachbarn ermitteln, die Zahl als Mï¿½gliche enthalten
 			ArrayListInt iLinien0DerZahl = Kasten.gibLinienDerZahl(basisZahl, nachbar0Linien);
 			ArrayListInt iLinien1DerZahl = Kasten.gibLinienDerZahl(basisZahl, nachbar1Linien);
 
@@ -86,14 +87,14 @@ class Logik_Kasten2 extends LogikKastenN {
 			if (gleichePaarLinien) {
 				// Dann ist diese Zahl auf meinen beiden Linien verboten
 
-				// Für jede der beiden Linien das separate Ergebnis erstellen
+				// Fï¿½r jede der beiden Linien das separate Ergebnis erstellen
 				ArrayList<KastenErgebnis> ergebnisTemp = new ArrayList<>();
 				for (int iLinieDerZahl = 0; iLinieDerZahl < iLinien0DerZahl.size(); iLinieDerZahl++) {
 					// Linien-Index dieser einen Linie mit der Zahl
 					int iLinie = iLinien0DerZahl.get(iLinieDerZahl);
 					// Meine Felder auf dieser Linie
 					FeldListe linie = meineLinien.get(iLinie);
-					// Meine Felder auf dieser Linie, in denen die (mögliche) Zahl gelöscht wird.
+					// Meine Felder auf dieser Linie, in denen die (mï¿½gliche) Zahl gelï¿½scht wird.
 					FeldListe kannLoeschenIn = linie.gibFelderDerMoeglichenZahl(basisZahl);
 
 					// Alle Felder des Nachbarn 0 auf dieser Linie
@@ -102,12 +103,12 @@ class Logik_Kasten2 extends LogikKastenN {
 					FeldNummerListe nachbar1UrsacheFelder = new FeldNummerListe(nachbar1Linien.get(iLinie));
 					nachbarUrsacheFelder.addAll(nachbar1UrsacheFelder);
 
-					KastenErgebnis ergebnis1 = new KastenErgebnis(istSpalte, basisZahl, new FeldNummerListe(
-							kannLoeschenIn), nachbarUrsacheFelder);
+					KastenErgebnis ergebnis1 = new KastenErgebnis(istSpalte, basisZahl,
+							new FeldNummerListe(kannLoeschenIn), nachbarUrsacheFelder);
 					ergebnisTemp.add(ergebnis1);
 				} // for (int iLinie
 
-				// Für jede Linie muss ein Ergebnis vorliegen
+				// Fï¿½r jede Linie muss ein Ergebnis vorliegen
 				if (ergebnisTemp.size() != 2) {
 					throw Exc.falscheAnzahl(ergebnisTemp.size(), 2);
 				}
@@ -115,7 +116,7 @@ class Logik_Kasten2 extends LogikKastenN {
 				KastenErgebnis ergebnis0 = ergebnisTemp.get(0);
 				KastenErgebnis ergebnis1 = ergebnisTemp.get(1);
 
-				// Wenn in einer meiner beiden Linien eine mögliche Zahl gelöscht wurde war diese Logik aktiv:
+				// Wenn in einer meiner beiden Linien eine mï¿½gliche Zahl gelï¿½scht wurde war diese Logik aktiv:
 				boolean gibtEsLoeschFelder = (!ergebnis0.gibLoeschFelder().isEmpty())
 						| (!ergebnis1.gibLoeschFelder().isEmpty());
 				if (gibtEsLoeschFelder) {

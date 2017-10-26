@@ -40,12 +40,12 @@ public class DateiPool implements Pool0 {
 	// Anzahl vorzuhaltende Sudokus vom Typ VOLL
 	private static int anzahlVolle = 10;
 
-	// Anzahl vorzuhaltende Sudokus vom Typ SCHWER für eine Minute
+	// Anzahl vorzuhaltende Sudokus vom Typ SCHWER fï¿½r eine Minute
 	private static int anzahlJeMinute = 2;
 
 	/**
-	 * Säubert das Topf-Verzeichnis entsprechend AblageVorschrift.
-	 * Nicht-Sudokus werden ebenfalls gelöscht.
+	 * Sï¿½ubert das Topf-Verzeichnis entsprechend AblageVorschrift.
+	 * Nicht-Sudokus werden ebenfalls gelï¿½scht.
 	 * @param topfVerzeichnis 
 	 * @param ablageVorschrift
 	 */
@@ -96,8 +96,8 @@ public class DateiPool implements Pool0 {
 	/**
 	 * @param verzeichnisName
 	 * @param loesungsZeit
-	 * @return Den durch eine weitere Nummer ergänzten Dateinamen 
-	 * wenn noch nicht anzahlJeMinute Dateien für die Lösungszeit existieren, 
+	 * @return Den durch eine weitere Nummer ergï¿½nzten Dateinamen 
+	 * wenn noch nicht anzahlJeMinute Dateien fï¿½r die Lï¿½sungszeit existieren, 
 	 * sonst null
 	 */
 	static private String gibDateiNameAlternative(String verzeichnisName, int loesungsZeit) {
@@ -165,7 +165,7 @@ public class DateiPool implements Pool0 {
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 		String uhrzeit = sdf.format(new Date());
 		String sErstellt = istEntnommen ? "entnommen" : "reingesetzt";
-		String sErfolg = istErfolgreich ? "Ja" : "Nööööööööööööööö";
+		String sErfolg = istErfolgreich ? "Ja" : "Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 		String s = String.format("DateiPool.systemout(): %s %s Typ=%s Erfolg=%s (%s)", uhrzeit, sErstellt,
 				neuTyp.gibName(), sErfolg, bemerkung);
 		System.out.println(s);
@@ -200,6 +200,7 @@ public class DateiPool implements Pool0 {
 			throw Exc.ausnahme("DateiPool: " + e.getMessage());
 		}
 	}
+
 	private void clean() {
 		Schwierigkeit[] schwierigkeiten = Schwierigkeit.values();
 		for (int i = 0; i < schwierigkeiten.length; i++) {
@@ -248,7 +249,8 @@ public class DateiPool implements Pool0 {
 		PoolInfo poolInfo = null;
 		synchronized (this) {
 			final EnumMap<Schwierigkeit, InfoTopf> verfuegbare = DateiPoolInfo.gibInfoInhalt(this);
-			final EnumMap<Schwierigkeit, AnzahlJeZeit[]> entstehung = DateiPoolInfo.gibEntstehung(this, anzahlEntstehungsIntervalle);
+			final EnumMap<Schwierigkeit, AnzahlJeZeit[]> entstehung = DateiPoolInfo.gibEntstehung(this,
+					anzahlEntstehungsIntervalle);
 			poolInfo = new PoolInfo(verfuegbare, entstehung);
 		}
 		return poolInfo;
@@ -351,10 +353,10 @@ public class DateiPool implements Pool0 {
 			if (new NeuTyp(Typ.VOLL).equals(neuTyp)) {
 				dateiName = gibNeuenDateinamenVollTyp();
 			} else {
-				// Bearbeitung der Töpfe mit Schwierigkeiten
+				// Bearbeitung der Tï¿½pfe mit Schwierigkeiten
 				Schwierigkeit schwierigkeit = neuTyp.gibWieSchwer();
 
-				// Nur gerade Lösungszeiten speichern?
+				// Nur gerade Lï¿½sungszeiten speichern?
 				AblageVorschrift ablageVorschrift = Pool0.AblageVorschrift.gibVorschrift(schwierigkeit);
 				if (ablageVorschrift == AblageVorschrift.HALB) {
 					if (loesungsZeit % 2 != 0) {
@@ -366,15 +368,15 @@ public class DateiPool implements Pool0 {
 				dateiName = gibDateiName(verzeichnisName, loesungsZeit);
 				File f = new File(dateiName);
 				if (f.exists()) {
-					// Je Lösungszeit eine Datei zur Verdopplung speichern?
+					// Je Lï¿½sungszeit eine Datei zur Verdopplung speichern?
 					if (ablageVorschrift != AblageVorschrift.DOPPEL) {
 						return null;
 					}
 
 					dateiName = gibDateiNameAlternative(verzeichnisName, loesungsZeit);
 					if (dateiName == null) {
-						String bemerkung = String
-								.format("Dateien für die Lösungszeit %d existieren alle", loesungsZeit);
+						String bemerkung = String.format("Dateien fï¿½r die Lï¿½sungszeit %d existieren alle",
+								loesungsZeit);
 						systemout(neuTyp, false, false, bemerkung);
 						return null;
 					}

@@ -24,13 +24,13 @@ import winapp.tools.ToolTip;
 
 /**
  * @author Hendrick
- * Ist die Repräsentation eines Sudoku-Feldes an der Oberfläche
+ * Ist die Reprï¿½sentation eines Sudoku-Feldes an der Oberflï¿½che
  */
 @SuppressWarnings("serial")
 public class FeldAnzeige extends JButton implements AnzeigeElement {
 	/**
 	 * @param istLinks
-	 * @return Platz für die Zusatz-Infos zum Eintrag: Versuchsebene bzw. Tip
+	 * @return Platz fï¿½r die Zusatz-Infos zum Eintrag: Versuchsebene bzw. Tip
 	 */
 	private static Rectangle gibEintragInfoPlatz(boolean istLinks, Rectangle feldRechteck) {
 		int teiler = 4;
@@ -109,13 +109,13 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 			return; // ===========================================>
 		}
 
-		// Die möglichen Zahlen
+		// Die mï¿½glichen Zahlen
 		ArrayList<Rectangle> zahlenPlaetze = FeldMaler.gibZahlenPlaetze(rFeld, moegliche.size());
 		for (int iZahl = 0; iZahl < moegliche.size(); iZahl++) {
 			Rectangle rPlatz = zahlenPlaetze.get(iZahl);
 			MoeglicheZahl mZahl = moegliche.get(iZahl);
 			Color cHintergrund = cHintergrundFeld;
-			// FeldPaare verändern den Hintergrund (nur) der Zahl.
+			// FeldPaare verï¿½ndern den Hintergrund (nur) der Zahl.
 			if (feldInfo.istFeldPaar() && zeigeFeldPaare) {
 				ZahlenFeldNummern feldPaare = feldInfo.gibFeldParter();
 
@@ -133,7 +133,7 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	}
 
 	/**
-	 * Malt Vorgabe schwarz auf grau (wie Feldanzeige), Eintrag blau auf weiß, leeres Feld weiß.
+	 * Malt Vorgabe schwarz auf grau (wie Feldanzeige), Eintrag blau auf weiï¿½, leeres Feld weiï¿½.
 	 * @param feldInfo
 	 * @param g
 	 * @param rectangle
@@ -157,11 +157,11 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	 * @param feldInfo
 	 * @param g
 	 * @param rectangle des Feldes
-	 * @param maleMoegliche bei true werden die möglichen Zahlen gemalt
-	 * @param zeigeFeldPaare bei true werden die Feldpaare der möglichen Zahlen gemalt
-	 * @param moeglicheMarkierungSichtbarkeit Sichtbarkeit einer markierten möglichen Zahl:
+	 * @param maleMoegliche bei true werden die mï¿½glichen Zahlen gemalt
+	 * @param zeigeFeldPaare bei true werden die Feldpaare der mï¿½glichen Zahlen gemalt
+	 * @param moeglicheMarkierungSichtbarkeit Sichtbarkeit einer markierten mï¿½glichen Zahl:
 	 * 					0.0=Zahl ist unsichtbar, 
-	 * 					0.5=Läßt den Hintergrund zur Hälfte durchschimmern, 
+	 * 					0.5=Lï¿½ï¿½t den Hintergrund zur Hï¿½lfte durchschimmern, 
 	 * 					1.0=Zahl verdeckt komplett den Hintergrund
 	 */
 	public static void male(FeldInfo feldInfo, Graphics g, Rectangle rectangle, boolean maleMoegliche,
@@ -183,7 +183,7 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 			return;
 		}
 		if (markierung.equals(Boolean.TRUE)) {
-			// Diese Markierung wird beim Malen der Möglichen realisiert.
+			// Diese Markierung wird beim Malen der Mï¿½glichen realisiert.
 			return;
 		}
 
@@ -222,9 +222,9 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 		this.tipZahlBlinker = null;
 		this.malZustand = null;
 
-		// Den Behandler für die Maus-Ereignisse erstellen und bei mir einklinken
+		// Den Behandler fï¿½r die Maus-Ereignisse erstellen und bei mir einklinken
 		new FeldMaus(this, aEintragsModus, this.optionen);
-		// Den Behandler für die Tastatur-Ereignisse erstellen und bei mir einklinken
+		// Den Behandler fï¿½r die Tastatur-Ereignisse erstellen und bei mir einklinken
 		new FeldTasten(this, feldAnzeigen, aEintragsModus);
 
 		this.setToolTipText(stdToolTip);
@@ -245,7 +245,7 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	}
 
 	/**
-	 * Die FeldAnzeige wird (neu) positioniert und es wird seine (neu) Größe gestellt
+	 * Die FeldAnzeige wird (neu) positioniert und es wird seine (neu) Grï¿½ï¿½e gestellt
 	 * @param sudokuBreite
 	 * @param sudokuHohe
 	 */
@@ -293,14 +293,14 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	}
 
 	/**
-	 * Setzt im sudoku die Vorgabe: Entweder wird sie gelöscht oder sie wird
-	 * gesetzt sie falls die Zahl in den Möglichen des Feldes enthalten ist
+	 * Setzt im sudoku die Vorgabe: Entweder wird sie gelï¿½scht oder sie wird
+	 * gesetzt sie falls die Zahl in den Mï¿½glichen des Feldes enthalten ist
 	 * 
 	 * @param zahl
 	 */
 	public void setzeVorgabe(int zahl) {
 		tipZahlBlinker = null;
-		// Vorgabe löschen:
+		// Vorgabe lï¿½schen:
 		if (zahl == 0) {
 			sudoku.setzeVorgabe(feldNummer, zahl);
 			return;
@@ -315,9 +315,9 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 	}
 
 	/**
-	 * Setzt im sudoku den Eintrag: Entweder wird er gelöscht oder setzt ihn
+	 * Setzt im sudoku den Eintrag: Entweder wird er gelï¿½scht oder setzt ihn
 	 * falls: - das Feld nicht schob eine Vorgabe besitzt und - die Zahl in den
-	 * Möglichen des Feldes enthalten ist
+	 * Mï¿½glichen des Feldes enthalten ist
 	 * 
 	 * @param zahl
 	 * @return
@@ -330,7 +330,7 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 			if (feldInfo.istVorgabe())
 				return;
 
-			// Eintrag löschen
+			// Eintrag lï¿½schen
 			if (zahl == 0) {
 				if (feldInfo.istEintrag()) {
 					sudoku.setzeEintrag(feldNummer, 0);
@@ -340,12 +340,12 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 
 			// Eintrag setzen
 
-			// Aber nicht wenn keine Möglichen da sind
+			// Aber nicht wenn keine Mï¿½glichen da sind
 			if (feldInfo.gibMoegliche().isEmpty()) {
 				return; // false;
 			}
 
-			// Aber nicht wenn sie nicht möglich ist
+			// Aber nicht wenn sie nicht mï¿½glich ist
 			if (!feldInfo.istMoeglich(zahl)) {
 				return; // false;
 			}
@@ -369,8 +369,8 @@ public class FeldAnzeige extends JButton implements AnzeigeElement {
 			int rahmenBreite = hoehe / 20;
 			g.clipRect(rahmenBreite, rahmenBreite, this.getWidth() - 2 * rahmenBreite, hoehe - 2 * rahmenBreite);
 
-			rFeld = new Rectangle(rahmenBreite, rahmenBreite, this.getWidth() - 2 * rahmenBreite, hoehe - 2
-					* rahmenBreite);
+			rFeld = new Rectangle(rahmenBreite, rahmenBreite, this.getWidth() - 2 * rahmenBreite,
+					hoehe - 2 * rahmenBreite);
 		}
 
 		FeldInfo feldInfo = this.malZustand.gibFeldInfo();

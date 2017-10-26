@@ -17,7 +17,7 @@ import winapp.statusbar.StatusBar;
 import winapp.toolbar.ToolBarLinks;
 import winapp.toolbar.ToolBarRechts;
 
-public class FeldAnzeigen implements ComponentListener // Anpassung der FeldAnzeigen an die Applikationsgröße
+public class FeldAnzeigen implements ComponentListener // Anpassung der FeldAnzeigen an die Applikationsgrï¿½ï¿½e
 {
 	private ToolBarLinks toolBarLinks;
 	private ToolBarRechts toolBarRechts;
@@ -35,13 +35,13 @@ public class FeldAnzeigen implements ComponentListener // Anpassung der FeldAnze
 		for (int zeile = 1; zeile < 10; zeile++) {
 			for (int spalte = 1; spalte < 10; spalte++) {
 				FeldAnzeige b = new FeldAnzeige(new FeldNummer(spalte, zeile), this.feldAnzeigen, toolBarLinks, sudoku,
-				// statusBar,
+						// statusBar,
 						optionen);
 				container.add(b);
 			}
 		}
 
-		// wer weiß, warum der letzte erschaffene Button spinnt
+		// wer weiï¿½, warum der letzte erschaffene Button spinnt
 		{
 			JButton b = new JButton("1234");
 			b.setVisible(false);

@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @author heroe
- * Dies ist die "heisse" Logik, die aus dem verrückten Haufen von Strichen 
+ * Dies ist die "heisse" Logik, die aus dem verrï¿½ckten Haufen von Strichen 
  * versucht, die Sudoku-Striche herauszufinden.
  * 
  */
@@ -17,12 +17,12 @@ public class SudokuFinder {
 	 */
 	static final public int anzahlSudokuLinien = 9;
 
-	// Bei 7 Abständen könnte man annehmen dass 2 nicht gesehen wurden und diese ergänzbar sind.
+	// Bei 7 Abstï¿½nden kï¿½nnte man annehmen dass 2 nicht gesehen wurden und diese ergï¿½nzbar sind.
 	static final private int anzahlAbstaendeMin = anzahlSudokuLinien - 2;
 
 	static private void systemOut(List<Abstand> abstaende, String titel) {
 		if (istSystemOut) {
-			System.out.print(titel + " " + abstaende.size() + " Abstände:");
+			System.out.print(titel + " " + abstaende.size() + " Abstï¿½nde:");
 			for (Abstand abstand : abstaende) {
 				System.out.print(" " + abstand.gibAbstand());
 			}
@@ -42,7 +42,7 @@ public class SudokuFinder {
 	 *            Sudoku-Striche zu erkennen. Es wird vorausgesetzt, dass die
 	 *            Striche nach aufsteigendem Index aufgelistet sind.
 	 * @param linienName
-	 * @return Die Striche, die als Sudoku-Striche erkannt wurden. Für jedes Sudoku extra.
+	 * @return Die Striche, die als Sudoku-Striche erkannt wurden. Fï¿½r jedes Sudoku extra.
 	 * 			null: bei zuwenigen Strichen
 	 * 			Leeres Array falls keine Sudoku-Striche erkannt werden konnten
 	 *         	ansonsten stets eine Gruppe von den 10 erkannten Sudoku-Strichen.
@@ -101,7 +101,7 @@ public class SudokuFinder {
 		}
 
 		if ((arrayDerSudokuStriche == null)) {
-			systemOut(String.format("%s %s: Tut uns leid. Hatte nur %d Striche zur Verfügung", "findeSudokuStriche() ",
+			systemOut(String.format("%s %s: Tut uns leid. Hatte nur %d Striche zur Verfï¿½gung", "findeSudokuStriche() ",
 					linienName, striche.size()));
 		}
 
@@ -119,13 +119,13 @@ public class SudokuFinder {
 	}
 
 	/**
-	 *  0. Klappt es mit dem nächsten Abstand bei doppelter Toleranz?
-	 *  1. Vielleicht klappt es mit der Summe noch des nächsten Abstandes weil ein Strich sich eingeschmuggelt hat,
+	 *  0. Klappt es mit dem nï¿½chsten Abstand bei doppelter Toleranz?
+	 *  1. Vielleicht klappt es mit der Summe noch des nï¿½chsten Abstandes weil ein Strich sich eingeschmuggelt hat,
 	 *  2. Oder dieser Abstand besitzt die doppelte Breite weil ein Strich fehlt.
 	 * @param guteAbstaende
 	 * @param alleAbstaende
 	 * @param iteratorZu0 Der aktuell zu haltende Iterator in alleAbstaende Richtung Index0 
-	 * @param abstandToleranzProzent Toleranz der Abstände in Prozent des Durchschnitts der guten Abstände.
+	 * @param abstandToleranzProzent Toleranz der Abstï¿½nde in Prozent des Durchschnitts der guten Abstï¿½nde.
 	 * @return erkannte Sudoku-Strich-Gruppe oder null 
 	 * 			
 	 */
@@ -140,7 +140,7 @@ public class SudokuFinder {
 		int abstandMin = guteSummeDurchschnitt - toleranzAbsolut;
 		int abstandMax = guteSummeDurchschnitt + toleranzAbsolut;
 
-		systemOut(String.format("gibAusWenigenAbstaenden() mit %d Start-Abständen, Durchschnitt=%d (%d bis %d):",
+		systemOut(String.format("gibAusWenigenAbstaenden() mit %d Start-Abstï¿½nden, Durchschnitt=%d (%d bis %d):",
 				guteAbstaende.size(), guteSummeDurchschnitt, abstandMin, abstandMax));
 		systemOut("----------------------------------------------------------------------------");
 
@@ -164,7 +164,7 @@ public class SudokuFinder {
 					guteAbstaende.add(0, ersatzAbstaende.get(1));
 					guteAbstaende.add(0, ersatzAbstaende.get(0));
 				} else {
-					// Vielleicht klappt es mit der Summe der nächsten Abstände weil Striche sich eingeschmuggelt haben
+					// Vielleicht klappt es mit der Summe der nï¿½chsten Abstï¿½nde weil Striche sich eingeschmuggelt haben
 					int testIndex2 = testAbstand.strich1.von.gibVonIndex();
 					while (iZu0.hasNext()) {
 						Abstand vorigerAbstand = iZu0.next();
@@ -200,7 +200,7 @@ public class SudokuFinder {
 					guteAbstaende.add(ersatzAbstaende.get(0));
 					guteAbstaende.add(ersatzAbstaende.get(1));
 				} else {
-					// Vielleicht klappt es mit der Summe der nächsten Abstände weil Striche sich eingeschmuggelt haben
+					// Vielleicht klappt es mit der Summe der nï¿½chsten Abstï¿½nde weil Striche sich eingeschmuggelt haben
 					int testIndex1 = testAbstand.strich2.nach.gibVonIndex() + 1;
 					while (iZumEnde.hasNext()) {
 						Abstand naechsterAbstand = iZumEnde.next();
@@ -224,11 +224,12 @@ public class SudokuFinder {
 		}
 	}
 
-	static private List<Abstand> gibGuteAbstaende(List<Abstand> abstaende, int nGuteMin, int abstandMin, int abstandMax) {
+	static private List<Abstand> gibGuteAbstaende(List<Abstand> abstaende, int nGuteMin, int abstandMin,
+			int abstandMax) {
 		// Der Iterator Richtung Anfang: Sitzt jetzt auf dem Ende
 		AbstandIterator iZu0 = new AbstandIterator(abstaende, true);
 
-		// Mehrere gute Abstände direkt nebeneinander suchen ab iZu0.
+		// Mehrere gute Abstï¿½nde direkt nebeneinander suchen ab iZu0.
 		List<Abstand> guteAbstaende = new ArrayList<Abstand>();
 		while (iZu0.hasNext()) {
 			Abstand naechster = iZu0.next();
@@ -238,12 +239,12 @@ public class SudokuFinder {
 				// Guter Abstand ist gefunden: Weiter so.
 				guteAbstaende.add(0, naechster);
 			} else {
-				// Es geht ab hier also nicht mehr weiter mit guten Abständen
+				// Es geht ab hier also nicht mehr weiter mit guten Abstï¿½nden
 				if (guteAbstaende.size() < nGuteMin) {
 					// Erneut weiterversuchen
 					guteAbstaende.clear();
 				} else {
-					// Dann ist der Auftrag auch erfüllt
+					// Dann ist der Auftrag auch erfï¿½llt
 					break;
 				}
 			} // if(istGuterAbstand)
@@ -257,24 +258,24 @@ public class SudokuFinder {
 	 * 				null wenn keine Sudoku-Striche erkannt wurden
 	 */
 	static private StrichListe gib1StrichGruppe(StrichListe striche, String linienName) {
-		// Abstände zwischen je zwei benachbarten Strichen ermitteln
+		// Abstï¿½nde zwischen je zwei benachbarten Strichen ermitteln
 		List<Abstand> abstaende = Abstand.gibAbstaende(striche);
 
 		if (abstaende == null) {
-			systemOut(String
-					.format("gib1StrichGruppe() %s: ------------------------------------ Keine Abstände: %d Striche sind zuwenig (%d sind nötig)",
-							linienName, striche.size(), anzahlAbstaendeMin));
+			systemOut(String.format(
+					"gib1StrichGruppe() %s: ------------------------------------ Keine Abstï¿½nde: %d Striche sind zuwenig (%d sind nï¿½tig)",
+					linienName, striche.size(), anzahlAbstaendeMin));
 			return null;
 		}
 
-		// Solange ausreichend unbewertete Abstände verfügbar sind
+		// Solange ausreichend unbewertete Abstï¿½nde verfï¿½gbar sind
 		if (abstaende.size() < anzahlAbstaendeMin) {
-			systemOut(String
-					.format("gib1StrichGruppe() %s: ------------------------------------ %d Striche sind zuwenig (%d sind nötig)",
-							linienName, striche.size(), anzahlAbstaendeMin));
+			systemOut(String.format(
+					"gib1StrichGruppe() %s: ------------------------------------ %d Striche sind zuwenig (%d sind nï¿½tig)",
+					linienName, striche.size(), anzahlAbstaendeMin));
 			return null;
 		}
-		// Toleranz der Abstände in Prozent des Durchschnitts der guten Abstände.
+		// Toleranz der Abstï¿½nde in Prozent des Durchschnitts der guten Abstï¿½nde.
 		int startToleranzProzent = 5;
 
 		for (int nToleranzLauf = 1; nToleranzLauf < 5; nToleranzLauf++) {
@@ -283,35 +284,35 @@ public class SudokuFinder {
 			systemOut(String.format("gib1StrichGruppe() %s: ------------------------------------ Starte Lauf %d",
 					linienName, nToleranzLauf));
 
-			// Den am häufigsten auftretenden Abstand ermitteln
+			// Den am hï¿½ufigsten auftretenden Abstand ermitteln
 			int[] abstandsWerte = Abstand.gibAbstaende(abstaende);
 			WerteGruppe haeufigsterAbstand = WerteGruppe.gibHaeufigstenWert(abstandsWerte, toleranzProzent);
 
 			// Erlaubten Absolut-Bereich des Abstandes der Sudoku-Striche ermitteln
 			int abstandMin = haeufigsterAbstand.gibMinErlaubt();
 			int abstandMax = haeufigsterAbstand.gibMaxErlaubt();
-			systemOut(String.format("gib1StrichGruppe() %s mit %d%% Toleranz (von %d bis %d) aus %d Abständen",
+			systemOut(String.format("gib1StrichGruppe() %s mit %d%% Toleranz (von %d bis %d) aus %d Abstï¿½nden",
 					linienName, toleranzProzent, abstandMin, abstandMax, abstaende.size()));
 			systemOut(abstaende, "");
 			systemOut("----------------------------------------------------------------------------");
 
-			// Gute Abstände suchen
+			// Gute Abstï¿½nde suchen
 			int nGuteMin = 2; // *toleranzProzent;
 			List<Abstand> guteAbstaende = gibGuteAbstaende(abstaende, nGuteMin, abstandMin, abstandMax);
 
-			// Die guten Abstände bewerten
+			// Die guten Abstï¿½nde bewerten
 			int nGuteAbstaende = guteAbstaende.size();
-			systemOut(guteAbstaende, "Gute Abstände");
+			systemOut(guteAbstaende, "Gute Abstï¿½nde");
 			StrichListe sudokuStrichListe = null;
 			if (nGuteAbstaende == anzahlSudokuLinien) {
 				// gefundene Sudoku-Striche-Gruppe vermerken
 				sudokuStrichListe = Abstand.gibStrichListe(guteAbstaende);
-				systemOut(guteAbstaende, "Sudoku-StrichListe direkt aus Guten Abständen erstellt:");
+				systemOut(guteAbstaende, "Sudoku-StrichListe direkt aus Guten Abstï¿½nden erstellt:");
 			} else {
 				if (nGuteAbstaende >= nGuteMin) {
-					// In jede Richtung weiterwühlen bis zum Erfolg:
-					// Mit den nächsten Abständen und doppelter Toleranz:
-					systemOut(guteAbstaende, "Lasse aus den wenigen Guten Abständen weiterwühlen:");
+					// In jede Richtung weiterwï¿½hlen bis zum Erfolg:
+					// Mit den nï¿½chsten Abstï¿½nden und doppelter Toleranz:
+					systemOut(guteAbstaende, "Lasse aus den wenigen Guten Abstï¿½nden weiterwï¿½hlen:");
 					sudokuStrichListe = gibAusWenigenAbstaenden(guteAbstaende, abstaende, toleranzProzent);
 				}
 			}
@@ -322,7 +323,7 @@ public class SudokuFinder {
 			}
 		} // for (int nToleranzLauf
 
-		systemOut("gib1StrichGruppe(): Nichts gefunden bäähhh!!!");
+		systemOut("gib1StrichGruppe(): Nichts gefunden bï¿½ï¿½hhh!!!");
 		return null;
 	}
 

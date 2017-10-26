@@ -25,7 +25,6 @@ public class PoolInfo {
 		return summe;
 	}
 
-
 	// ====================================================
 	public final EnumMap<Schwierigkeit, InfoTopf> inhalt;
 	public final EnumMap<Schwierigkeit, AnzahlJeZeit[]> entstehung;

@@ -18,7 +18,7 @@ import winapp.feld.PosUndLaenge;
 
 /**
  * @author heroe
- * Malt Vorgabe schwarz auf grau (wie Feldanzeige), Eintrag blau auf weiß, leeres Feld weiß.
+ * Malt Vorgabe schwarz auf grau (wie Feldanzeige), Eintrag blau auf weiï¿½, leeres Feld weiï¿½.
  */
 public class MalerEinfach implements InfoSudokuMaler {
 	// -----------------------------------------------------------------------------------------------
@@ -89,7 +89,8 @@ public class MalerEinfach implements InfoSudokuMaler {
 	 * @param sudokuVertikal
 	 * @return Das Rechteck des Feldes im Sudoku-Rechteck
 	 */
-	private Rectangle gibFeldRechteck(FeldNummer feldNummer, PosUndLaenge sudokuHorizontal, PosUndLaenge sudokuVertikal) {
+	private Rectangle gibFeldRechteck(FeldNummer feldNummer, PosUndLaenge sudokuHorizontal,
+			PosUndLaenge sudokuVertikal) {
 		PosUndLaenge horizontalFeld = FeldPosition.gibPosUndLaenge(sudokuHorizontal, feldNummer.spalte);
 		PosUndLaenge vertikalFeld = FeldPosition.gibPosUndLaenge(sudokuVertikal, feldNummer.zeile);
 		Rectangle rFeld = new Rectangle(horizontalFeld.pos, vertikalFeld.pos, horizontalFeld.laenge,
@@ -127,7 +128,7 @@ public class MalerEinfach implements InfoSudokuMaler {
 		// Das Rechteck neben dem Sudoku rechts unten
 		rDiagonale[10] = new Rectangle(dSudoku.width + 1, dSudoku.height + 1, 0, 0);
 
-		// Ergebnis zwischenspeichern für das FeldMalen
+		// Ergebnis zwischenspeichern fï¿½r das FeldMalen
 		this.diagonalenFeldRechtecke = new DiagonalenFeldRechtecke(rDiagonale, dSudoku);
 
 		return rDiagonale;

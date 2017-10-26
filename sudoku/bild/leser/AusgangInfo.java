@@ -48,7 +48,7 @@ class AusgangInfo {
 	 * @param image
 	 * @param rechteck
 	 * @param istOben
-	 * @return null oder Startpunkt (etwa Mittelpunkt) in einem weißen Feld mit schwarzer (teilweiser) Umrandung
+	 * @return null oder Startpunkt (etwa Mittelpunkt) in einem weiï¿½en Feld mit schwarzer (teilweiser) Umrandung
 	 */
 	static private Point gibStart(BufferedImage image, Rectangle rechteck, boolean istOben, boolean istSystemOut) {
 		int x = rechteck.x + Math.round(rechteck.width * startX);
@@ -94,7 +94,7 @@ class AusgangInfo {
 	/**
 	 * @param image
 	 * @param x die noch gute X-Koordinate
-	 * @param y die noch gute Y-Koordinate (auf ihr geht es zurück von x zu xEnde)
+	 * @param y die noch gute Y-Koordinate (auf ihr geht es zurï¿½ck von x zu xEnde)
 	 * @param xEnde Wenn die Suche auf dieser X-Koordinate landet, ist sie fehlgeschlagen
 	 * @param yAusweich Y-Koordinate, auf die auswegichen werden kann. (Ist stets Nachbar zu y.)
 	 * @return null falls es keinen Ausgang aus der Sackgasse gibt oder der (weisse) Punkt ab dem weiter gesucht werden kann
@@ -145,7 +145,7 @@ class AusgangInfo {
 		} // while
 
 		if (istSystemOut) {
-			System.out.println("Illegaler Ausgang außerhalb der While-Schleife");
+			System.out.println("Illegaler Ausgang auï¿½erhalb der While-Schleife");
 		}
 		return null;
 	}
@@ -153,12 +153,13 @@ class AusgangInfo {
 	/**
 	 * @param image
 	 * @param rechteck
-	 * @param start Startpunkt für die Suche
+	 * @param start Startpunkt fï¿½r die Suche
 	 * @param xZiel start.x und xZiel bestimmen die Suchrichtung
 	 * @param yAusweich Ausweich-Richtung
 	 * @return true falls ein Ausgang in die X-Richtung existiert
 	 */
-	static private boolean istAusgang(BufferedImage image, Point start, int xZiel, int yAusweich, boolean istSystemOut) {
+	static private boolean istAusgang(BufferedImage image, Point start, int xZiel, int yAusweich,
+			boolean istSystemOut) {
 		int x = start.x;
 		int y = start.y;
 		int xRichtung = 1;
@@ -183,13 +184,13 @@ class AusgangInfo {
 					}
 					return true;
 				}
-			} else { // Schwarz: Gibt es eine Ausweichmöglichkeit (in y-Richtung) ?
+			} else { // Schwarz: Gibt es eine Ausweichmï¿½glichkeit (in y-Richtung) ?
 				y += yAusweich;
 				x -= xRichtung;
 				if (istWeiss(image, x, y, istSystemOut)) {
-					// Dies ist die Ausweichmöglichkeit
+					// Dies ist die Ausweichmï¿½glichkeit
 				} else {
-					// unter bzw. über letztem weiss ist schwarz: Ende oder Sackgasse?
+					// unter bzw. ï¿½ber letztem weiss ist schwarz: Ende oder Sackgasse?
 					int yAusweichSackgasse = y;
 					y -= yAusweich;
 					int xEnde = start.x;
@@ -209,7 +210,7 @@ class AusgangInfo {
 		} // while
 
 		if (istSystemOut) {
-			System.out.println("Illegaler Ausgang außerhalb der While-Schleife");
+			System.out.println("Illegaler Ausgang auï¿½erhalb der While-Schleife");
 		}
 		return false;
 	}

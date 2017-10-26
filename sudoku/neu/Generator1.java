@@ -16,7 +16,7 @@ import sudoku.schwer.Analysator;
 
 /**
  * @author Hendrick
- * Ist der Erzeuger für ein vollständig mit Vorgaben gefülltes Sudoku
+ * Ist der Erzeuger fï¿½r ein vollstï¿½ndig mit Vorgaben gefï¿½lltes Sudoku
  */
 class Generator1 extends Analysator {
 	protected static boolean istSystemOut() {
@@ -36,8 +36,8 @@ class Generator1 extends Analysator {
 	}
 
 	/**
-	 * Füllt eine - unabhängige! - Gruppe
-	 * @param felder Indizees der zufällig zu füllenden 9 Felder
+	 * Fï¿½llt eine - unabhï¿½ngige! - Gruppe
+	 * @param felder Indizees der zufï¿½llig zu fï¿½llenden 9 Felder
 	 * @throws Exc 
 	 */
 	private void fuelleGruppe(FeldNummerListe felder) throws Exc {
@@ -52,8 +52,8 @@ class Generator1 extends Analysator {
 	}
 
 	/**
-	 * Setzt Zahl in ein zufällig ausgewähltes Feld
-	 * @param felder In (zufällig) eines der Felder soll der Eintrag rein
+	 * Setzt Zahl in ein zufï¿½llig ausgewï¿½hltes Feld
+	 * @param felder In (zufï¿½llig) eines der Felder soll der Eintrag rein
 	 * @param zahl soll gesetzt werden auf eines der Felder
 	 * @return Index in Felder: Das Feld, das den Eintrag erhielt
 	 * @throws Exc Bei falschen Parametern
@@ -65,9 +65,9 @@ class Generator1 extends Analysator {
 	}
 
 	/**
-	 * Setzt in das Feld eine zufällig ausgewählte mögliche Zahl
+	 * Setzt in das Feld eine zufï¿½llig ausgewï¿½hlte mï¿½gliche Zahl
 	 * @param feldNummer
-	 * @return gesetzte Zahl oder null wenn ein Feld ohne Mögliche erwischt wurde.
+	 * @return gesetzte Zahl oder null wenn ein Feld ohne Mï¿½gliche erwischt wurde.
 	 * @throws Exc
 	 */
 	private Integer setzeEinFeld(FeldNummer feldNummer) throws Exc {
@@ -83,7 +83,7 @@ class Generator1 extends Analysator {
 	}
 
 	/**
-	 * Setzt in die Felder eine zufällig ausgewählte Vorgabe
+	 * Setzt in die Felder eine zufï¿½llig ausgewï¿½hlte Vorgabe
 	 * @param felder
 	 * @return Gesetzte Felder mit ihrer Zahl jeweils
 	 * @throws Exc
@@ -101,7 +101,7 @@ class Generator1 extends Analysator {
 	}
 
 	/**
-	 * Setzt in anzahl zufällig ausgewählte Felder eine Vorgabe
+	 * Setzt in anzahl zufï¿½llig ausgewï¿½hlte Felder eine Vorgabe
 	* @param felder
 	 * @param anzahl
 	 * @return Gesetzte Felder mit ihrer Zahl jeweils
@@ -114,29 +114,29 @@ class Generator1 extends Analysator {
 	}
 
 	/**
-	 * Die drei unabhängigen Kästen zufällig auswählen.
-	 * Jeden dieser 3 Kästen zufällig füllen (hier gibt es keine Probleme). 
+	 * Die drei unabhï¿½ngigen Kï¿½sten zufï¿½llig auswï¿½hlen.
+	 * Jeden dieser 3 Kï¿½sten zufï¿½llig fï¿½llen (hier gibt es keine Probleme). 
 	 * @return Indizees der Felder, die gesetzt wurden
 	 * @throws Exc 
 	 */
 	private FeldNummerListe fuelle3StartKaesten() throws Exc {
 		FeldNummerListe gesetzte = new FeldNummerListe();
 
-		// Die drei unabhängigen Kästen zufällig auswählen
+		// Die drei unabhï¿½ngigen Kï¿½sten zufï¿½llig auswï¿½hlen
 		UnabhaengigeKasten kastengruppen = new UnabhaengigeKasten();
 		int iGruppe = Zufall.gib(kastengruppen.size());
 		ArrayList<KastenIndex> kastengruppe = kastengruppen.get(iGruppe);
 
-		// Jeden dieser 3 Kästen zufällig füllen (hier gibt es keine Probleme)
+		// Jeden dieser 3 Kï¿½sten zufï¿½llig fï¿½llen (hier gibt es keine Probleme)
 		for (int iKasten = 0; iKasten < kastengruppe.size(); iKasten++) {
 			KastenIndex kastenIndex = kastengruppe.get(iKasten);
 			FeldNummerListe kastenFelder = Kasten.gibKastenFeldNummern(kastenIndex);
-			// Die Felder dieser Indizees jetzt mit 1 bis 9 zufällig füllen
+			// Die Felder dieser Indizees jetzt mit 1 bis 9 zufï¿½llig fï¿½llen
 			fuelleGruppe(kastenFelder);
 			gesetzte.addAll(kastenFelder);
 		}
 		if (istSystemOut() && istSystemOutAlles()) {
-			System.out.println(String.format("fülle3StartKaesten(): iGruppe=%d", iGruppe));
+			System.out.println(String.format("fï¿½lle3StartKaesten(): iGruppe=%d", iGruppe));
 		}
 		return gesetzte;
 	}
@@ -148,7 +148,7 @@ class Generator1 extends Analysator {
 	 * @throws Exc
 	 */
 	private Ergebnis fuelleMitKnackerVersuch() throws Exc {
-		Ergebnis ergebnis = this.gibKnacker().loese(VersuchsEbenen.EINE, "Löse mit Versuch", false);
+		Ergebnis ergebnis = this.gibKnacker().loese(VersuchsEbenen.EINE, "Lï¿½se mit Versuch", false);
 		if (ergebnis.gibArt() == Ergebnis.Art.FERTIG) {
 			this.gibFeldmatrix().wandleEintraegeZuVorgaben();
 		}
@@ -166,13 +166,13 @@ class Generator1 extends Analysator {
 			this.gibFeldmatrix().setzeEintraegeAufKlare(this.gibKlugheit(), false, false);
 			this.gibFeldmatrix().wandleEintraegeZuVorgaben();
 		} catch (Exc e) {
-			// ist hier völlig unerwartet
+			// ist hier vï¿½llig unerwartet
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * Füllt soweit auf bis Knacker (später) in der Lage ist,
+	 * Fï¿½llt soweit auf bis Knacker (spï¿½ter) in der Lage ist,
 	 *  mit Versuchen zum Ende zu kommen
 	 * @param freie
 	 * @return
@@ -196,14 +196,14 @@ class Generator1 extends Analysator {
 			nLaufMax = nFuellen;
 		}
 		if (istSystemOut() && istSystemOutAlles()) {
-			System.out.println(String.format("fuelleOhneKnackerVersuch() nZahlen=%d nLäufe=%d nLaufMax=%d: %s",
-					nZahlen, nFuellen, nLaufMax, ergebnis));
+			System.out.println(String.format("fuelleOhneKnackerVersuch() nZahlen=%d nLï¿½ufe=%d nLaufMax=%d: %s", nZahlen,
+					nFuellen, nLaufMax, ergebnis));
 		}
 		return ergebnis;
 	}
 
 	/**
-	 * Soviel Bestimmtheit herstellen, dass der Knacker sehr wahrscheinlich (!)löst.
+	 * Soviel Bestimmtheit herstellen, dass der Knacker sehr wahrscheinlich (!)lï¿½st.
 	 */
 	private boolean schaffeBestimmtheit() {
 		int nZahlen = 5;
@@ -214,8 +214,8 @@ class Generator1 extends Analysator {
 		int nZahl = 0;
 		int nLauf = 0;
 		if (istSystemOut() && istSystemOutAlles()) {
-			System.out.println(String.format("schaffeBestimmtheit(): nFreie=%d nZahlen=%d", probierFelder.size(),
-					nZahlen));
+			System.out.println(
+					String.format("schaffeBestimmtheit(): nFreie=%d nZahlen=%d", probierFelder.size(), nZahlen));
 		}
 		while (true) {
 			nLauf++;
@@ -253,13 +253,13 @@ class Generator1 extends Analysator {
 			}
 		} // while
 		if (istSystemOut() && istSystemOutAlles()) {
-			System.out.println(String.format("schaffeBestimmtheit() : nZahlen=%d nLäufe=%d", nZahlen, nLauf));
+			System.out.println(String.format("schaffeBestimmtheit() : nZahlen=%d nLï¿½ufe=%d", nZahlen, nLauf));
 		}
 		return true;
 	}
 
 	/**
-	 * Füllt feldmatrix vollständig mit Vorgaben eines neuen Sudoku
+	 * Fï¿½llt feldmatrix vollstï¿½ndig mit Vorgaben eines neuen Sudoku
 	 * @param neuTyp
 	 * @throws Exc 
 	 */
@@ -269,21 +269,21 @@ class Generator1 extends Analysator {
 
 		this.gibKlugheit().setzeExtrem(true);
 		this.gibFeldmatrix().setzeMoegliche(this.gibKlugheit(), false, false);
-		// a) 3 unabhängige Kästen füllen
+		// a) 3 unabhï¿½ngige Kï¿½sten fï¿½llen
 		{
 			FeldNummerListe belegte = fuelle3StartKaesten();
 			freie.removeAll(belegte);
 		}
 		this.gibFeldmatrix().setzeMoegliche(this.gibKlugheit(), false, false);
 
-		// b) Zufällige Felder befüllen bis FERTIG
-		// Hört sich gefährlich an, ist es aber nicht:
+		// b) Zufï¿½llige Felder befï¿½llen bis FERTIG
+		// Hï¿½rt sich gefï¿½hrlich an, ist es aber nicht:
 		for (int nFuellen = 1; true; nFuellen++) {
 			if (istSystemOut() && istSystemOutAlles()) {
 				System.out.println(String.format("Generator1.fuelleSudoku() nFuellen=%d", nFuellen));
 			}
 
-			// Weiter um n Zahlen auffüllen: Knacker kontrolliert ohne Versuch
+			// Weiter um n Zahlen auffï¿½llen: Knacker kontrolliert ohne Versuch
 			Ergebnis ergebnis = fuelleOhneKnackerVersuch(freie);
 			if (ergebnis.gibArt() == Ergebnis.Art.FERTIG) {
 				break;
@@ -291,13 +291,13 @@ class Generator1 extends Analysator {
 
 			fuelleKlare();
 
-			// Soviel Bestimmtheit herstellen, dass der Knacker sehr wahrscheinlich löst
+			// Soviel Bestimmtheit herstellen, dass der Knacker sehr wahrscheinlich lï¿½st
 			boolean geschafft = schaffeBestimmtheit();
 			if (!geschafft) {
 				return false;
 			}
 
-			// Knacker löst mit EINER Versuchsebene (wegen Schnelligkeit)
+			// Knacker lï¿½st mit EINER Versuchsebene (wegen Schnelligkeit)
 			ergebnis = fuelleMitKnackerVersuch();
 			if (ergebnis.gibArt() == Ergebnis.Art.FERTIG) {
 				break;

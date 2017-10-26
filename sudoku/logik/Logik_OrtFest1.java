@@ -29,7 +29,7 @@ class Logik_OrtFest1 implements Logik__Interface {
 
 		public EinTipText[] gibTip() {
 			String s1 = String.format("%s ist die Zahl %d", gruppe.gibInText(true), klareZahl.gibZahl());
-			String s2 = String.format(" nur in dem einen Feld %s möglich.", klareZahl.gibFeldNummer());
+			String s2 = String.format(" nur in dem einen Feld %s mï¿½glich.", klareZahl.gibFeldNummer());
 
 			EinTipText[] sArray = new EinTipText[] { new EinTipText(s1, s2) };
 			return sArray;
@@ -77,7 +77,7 @@ class Logik_OrtFest1 implements Logik__Interface {
 
 	@Override
 	public String gibName() {
-		return "Ort ist fest für 1 Zahl";
+		return "Ort ist fest fï¿½r 1 Zahl";
 	}
 
 	@Override
@@ -87,17 +87,17 @@ class Logik_OrtFest1 implements Logik__Interface {
 
 	@Override
 	public String[] gibSituationAbstrakt() {
-		return new String[] { "Der Ort für 1 Zahl ist festgelegt." };
+		return new String[] { "Der Ort fï¿½r 1 Zahl ist festgelegt." };
 	}
 
 	@Override
 	public String[] gibSituation() {
-		return new String[] { "Es ist 1 Zahl nur in 1 Feld möglich." };
+		return new String[] { "Es ist 1 Zahl nur in 1 Feld mï¿½glich." };
 	}
 
 	@Override
 	public String[] gibErgebnis() {
-		return new String[] {"Diese Zahl wird ein Eintrag."};
+		return new String[] { "Diese Zahl wird ein Eintrag." };
 	}
 
 	@Override

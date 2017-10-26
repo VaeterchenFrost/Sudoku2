@@ -11,11 +11,12 @@ public interface GeneratorStatistik {
 	 * @param laufNummer Nummer des Generator-Laufes, der erfolgreich dies Sudoku erzeugt hat.
 	 * @param istErstesDerLoesungsZeit
 	 * 	- null wenn das Sudoku erstellt, aber nicht im Pool abgelegt wurde.
-	 *  - true wenn das Sudoku als 1. Sudoku mit dieser Lösungszeit im Pool abgelegt wurde.
-	 *  - false wenn das Sudoku im Pool abgelegt wurde, aber NICHT als 1. Sudoku mit dieser Lösungszeit.  
+	 *  - true wenn das Sudoku als 1. Sudoku mit dieser Lï¿½sungszeit im Pool abgelegt wurde.
+	 *  - false wenn das Sudoku im Pool abgelegt wurde, aber NICHT als 1. Sudoku mit dieser Lï¿½sungszeit.  
 	 * @param loesungsZeit (menschlich) des Sudoku 
-	 * @param topfName Im Falle des Dateipools ist dies die vollständige Pfadangabe zum Topf des neuTyps
+	 * @param topfName Im Falle des Dateipools ist dies die vollstï¿½ndige Pfadangabe zum Topf des neuTyps
 	 */
 	public void neuesSudoku(final NeuTyp forderung, final InfoSudoku infoSudoku, final NeuTyp neuTyp,
-			final int laufNummer, final Boolean istErstesDerLoesungsZeit, final int loesungsZeit, final String topfName);
+			final int laufNummer, final Boolean istErstesDerLoesungsZeit, final int loesungsZeit,
+			final String topfName);
 }

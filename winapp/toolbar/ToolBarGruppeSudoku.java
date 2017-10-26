@@ -81,8 +81,8 @@ public class ToolBarGruppeSudoku {
 
 		public ButtonEntnommenes(JFrame frame, String applikationsTitel, EintragsModus eintragsModus,
 				SudokuBedienung sudoku, StatusBar statusBar) {
-			super("Entnommen...", "Ein zuvor entnommenes Sudoku laden", frame, applikationsTitel, eintragsModus,
-					sudoku, statusBar);
+			super("Entnommen...", "Ein zuvor entnommenes Sudoku laden", frame, applikationsTitel, eintragsModus, sudoku,
+					statusBar);
 			this.addActionListener(this);
 		}
 
@@ -95,13 +95,13 @@ public class ToolBarGruppeSudoku {
 	// Neu
 	// ---------------------------------------------------------------------------------------------------
 	public class ButtonNeu extends ButtonSudoku implements ActionListener {
-		// Das (ständig neu erstellte) PopupMenü
+		// Das (stï¿½ndig neu erstellte) PopupMenï¿½
 		private PopupMenuNeu popupMenu;
 		private DateiDialog dialog;
 
 		public ButtonNeu(JFrame frame, String applikationsTitel, EintragsModus eintragsModus, SudokuBedienung sudoku,
 				StatusBar statusBar) {
-			super("Neu...", ToolTip.gibToolTip(new String[] { "Neues Sudoku, neues Glück" }), frame, applikationsTitel,
+			super("Neu...", ToolTip.gibToolTip(new String[] { "Neues Sudoku, neues Glï¿½ck" }), frame, applikationsTitel,
 					eintragsModus, sudoku, statusBar);
 			popupMenu = new PopupMenuNeu(this);
 			dialog = new DateiDialog(frame, false);
@@ -109,14 +109,14 @@ public class ToolBarGruppeSudoku {
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			// Typ über PopupMenü auswählen lassen
+			// Typ ï¿½ber PopupMenï¿½ auswï¿½hlen lassen
 			int posX = this.getWidth() / 2;
 			int posY = this.getHeight() / 2;
 			popupMenu.show(this, posX, posY);
 		}
 
 		/**
-		 * Realisiert die Sonderfunktion des Maus-Rechtsklick auf das PopupMenü.
+		 * Realisiert die Sonderfunktion des Maus-Rechtsklick auf das PopupMenï¿½.
 		 * @param neuTyp 
 		 */
 		void sonderFunktion(NeuTyp neuTyp) {
@@ -174,7 +174,7 @@ public class ToolBarGruppeSudoku {
 					eintragsModus.setzeEintragsModus(EintragsModus.Modus.Vorgabe);
 				}
 			} else {
-				String sProblem = String.format("Z.Zt. ist kein Sudoku des Typs '%s' verfügbar. Bitte kurz warten.",
+				String sProblem = String.format("Z.Zt. ist kein Sudoku des Typs '%s' verfï¿½gbar. Bitte kurz warten.",
 						neuTyp.gibName());
 				JOptionPane.showMessageDialog(SudokuFrame.gibMainFrame(), sProblem, "Neues Sudoku",
 						JOptionPane.PLAIN_MESSAGE);
@@ -189,19 +189,20 @@ public class ToolBarGruppeSudoku {
 		protected DateiDialog dialog;
 
 		/**
-		 * Führt die Aktion auf die Datei aus
+		 * Fï¿½hrt die Aktion auf die Datei aus
 		 * @param nameVerzeichnis direkt verkettbar mit nameDatei
 		 * @param nameDatei direkt verkettbar mit nameVerzeichnis
-		 * @return Sudoku in Textform wenn die Aktion erfolgreich ausgeführt wurde oder null
+		 * @return Sudoku in Textform wenn die Aktion erfolgreich ausgefï¿½hrt wurde oder null
 		 */
 		protected abstract void aktion(String nameVerzeichnis, String nameDatei);
 
 		public ButtonDatei(boolean istSpeichern, JFrame frame, String applikationsTitel, EintragsModus eintragsModus,
 				SudokuBedienung sudoku, StatusBar statusBar) {
-			super(istSpeichern ? "Speichern..." : "Laden...", istSpeichern ? "Sudoku in einer Sudoku-Text-Datei"
-					+ InfoSudoku.dateiErweiterung + " speichern" : ToolTip
-					.gibToolTip(new String[] { "Sudoku aus einer Sudoku-Text-Datei" + InfoSudoku.dateiErweiterung
-							+ " laden" }), frame, applikationsTitel, eintragsModus, sudoku, statusBar);
+			super(istSpeichern ? "Speichern..." : "Laden...",
+					istSpeichern ? "Sudoku in einer Sudoku-Text-Datei" + InfoSudoku.dateiErweiterung + " speichern"
+							: ToolTip.gibToolTip(new String[] {
+									"Sudoku aus einer Sudoku-Text-Datei" + InfoSudoku.dateiErweiterung + " laden" }),
+					frame, applikationsTitel, eintragsModus, sudoku, statusBar);
 			dialog = new DateiDialog(frame, istSpeichern);
 			this.addActionListener(this);
 		}
@@ -311,7 +312,7 @@ public class ToolBarGruppeSudoku {
 			SudokuSchwierigkeit schwierigkeit = SudokuSchwierigkeit.gibSchwierigkeit(vorgaben);
 			String wieSchwerName = schwierigkeit.gibName();
 			Integer zeit = schwierigkeit.gibAnzeigeZeit();
-			// Schwierigkeit und Lösungszeit mitdrucken
+			// Schwierigkeit und Lï¿½sungszeit mitdrucken
 			vorgaben.setzeTitel(wieSchwerName, zeit.toString());
 
 			// Drucken
@@ -327,7 +328,7 @@ public class ToolBarGruppeSudoku {
 	// ---------------------------------------------------------------------------------------------------
 	public class ButtonAnimation extends ButtonSudoku implements ActionListener {
 		public ButtonAnimation(SudokuBedienung sudoku) {
-			super("Animation...", "Sudoku ohne Einträge animieren", null, // frame,
+			super("Animation...", "Sudoku ohne Eintrï¿½ge animieren", null, // frame,
 					null, // applikationsTitel,
 					null, // eintragsModus,
 					sudoku, null);// , statusBar);
@@ -369,11 +370,11 @@ public class ToolBarGruppeSudoku {
 
 		/**
 		 * @param owner
-		 * @return Ein Schnappschuß des Monitorbildes
+		 * @return Ein Schnappschuï¿½ des Monitorbildes
 		 */
 		private BufferedImage gibMonitorBild() {
 			this.frame.setVisible(false);
-			// Es ist erstaunlich, dass mit sleep ein Abwarten auf das vollständige Unsichtbar-Machen des Programm-Fensters möglich ist!?
+			// Es ist erstaunlich, dass mit sleep ein Abwarten auf das vollstï¿½ndige Unsichtbar-Machen des Programm-Fensters mï¿½glich ist!?
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
@@ -419,7 +420,7 @@ public class ToolBarGruppeSudoku {
 				super("Screenshot");
 				this.image = image;
 
-				// malPanel als Malfläche erstellen
+				// malPanel als Malflï¿½che erstellen
 				malPanel = new MalPanel();
 				this.getContentPane().add(malPanel, BorderLayout.CENTER);
 
@@ -435,7 +436,7 @@ public class ToolBarGruppeSudoku {
 
 		public void actionPerformed(ActionEvent arg0) {
 			BufferedImage image = gibMonitorBild();
-			// Es ist erstaunlich, dass mit sleep ein Abwarten auf das ... Fensters möglich ist!?
+			// Es ist erstaunlich, dass mit sleep ein Abwarten auf das ... Fensters mï¿½glich ist!?
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {

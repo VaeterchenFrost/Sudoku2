@@ -21,7 +21,7 @@ public class TextKonverter {
 	/**
 	 * @param felder
 	 * @return Text-Darstellung der Felder, der zum Speichern in einer Textdatei geeignet ist.
-	 * 		Er enthält auch Zeilenvorschübe, sodass der Text gleich als Sudoku lesbar ist.
+	 * 		Er enthï¿½lt auch Zeilenvorschï¿½be, sodass der Text gleich als Sudoku lesbar ist.
 	 */
 	public static String gibText(InfoSudoku vorgaben) {
 		String text = new String(linieAussen);
@@ -84,29 +84,29 @@ public class TextKonverter {
 					}
 				}
 			} // for spalte
-		}// for zeile
+		} // for zeile
 
 		return text;
 	}
 
 	/**
-	 * Löscht aus text alle Zeichen außer den Feldinhalten.
+	 * Lï¿½scht aus text alle Zeichen auï¿½er den Feldinhalten.
 	 * @param text
-	 * @return String der Länge 81, der für jedes Feld dessen Zahl enthält.
+	 * @return String der Lï¿½nge 81, der fï¿½r jedes Feld dessen Zahl enthï¿½lt.
 	 * 		Leere Feldinhalte (" ") werden als "0" gesetzt.
 	 * 		Die Felder-Reihenfolge ist von links oben zeilenweise nach rechts unten.
 	 */
 	private static String gibGepackt(String text) {
-		// Alle Zeilenvorschübe löschen
+		// Alle Zeilenvorschï¿½be lï¿½schen
 		text = text.replace(sCR, "");
 
-		// Alle Zeichen vor der einleitenden LinieAussen löschen
+		// Alle Zeichen vor der einleitenden LinieAussen lï¿½schen
 		int indexLinieAussen = text.indexOf(linieAussen);
 		if (indexLinieAussen >= 0) {
 			text = text.substring(indexLinieAussen + linieAussen.length());
 		}
 
-		// Alle Zeichen nach der abschließenden LinieAussen löschen
+		// Alle Zeichen nach der abschlieï¿½enden LinieAussen lï¿½schen
 		indexLinieAussen = text.indexOf(linieAussen);
 		if (indexLinieAussen > 0) {
 			text = text.substring(0, indexLinieAussen);
@@ -124,7 +124,7 @@ public class TextKonverter {
 		sSeparator = String.valueOf(cSeparatorAussen);
 		text = text.replace(sSeparator, "");
 
-		// Alle Leerzeichen löschen
+		// Alle Leerzeichen lï¿½schen
 		sSeparator = String.valueOf(" ");
 		text = text.replace(sSeparator, "");
 
@@ -145,7 +145,7 @@ public class TextKonverter {
 
 		String text = gibGepackt(sudokuText);
 		if (text.length() != anzahlFelder) {
-			String sFehler = String.format("Daten falscher Länge=%d, (erwartet=%d)", text.length(), anzahlFelder);
+			String sFehler = String.format("Daten falscher Lï¿½nge=%d, (erwartet=%d)", text.length(), anzahlFelder);
 			return sFehler;
 		}
 

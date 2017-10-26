@@ -34,7 +34,7 @@ public class FeldNummerListe extends ArrayList<FeldNummer> {
 	}
 
 	/**
-	 * @param felder Alle diese Feldnummern füge ich zu mir hinzu.
+	 * @param felder Alle diese Feldnummern fï¿½ge ich zu mir hinzu.
 	 */
 	public void add(FeldNummerListe felder) {
 		this.addAll(felder);
@@ -84,7 +84,7 @@ public class FeldNummerListe extends ArrayList<FeldNummer> {
 	}
 
 	/**
-	 * @return Eine Spalten-Nummer zurück wenn alle Felder in derselben Spalte liegen, sonst 0
+	 * @return Eine Spalten-Nummer zurï¿½ck wenn alle Felder in derselben Spalte liegen, sonst 0
 	 */
 	public int gibSpalte() {
 		if (this.size() == 0) {
@@ -118,8 +118,8 @@ public class FeldNummerListe extends ArrayList<FeldNummer> {
 
 	/**
 	 * @param andere
-	 * @return true wenn diese Liste und die andere gleiche Länge und gleiche Elemente besitzen.
-	 * 							Die Elemente dürfen in unterschiedlicher Reihenfolge stehen
+	 * @return true wenn diese Liste und die andere gleiche Lï¿½nge und gleiche Elemente besitzen.
+	 * 							Die Elemente dï¿½rfen in unterschiedlicher Reihenfolge stehen
 	 */
 	public boolean istGleicherInhalt(FeldNummerListe andere) {
 		if (andere == null) {
@@ -141,21 +141,21 @@ public class FeldNummerListe extends ArrayList<FeldNummer> {
 	 * @param andere
 	 * @return Alle (meine) FeldNummern, die nicht in andere genannt sind. 
 	 */
-	FeldNummerListe differenz (FeldNummerListe andere){
+	FeldNummerListe differenz(FeldNummerListe andere) {
 		FeldNummerListe ergebnis = new FeldNummerListe();
-		for (FeldNummer feldNummer: this){
-			if (!andere.contains(feldNummer)){
+		for (FeldNummer feldNummer : this) {
+			if (!andere.contains(feldNummer)) {
 				ergebnis.add(feldNummer);
 			}
 		}
 		return ergebnis;
 	}
-	
+
 	/**
 	 * @param andere
 	 * @return Alle FeldNummern, die sowohl in mir als auch in andere (gleichzeitig) sind. 
 	 */
-	FeldNummerListe schnittMenge (FeldNummerListe andere){
+	FeldNummerListe schnittMenge(FeldNummerListe andere) {
 		throw new NotImplementedException();
 	}
 }

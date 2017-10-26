@@ -82,11 +82,12 @@ abstract class LogikKastenN implements Logik__Interface {
 		/**
 		 * @param logik
 		 * @param mitSpieler Sind diejenigen der Kastenlogik
-		 * @param textInGruppe beschreibt den Kasten in dem mögliche Zahlen gelöscht wurden
+		 * @param textInGruppe beschreibt den Kasten in dem mï¿½gliche Zahlen gelï¿½scht wurden
 		 * @param ergebnis
 		 * @param infoSudoku
 		 */
-		private TipInfoKasten(Logik_ID logik, FeldNummerListe mitSpieler, String textInGruppe, KastenErgebnis ergebnis) {
+		private TipInfoKasten(Logik_ID logik, FeldNummerListe mitSpieler, String textInGruppe,
+				KastenErgebnis ergebnis) {
 			super(logik, mitSpieler);
 			this.textInGruppe = textInGruppe;
 			this.ergebnis = ergebnis;
@@ -100,9 +101,9 @@ abstract class LogikKastenN implements Logik__Interface {
 			String sUrsache = ursachen.gibLinienName();
 			String geloeschtIn = ergebnis1.gibLoeschFelder().gibKette("+");
 
-			String s1 = String.format("%s wird die %d gelöscht in %s. Grund:", this.textInGruppe,
+			String s1 = String.format("%s wird die %d gelï¿½scht in %s. Grund:", this.textInGruppe,
 					ergebnis1.gibLoeschZahl(), geloeschtIn);
-			String s2 = String.format("Der %s benötigt die %d in %s.", kastenUrsache, ergebnis1.gibLoeschZahl(),
+			String s2 = String.format("Der %s benï¿½tigt die %d in %s.", kastenUrsache, ergebnis1.gibLoeschZahl(),
 					sUrsache);
 			ArrayList<EinTipText> texte = new ArrayList<>();
 			texte.add(new EinTipText(s1, s2));
@@ -136,7 +137,7 @@ abstract class LogikKastenN implements Logik__Interface {
 				sLinien += linien.get(i);
 			}
 
-			// Nachbar - Kästen - Namen erstellen
+			// Nachbar - Kï¿½sten - Namen erstellen
 			FeldNummerListe geloeschtIn = ergebnis1.gibLoeschFelder();
 			KastenIndex kastenIndex = Kasten.gibKastenIndex(geloeschtIn.get(0));
 			KastenIndex[] nachbarnKastenIndizees = Kasten.gibNachbarn(kastenIndex, ergebnis1.istSpalte());
@@ -144,12 +145,12 @@ abstract class LogikKastenN implements Logik__Interface {
 			String sNachbar2 = Kasten.gibNameVomKastenIndex(nachbarnKastenIndizees[1]);
 			String inText = ergebnis1.istSpalte() ? "in den Spalten" : "in den Zeilen";
 
-			String s1a = String.format("%s wird die %d gelöscht", this.textInGruppe, ergebnis1.gibLoeschZahl());
+			String s1a = String.format("%s wird die %d gelï¿½scht", this.textInGruppe, ergebnis1.gibLoeschZahl());
 			String s1b = String.format(" %s %s.", inText, sLinien);
 			EinTipText s1 = new EinTipText(s1a, s1b);
 
 			String s2a = String.format("Grund: %s und %s ", sNachbar1, sNachbar2);
-			String s2b = String.format("benötigen die %d %s %s.", ergebnis1.gibLoeschZahl(), inText, sLinien);
+			String s2b = String.format("benï¿½tigen die %d %s %s.", ergebnis1.gibLoeschZahl(), inText, sLinien);
 			EinTipText s2 = new EinTipText(s2a, s2b);
 
 			ArrayList<EinTipText> texte = new ArrayList<>();
@@ -226,8 +227,8 @@ abstract class LogikKastenN implements Logik__Interface {
 		for (TipInfo tipInfo : ignorierTips) {
 			TipInfoKasten ignorierTip = (TipInfoKasten) tipInfo;
 			boolean gleicheMitspieler = ignorierTip.gibMitSpieler().istGleicherInhalt(tipInfoKasten.gibMitSpieler());
-			boolean gleicheLoeschZahlen = ignorierTip.gibLoeschZahlen().istGleicherInhalt(
-					tipInfoKasten.gibLoeschZahlen());
+			boolean gleicheLoeschZahlen = ignorierTip.gibLoeschZahlen()
+					.istGleicherInhalt(tipInfoKasten.gibLoeschZahlen());
 			if (gleicheMitspieler & gleicheLoeschZahlen) {
 				return true;
 			}
@@ -236,8 +237,8 @@ abstract class LogikKastenN implements Logik__Interface {
 	}
 
 	/**
-	 * Die Logik laufen lassen für den Kasten.
-	 * @return Wenn die Logik erfolgreich gelaufen ist, d.h. Lösch-Zahlen erkannt wurden, dies Ergebnis, sonst null
+	 * Die Logik laufen lassen fï¿½r den Kasten.
+	 * @return Wenn die Logik erfolgreich gelaufen ist, d.h. Lï¿½sch-Zahlen erkannt wurden, dies Ergebnis, sonst null
 	 */
 	protected abstract KastenErgebnis laufen(Kasten kasten) throws Exc;
 
@@ -258,7 +259,7 @@ abstract class LogikKastenN implements Logik__Interface {
 				if (kastenErgebnis != null) {
 					// Dann war die Logik aktiv
 
-					// lösch-Zahlen bereitstellen
+					// lï¿½sch-Zahlen bereitstellen
 					int loeschZahl = kastenErgebnis.gibLoeschZahl();
 					FeldNummerListe loeschFelder = kastenErgebnis.gibLoeschFelder();
 					ZahlenListe loeschZahlen = new ZahlenListe(loeschFelder, loeschZahl);
@@ -274,7 +275,8 @@ abstract class LogikKastenN implements Logik__Interface {
 					}
 
 					if (!ergebnisIgnorieren) {
-						LogikErgebnis logikErgebnis = new LogikErgebnis(gruppenLaeufeListe, null, loeschZahlen, tipInfo);
+						LogikErgebnis logikErgebnis = new LogikErgebnis(gruppenLaeufeListe, null, loeschZahlen,
+								tipInfo);
 						return logikErgebnis;
 					}
 				} // if (kastenErgebnis != null){

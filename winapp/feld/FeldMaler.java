@@ -16,7 +16,7 @@ public class FeldMaler {
 	/**
 	 * @param g
 	 * @param dimension
-	 * @param maxFontSize wenn != 0 wird die Textgröße hierauf beschränkt
+	 * @param maxFontSize wenn != 0 wird die Textgrï¿½ï¿½e hierauf beschrï¿½nkt
 	 * @return
 	 */
 	private static float gibFontSize(Graphics g, Dimension dimension, int maxFontSize) {
@@ -25,7 +25,7 @@ public class FeldMaler {
 		}
 
 		Font font = g.getFont();
-		// großer Font zum rechnen:
+		// groï¿½er Font zum rechnen:
 		float fontSizeTest = 100;
 		Font fTest = font.deriveFont(fontSizeTest);
 		FontMetrics fm = g.getFontMetrics(fTest);
@@ -106,8 +106,8 @@ public class FeldMaler {
 	 * @param cHintergrund
 	 * @param cText
 	 * @param text
-	 * @param maxFontSize Wenn > 0 wird die Textgröße hierauf beschränkt. 
-	 * 			(Es wird ansonsten der Text so groß wie r hergibt gemalt.)
+	 * @param maxFontSize Wenn > 0 wird die Textgrï¿½ï¿½e hierauf beschrï¿½nkt. 
+	 * 			(Es wird ansonsten der Text so groï¿½ wie r hergibt gemalt.)
 	 */
 	public static void maleText(Graphics g, Rectangle r, Color cHintergrund, Color cText, String text1, String text2,
 			int maxFontSize) {
@@ -145,20 +145,21 @@ public class FeldMaler {
 	 * @param cHintergrund
 	 * @param cText
 	 * @param text
-	 * @param maxFontSize Wenn > 0 wird die Textgröße hierauf beschränkt. 
-	 * 			(Es wird ansonsten der Text so groß wie r hergibt gemalt.)
+	 * @param maxFontSize Wenn > 0 wird die Textgrï¿½ï¿½e hierauf beschrï¿½nkt. 
+	 * 			(Es wird ansonsten der Text so groï¿½ wie r hergibt gemalt.)
 	 */
-	public static void maleText(Graphics g, Rectangle r, Color cHintergrund, Color cText, String text1, int maxFontSize) {
+	public static void maleText(Graphics g, Rectangle r, Color cHintergrund, Color cText, String text1,
+			int maxFontSize) {
 		maleText(g, r, cHintergrund, cText, text1, null, maxFontSize);
 	}
 
 	/**
 	 * Gibt die Position des Platzes im Rechteck mit der Ausdehnung dimension.
 	 * @param platz fortlaufend ab 1
-	 * @param laengePlatz Breite und Höhe eines Platzes
+	 * @param laengePlatz Breite und Hï¿½he eines Platzes
 	 * @param nSpalten Anzahl der Darstellungs-Spalten
 	 * @param nZeilen der Darstellungs-Zeilen
-	 * @param dFeld Gesamt-Breite und -Höhe
+	 * @param dFeld Gesamt-Breite und -Hï¿½he
 	 * @return Position in derselben Einheit, die laenge hat (Pixel)
 	 */
 	private static Point gibPos(int platz, int laengePlatz, int nSpalten, int nZeilen, Dimension dFeld) {
@@ -180,7 +181,7 @@ public class FeldMaler {
 	/**
 	 * @param rFeld
 	 * @param nZahlen
-	 * @return Die Rechtecke für die Darstellung von nZahlen im Rechteck rectangle
+	 * @return Die Rechtecke fï¿½r die Darstellung von nZahlen im Rechteck rectangle
 	 * bezogen auf die linke obere Ecke mit den Koordinaten (0,0).
 	 */
 	public static ArrayList<Rectangle> gibZahlenPlaetze(Rectangle rFeld, int nZahlen) {

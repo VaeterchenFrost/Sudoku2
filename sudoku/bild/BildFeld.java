@@ -43,8 +43,8 @@ class BildFeld {
 	/**
 	 * @param rechteck
 	 * @param vergroesserung jeden Randes. Ein negativer Wert verkleinert.
-	 * @return Das neue zu Rechteck zentrisch liegende größere bzw. kleinere Rechteck 
-	 * 				Wenn das gewollte Rechteck eine negative Länge bekäme, so wird null zurückgegeben.
+	 * @return Das neue zu Rechteck zentrisch liegende grï¿½ï¿½ere bzw. kleinere Rechteck 
+	 * 				Wenn das gewollte Rechteck eine negative Lï¿½nge bekï¿½me, so wird null zurï¿½ckgegeben.
 	 */
 	static private Rectangle vergroessern(Rectangle rechteck, int vergroesserung) {
 		int neueBreite = rechteck.width + 2 * vergroesserung;
@@ -61,13 +61,13 @@ class BildFeld {
 	/**
 	 * @param rechteck
 	 * @param vergroesserungProzent jeden Randes. Ein negativer Wert verkleinert.
-	 * @return Das neue zu Rechteck zentrisch liegende größere bzw. kleinere Rechteck 
+	 * @return Das neue zu Rechteck zentrisch liegende grï¿½ï¿½ere bzw. kleinere Rechteck 
 	 */
 	static private Rectangle vergroessernProzent(Rectangle rechteck, int vergroesserungProzent) {
 		int vergroesserungX = Math.round((rechteck.width * vergroesserungProzent) / 100.0f);
 		int vergroesserungY = Math.round((rechteck.height * vergroesserungProzent) / 100.0f);
-		Rectangle r = new Rectangle(rechteck.x - vergroesserungX, rechteck.y - vergroesserungY, rechteck.width + 2
-				* vergroesserungX, rechteck.height + 2 * vergroesserungY);
+		Rectangle r = new Rectangle(rechteck.x - vergroesserungX, rechteck.y - vergroesserungY,
+				rechteck.width + 2 * vergroesserungX, rechteck.height + 2 * vergroesserungY);
 		return r;
 	}
 
@@ -85,7 +85,7 @@ class BildFeld {
 	/**
 	 * @param image
 	 * @return Anteil der weissen Pixel im Zentrum des feldRechteck in Prozent 
-	 * 			Dieses Zentrum ist der Bereich des feldRechtecks, in dem eine Zahl stehen könnte.
+	 * 			Dieses Zentrum ist der Bereich des feldRechtecks, in dem eine Zahl stehen kï¿½nnte.
 	 */
 	static private int gibZentrumWeissAnteil(BufferedImage image, Rectangle rBasis) {
 		Rectangle r = gibZentrum(rBasis);
@@ -99,8 +99,8 @@ class BildFeld {
 	}
 
 	/**
-	 * @param linien Jede Linie sortiert nach Strichlänge: Auf Index0 der längste Strich
-	 * @param linienLaenge Länge einer jeden Linie
+	 * @param linien Jede Linie sortiert nach Strichlï¿½nge: Auf Index0 der lï¿½ngste Strich
+	 * @param linienLaenge Lï¿½nge einer jeden Linie
 	 * @param linienIndexStart Ab der Linie mit diesem Index (in ihr) beginnt das FeldRechteck
 	 * @param linienIndexEnde Bis zu der Linie mit diesem Index (in ihr) endet das FeldRechteck
 	 * @return Index-Bereich der Zahl im Bild oder null:
@@ -115,7 +115,7 @@ class BildFeld {
 		// if ( ! linien.isEmpty()){
 		// name = linien.get(0).linienName;
 		// }
-		// System.out.println(String.format("gibZahlBereich %s: nLinien=%d Linien-Länge=%d",
+		// System.out.println(String.format("gibZahlBereich %s: nLinien=%d Linien-Lï¿½nge=%d",
 		// name, linien.size(), linienLaenge));
 		// }
 		IteratorLinien iterator = new IteratorLinien(linien, 0, linien.size() - 1);
@@ -148,7 +148,7 @@ class BildFeld {
 		}
 
 		// if (istTestAnzeige){
-		// System.out.println(String.format("gibZahlBereich: Linien-Länge=%d %s", linienLaenge, kanten));
+		// System.out.println(String.format("gibZahlBereich: Linien-Lï¿½nge=%d %s", linienLaenge, kanten));
 		// }
 		return kanten;
 	}
@@ -159,12 +159,12 @@ class BildFeld {
 	private Rectangle zahlRechteck;
 	private SchwarzAnteile schwarzAnteile;
 	/**
-	 * Die Bereiche, in die das ZahlRechteck für die Decodierung aufgeteilt ist.
+	 * Die Bereiche, in die das ZahlRechteck fï¿½r die Decodierung aufgeteilt ist.
 	 */
 	private ZahlBereiche zahlBereiche;
 	/**
-	 * Die Wahrscheinlichkeit für jede der Zahlen 1 bis 9 in Prozent.
-	 * Auf Index 0 steht die Zahl mit der größten Wahrscheinlichkeit, auch null. 
+	 * Die Wahrscheinlichkeit fï¿½r jede der Zahlen 1 bis 9 in Prozent.
+	 * Auf Index 0 steht die Zahl mit der grï¿½ï¿½ten Wahrscheinlichkeit, auch null. 
 	 */
 	private ArrayList<ZahlLeser.ZahlErgebnis> zahlWahrscheinlichkeiten;
 	private Integer zahl;
@@ -208,7 +208,7 @@ class BildFeld {
 	/**
 	 * @param image
 	 * @return Anteil der weissen Pixel im Zentrum des feldRechteck in Prozent 
-	 * 			Dieses Zentrum ist der Bereich des feldRechtecks, in dem eine Zahl stehen könnte.
+	 * 			Dieses Zentrum ist der Bereich des feldRechtecks, in dem eine Zahl stehen kï¿½nnte.
 	 */
 	public int gibZentrumWeissAnteil(BufferedImage image) {
 		int weissAnteil = gibZentrumWeissAnteil(image, feldRechteck);
@@ -216,7 +216,7 @@ class BildFeld {
 	}
 
 	/**
-	 * Setzt auf der Basis des Feldrechtecks das Zahlenrechteck. Außerdem die ZahlBereiche und SchwarzAnteile.
+	 * Setzt auf der Basis des Feldrechtecks das Zahlenrechteck. Auï¿½erdem die ZahlBereiche und SchwarzAnteile.
 	 * @param image
 	 * @return null oder das Zahlenrechteck
 	 */
@@ -324,7 +324,7 @@ class BildFeld {
 	}
 
 	/**
-	 * Setzt die Zahl auf Basis der Ausgänge
+	 * Setzt die Zahl auf Basis der Ausgï¿½nge
 	 */
 	public void setzeZahl(BufferedImage image) {
 		if (this.zahl == null) {
@@ -332,7 +332,7 @@ class BildFeld {
 			// istHierSystemOut = feldNummer.equals(new FeldNummer(4, 5));
 
 			if (istHierSystemOut) {
-				System.out.println(String.format("BildFeld %s setzeZahl() auf der Basis der Ausgänge", feldNummer));
+				System.out.println(String.format("BildFeld %s setzeZahl() auf der Basis der Ausgï¿½nge", feldNummer));
 			}
 			this.zahl = ZahlLeser.gibZahl(image, zahlRechteck, istHierSystemOut);
 		}

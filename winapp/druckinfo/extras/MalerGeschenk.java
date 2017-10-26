@@ -52,7 +52,7 @@ public class MalerGeschenk extends MalerEinfach {
 				break; // bin drin
 			}
 			if (spalte == 1) {
-				// Der Rand ist erreicht: Also ist definitiv außerhalb der
+				// Der Rand ist erreicht: Also ist definitiv auï¿½erhalb der
 				// Figur.
 				return false;
 			}
@@ -66,7 +66,7 @@ public class MalerGeschenk extends MalerEinfach {
 				break; // bin drin
 			}
 			if (spalte == 9) {
-				// Der Rand ist erreicht: Also ist definitiv außerhalb der
+				// Der Rand ist erreicht: Also ist definitiv auï¿½erhalb der
 				// Figur.
 				return false;
 			}
@@ -82,7 +82,7 @@ public class MalerGeschenk extends MalerEinfach {
 				break; // bin drin
 			}
 			if (zeile == 1) {
-				// Der Rand ist erreicht: Also ist definitiv außerhalb der
+				// Der Rand ist erreicht: Also ist definitiv auï¿½erhalb der
 				// Figur.
 				return false;
 			}
@@ -96,7 +96,7 @@ public class MalerGeschenk extends MalerEinfach {
 				break; // bin drin
 			}
 			if (zeile == 9) {
-				// Der Rand ist erreicht: Also ist definitiv außerhalb der
+				// Der Rand ist erreicht: Also ist definitiv auï¿½erhalb der
 				// Figur.
 				return false;
 			}
@@ -140,7 +140,7 @@ public class MalerGeschenk extends MalerEinfach {
 			FeldMaler.maleZahl(g, r, cZahl, feldInfo.gibVorgabe());
 			return;
 		}
-		// Freies Feld: innen in der Figur oder außen
+		// Freies Feld: innen in der Figur oder auï¿½en
 		boolean istFigur = istFreiesFeldInDerFigur(feldInfo.gibFeldNummer());
 		if (istFigur) {
 			FeldMaler.maleRechteck(g, r, cFreiInnen);
@@ -180,8 +180,8 @@ public class MalerGeschenk extends MalerEinfach {
 	 * @param cAussenZahl
 	 * @param cFrei
 	 */
-	private void faerbeVorgabenBand(Graphics g, Rectangle r, FeldInfo feldInfo, Color cBandHintergrund,
-			Color cBandZahl, Color cAussenZahlHintergrund, Color cAussenZahl, Color cFrei) {
+	private void faerbeVorgabenBand(Graphics g, Rectangle r, FeldInfo feldInfo, Color cBandHintergrund, Color cBandZahl,
+			Color cAussenZahlHintergrund, Color cAussenZahl, Color cFrei) {
 
 		if (istVorgabenBand(feldInfo.gibFeldNummer())) {
 			FeldMaler.maleRechteck(g, r, cBandHintergrund);
@@ -353,7 +353,7 @@ public class MalerGeschenk extends MalerEinfach {
 			break;
 		case LOK: {
 			Color cHintergrund = Color.WHITE;
-			if (feldIn(new Rectangle(1, 1, 4, 6), feldInfo.gibFeldNummer())) { // Vögel
+			if (feldIn(new Rectangle(1, 1, 4, 6), feldInfo.gibFeldNummer())) { // Vï¿½gel
 				faerbeVorgaben(g, rFeld, feldInfo, Color.DARK_GRAY, Color.WHITE, cHintergrund);
 			}
 			if (feldIn(new Rectangle(5, 1, 5, 5), feldInfo.gibFeldNummer())) { // Rauch
@@ -362,7 +362,7 @@ public class MalerGeschenk extends MalerEinfach {
 			if (feldIn(new Rectangle(4, 6, 6, 4), feldInfo.gibFeldNummer())) { // Lok
 				faerbeVorgaben(g, rFeld, feldInfo, cSattesGruen, Color.WHITE, cHintergrund);
 			}
-			if (feldIn(new Rectangle(1, 9, 9, 1), feldInfo.gibFeldNummer())) { // Räder
+			if (feldIn(new Rectangle(1, 9, 9, 1), feldInfo.gibFeldNummer())) { // Rï¿½der
 				faerbeVorgaben(g, rFeld, feldInfo, cHellesGelb, Color.DARK_GRAY, cHintergrund);
 			}
 		}

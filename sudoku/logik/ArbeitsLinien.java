@@ -13,14 +13,14 @@ import sudoku.kern.feldmatrix.FeldNummer;
  * Die Klasse beinhaltet die Felder entweder von Zeilen oder von Spalten
  */
 class ArbeitsLinien {
-	
+
 	/**
 	 * @author heroe
 	 * Die Klasse beinhaltet die Felder entweder einer Zeile oder einer Spalte
 	 */
 	class Linie {
 		/**
-		 * Die Gruppe, zu denen die Felder gehören: Hier können die Gruppen-Infos abgefragt werden.
+		 * Die Gruppe, zu denen die Felder gehï¿½ren: Hier kï¿½nnen die Gruppen-Infos abgefragt werden.
 		 */
 		Gruppe gruppe;
 		/**
@@ -34,13 +34,13 @@ class ArbeitsLinien {
 		}
 
 		/**
-		 * Setzt die Felder der Gruppe, die speziell für diese Linie greifbar sein sollen.
+		 * Setzt die Felder der Gruppe, die speziell fï¿½r diese Linie greifbar sein sollen.
 		 * @param feldListe
 		 */
-		void setzeFelder(FeldListe feldListe){
+		void setzeFelder(FeldListe feldListe) {
 			this.arbeitsFelder = feldListe;
 		}
-		
+
 		/**
 		 * @param feldNummer
 		 * @return null oder Felder ohne das mit der genannten Feldnummer.
@@ -89,17 +89,17 @@ class ArbeitsLinien {
 		}
 	}
 
-	Linie gibLinie(int linienNummer){
+	Linie gibLinie(int linienNummer) {
 		Linie linie = linien.get(linienNummer);
 		return linie;
-		
+
 	}
-	
+
 	/**
 	 * @param feldNummer Bei istZeilen=true wird die Zeile von Feldnummer benutzt, sonst die Spalte.
 	 * @return null oder die Felder der Linie, die durch feldnummer benannt ist.
-	 * 					Das Feld der feldnummer selbst befindet sich nicht in der Rückgabe-Feldliste.
-	 * 					Die Rückgabe-Feldliste kann leer sein .
+	 * 					Das Feld der feldnummer selbst befindet sich nicht in der Rï¿½ckgabe-Feldliste.
+	 * 					Die Rï¿½ckgabe-Feldliste kann leer sein .
 	 */
 	Linie gibLinie(FeldNummer feldNummer) {
 		Integer key = null;
@@ -112,7 +112,7 @@ class ArbeitsLinien {
 		return linie;
 	}
 
-	boolean istZeilen(){
+	boolean istZeilen() {
 		return this.istZeilen;
 	}
 }

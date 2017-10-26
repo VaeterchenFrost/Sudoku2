@@ -22,7 +22,7 @@ class KriteriumUnd implements KriteriumBildInfo {
 
 	// private void systemOut(float erfuellungsGrad, Set<Float> erfuellungsGradJeKriterium){
 	// if (ZahlLeser.istSystemOut()){
-	// System.out.println(String.format("%s Das Kriterium UND ist zu %1.1f%% erfüllt.", getClass().getName(), erfuellungsGrad));
+	// System.out.println(String.format("%s Das Kriterium UND ist zu %1.1f%% erfï¿½llt.", getClass().getName(), erfuellungsGrad));
 	// // for(KriteriumErgebnis kriteriumErgebnis: erfuellungsGradJeKriterium){
 	// // System.out.println(String.format("%1.1f%% %s", kriteriumErgebnis.erfuellungsGrad, kriteriumErgebnis.kriterium));
 	// // }
@@ -39,8 +39,8 @@ class KriteriumUnd implements KriteriumBildInfo {
 		durchschnitt /= kriterien.length;
 
 		if (istSystemOutZahl) {
-			System.out.println(String.format("Erfüllt=%1.1f%% %s %s", durchschnitt, getClass().getSimpleName(),
-					this.name));
+			System.out.println(
+					String.format("Erfï¿½llt=%1.1f%% %s %s", durchschnitt, getClass().getSimpleName(), this.name));
 		}
 
 		return durchschnitt;

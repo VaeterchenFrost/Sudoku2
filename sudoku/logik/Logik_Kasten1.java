@@ -47,7 +47,7 @@ class Logik_Kasten1 extends LogikKastenN {
 
 	@Override
 	public String[] gibErgebnis() {
-		return new String[] {"Im Kasten wird die Zahl auf dieser 1 Linie aus den möglichen dieser Felder gelöscht."};
+		return new String[] { "Im Kasten wird die Zahl auf dieser 1 Linie aus den mï¿½glichen dieser Felder gelï¿½scht." };
 	}
 
 	@Override
@@ -56,11 +56,11 @@ class Logik_Kasten1 extends LogikKastenN {
 	}
 
 	/**
-	 * Wenn hier im Kasten eine mögliche Zahl auf mehreren Spalten / Zeilen steht:
-	 * Bezug auf die möglichen Zahlen jeweils eines Nachbar-Kastens: 
-	 * Erkenne mögliche Zahl auf nur einer seiner Zeile bzw. Spalte: 
-	 * Im Kasten wird diese Zahl hier gelöscht.
-	 * @return null oder die gelöschten Zahlen mit ihren Feldern und ...
+	 * Wenn hier im Kasten eine mï¿½gliche Zahl auf mehreren Spalten / Zeilen steht:
+	 * Bezug auf die mï¿½glichen Zahlen jeweils eines Nachbar-Kastens: 
+	 * Erkenne mï¿½gliche Zahl auf nur einer seiner Zeile bzw. Spalte: 
+	 * Im Kasten wird diese Zahl hier gelï¿½scht.
+	 * @return null oder die gelï¿½schten Zahlen mit ihren Feldern und ...
 	 * @throws Exc
 	 */
 	private KastenErgebnis beachteNachbarn(Kasten kasten, boolean istSpalte, int zahl) throws Exc {
@@ -82,16 +82,16 @@ class Logik_Kasten1 extends LogikKastenN {
 					int iLinieVerboten = iNachbarLinienDerZahl.get(0);
 					FeldListe linie = meineLinien.get(iLinieVerboten);
 					FeldListe kannLoeschenIn = linie.gibFelderDerMoeglichenZahl(zahl);
-					// In jeder Logik, die mögliche Zahlen löscht, kann der Fall eintreten,
-					// dass dies Feld nach dem Löschen nur noch eine mögliche Zahl hat.
-					// Aber diese mögliche Solo-Zahl muss schon wirklich eine andere Logik erkennen!
+					// In jeder Logik, die mï¿½gliche Zahlen lï¿½scht, kann der Fall eintreten,
+					// dass dies Feld nach dem Lï¿½schen nur noch eine mï¿½gliche Zahl hat.
+					// Aber diese mï¿½gliche Solo-Zahl muss schon wirklich eine andere Logik erkennen!
 
 					if (!kannLoeschenIn.isEmpty()) {
-						// Es gibt LöschZahlen: Diese Logik war aktiv
+						// Es gibt Lï¿½schZahlen: Diese Logik war aktiv
 						FeldNummerListe nachbarUrsacheFelder = new FeldNummerListe(nachbarLinien.get(iLinieVerboten));
 
-						KastenErgebnis ergebnis1 = new KastenErgebnis(istSpalte, zahl, new FeldNummerListe(
-								kannLoeschenIn), nachbarUrsacheFelder);
+						KastenErgebnis ergebnis1 = new KastenErgebnis(istSpalte, zahl,
+								new FeldNummerListe(kannLoeschenIn), nachbarUrsacheFelder);
 						return ergebnis1;
 					}
 				}

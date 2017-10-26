@@ -49,7 +49,7 @@ public class SudokuPoolInfo extends JTable {
 	}
 
 	/**
-	 * @return Die Anzahl der Zeit-Intervalle, für die eine Sudokuanzahl genannt werden soll.
+	 * @return Die Anzahl der Zeit-Intervalle, fï¿½r die eine Sudokuanzahl genannt werden soll.
 	 */
 	static public int gibAnzahlEntstehungsIntervalle() {
 		return spaltenAnzahl - 1;
@@ -88,8 +88,8 @@ public class SudokuPoolInfo extends JTable {
 	}
 
 	static private String[] gibSpaltenUeberschriftenZustand(String titel) {
-		String[] texte = new String[] { titel, "Anzahl", "Doppel", "% voll1", "% voll2", "KB groß", "Leicht", "Schwer",
-				"Ältestes", "Jüngstes" };
+		String[] texte = new String[] { titel, "Anzahl", "Doppel", "% voll1", "% voll2", "KB groï¿½", "Leicht", "Schwer",
+				"ï¿½ltestes", "Jï¿½ngstes" };
 		return texte;
 	}
 
@@ -106,11 +106,12 @@ public class SudokuPoolInfo extends JTable {
 				texte[iEntnahme + 1] = gibDatumTextEntnahme(entnahme[iEntnahme].datum, false);
 			}
 		}
-		
+
 		return texte;
 	}
 
-	static private ArrayList<String[]> gibTexte(final EnumMap<Schwierigkeit, InfoTopf> poolInfo, boolean mitFuellstand) {
+	static private ArrayList<String[]> gibTexte(final EnumMap<Schwierigkeit, InfoTopf> poolInfo,
+			boolean mitFuellstand) {
 		ArrayList<String[]> texte = new ArrayList<>();
 
 		Set<Entry<Schwierigkeit, InfoTopf>> entrySet = poolInfo.entrySet();
@@ -144,21 +145,22 @@ public class SudokuPoolInfo extends JTable {
 		return texteArray;
 	}
 
-	static private String[] gibTexte(TagesEntnahme[] infoJeTag, Schwierigkeit schwierigkeit){
+	static private String[] gibTexte(TagesEntnahme[] infoJeTag, Schwierigkeit schwierigkeit) {
 		String[] texte = new String[spaltenAnzahl];
 		for (int i = 0; i < texte.length; i++) {
 			texte[i] = "";
 		}
-		
+
 		texte[0] = Schwierigkeit.gibName(schwierigkeit);
 		for (int iInfo = 0; iInfo < infoJeTag.length; iInfo++) {
 			TagesEntnahme tagesEntnahme = infoJeTag[iInfo];
 			InfoEntnommene infoEntnommene = tagesEntnahme.entnahme.get(schwierigkeit);
 			String text = "";
-			if (infoEntnommene != null){
-				text = String.format("%02d (%d-%d)", infoEntnommene.gibAnzahl(), infoEntnommene.gibLeichtestes(), infoEntnommene.gibSchwerstes());
+			if (infoEntnommene != null) {
+				text = String.format("%02d (%d-%d)", infoEntnommene.gibAnzahl(), infoEntnommene.gibLeichtestes(),
+						infoEntnommene.gibSchwerstes());
 			}
-			texte[iInfo+1] = text; 
+			texte[iInfo + 1] = text;
 		}
 		return texte;
 	}
@@ -189,7 +191,7 @@ public class SudokuPoolInfo extends JTable {
 	static private ArrayList<String[]> gibTexteEntstehung(final EnumMap<Schwierigkeit, AnzahlJeZeit[]> entstehung) {
 		ArrayList<String[]> texte = new ArrayList<>();
 
-		// Die Überschrift der zeiten
+		// Die ï¿½berschrift der zeiten
 		String[] texteBis = null;
 
 		Set<Entry<Schwierigkeit, AnzahlJeZeit[]>> entrySet = entstehung.entrySet();
@@ -199,7 +201,7 @@ public class SudokuPoolInfo extends JTable {
 			Schwierigkeit schwierigkeit = next.getKey();
 			AnzahlJeZeit[] haeufigkeiten = next.getValue();
 			if (texteBis == null) {
-				// Überschriften
+				// ï¿½berschriften
 				texteBis = new String[1 + haeufigkeiten.length];
 				texteBis[0] = "Erzeugt bis";
 				for (int iHaeufigkeit = 0; iHaeufigkeit < haeufigkeiten.length; iHaeufigkeit++) {
@@ -214,7 +216,7 @@ public class SudokuPoolInfo extends JTable {
 			texte.add(anzahlTexte);
 		}
 
-		// Die Überschriften vorne ran
+		// Die ï¿½berschriften vorne ran
 		texte.add(0, texteBis);
 		texte.add(0, gibUeberschrift("Erzeugung"));
 
@@ -250,19 +252,19 @@ public class SudokuPoolInfo extends JTable {
 		int i = 0;
 		texte[i++] = name;
 		texte[i++] = topfInfo.gibAnzahl() == 0 ? "" : gibSpaltenText(new Integer(topfInfo.gibAnzahl()).toString(), 3);
-		texte[i++] = topfInfo.gibAnzahlDoppel() == 0 ? "" : gibSpaltenText(
-				new Integer(topfInfo.gibAnzahlDoppel()).toString(), 3);
+		texte[i++] = topfInfo.gibAnzahlDoppel() == 0 ? ""
+				: gibSpaltenText(new Integer(topfInfo.gibAnzahlDoppel()).toString(), 3);
 		if (mitFuellstand) {
-			texte[i++] = topfInfo.gibFuellstand1() == 0 ? "" : gibSpaltenText(
-					new Integer(topfInfo.gibFuellstand1()).toString(), 2);
-			texte[i++] = topfInfo.gibFuellstand2() == 0 ? "" : gibSpaltenText(
-					new Integer(topfInfo.gibFuellstand2()).toString(), 2);
+			texte[i++] = topfInfo.gibFuellstand1() == 0 ? ""
+					: gibSpaltenText(new Integer(topfInfo.gibFuellstand1()).toString(), 2);
+			texte[i++] = topfInfo.gibFuellstand2() == 0 ? ""
+					: gibSpaltenText(new Integer(topfInfo.gibFuellstand2()).toString(), 2);
 		} else {
 			texte[i++] = "";
 			texte[i++] = "";
 		}
-		texte[i++] = topfInfo.gibGroesse() == 0 ? "" : gibSpaltenText(
-				new Long(Math.round(topfInfo.gibGroesse() / 1000.0)).toString(), 3);
+		texte[i++] = topfInfo.gibGroesse() == 0 ? ""
+				: gibSpaltenText(new Long(Math.round(topfInfo.gibGroesse() / 1000.0)).toString(), 3);
 		texte[i++] = topfInfo.gibLeichtestes() == null ? "" : gibSpaltenText(topfInfo.gibLeichtestes().toString(), 2);
 		texte[i++] = topfInfo.gibSchwerstes() == null ? "" : gibSpaltenText(topfInfo.gibSchwerstes().toString(), 3);
 		texte[i++] = gibDatumText(topfInfo.gibAeltestes());
@@ -271,7 +273,7 @@ public class SudokuPoolInfo extends JTable {
 	}
 
 	static private void zeige(String titel, SudokuPoolInfo table) {
-		// Diese Variante bringt größeren Text nicht komplett auf's Trapez:
+		// Diese Variante bringt grï¿½ï¿½eren Text nicht komplett auf's Trapez:
 		// JOptionPane.showMessageDialog(SudokuFrame.gibMainFrame(), table, "Sudoku-Pool-Zustand",
 		// JOptionPane.PLAIN_MESSAGE);
 
@@ -296,10 +298,10 @@ public class SudokuPoolInfo extends JTable {
 		dlg.pack();
 
 		Rectangle maxRectangle = MaximaleFensterGroesse.gibMaxGroesse();
-		int dlgHeight = table.getRowCount() * table.getRowHeight() + 5*buttonOK.getHeight(); 
+		int dlgHeight = table.getRowCount() * table.getRowHeight() + 5 * buttonOK.getHeight();
 		Dimension dlgGroesse = new Dimension((maxRectangle.width * 4) / 5, dlgHeight);
-		dlg.setLocation(new Point((maxRectangle.width - dlgGroesse.width) / 2,
-				(maxRectangle.height - dlgGroesse.height)));
+		dlg.setLocation(
+				new Point((maxRectangle.width - dlgGroesse.width) / 2, (maxRectangle.height - dlgGroesse.height)));
 		dlg.setSize(dlgGroesse);
 
 		dlg.setVisible(true);

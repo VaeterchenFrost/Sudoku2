@@ -6,7 +6,7 @@ import sudoku.kern.info.InfoSudoku;
 
 /**
  * @author heroe
- * Die Gesamtheit der Lösungen des Sudoku
+ * Die Gesamtheit der Lï¿½sungen des Sudoku
  */
 public class Loesungen {
 
@@ -26,14 +26,14 @@ public class Loesungen {
 	}
 
 	/**
-	 * @return Für jede Lösung in loesungen den Index des Basis-Sudokus für einen Vergleich.
-	 * 					Der Index im Rückgabe-Array entspricht genau denen der loesungen.
-	 * 					Der BasisIndex für Loesung[0] ist null!!
+	 * @return Fï¿½r jede Lï¿½sung in loesungen den Index des Basis-Sudokus fï¿½r einen Vergleich.
+	 * 					Der Index im Rï¿½ckgabe-Array entspricht genau denen der loesungen.
+	 * 					Der BasisIndex fï¿½r Loesung[0] ist null!!
 	 */
 	private Integer[] gibBasisSudokuIndizees() {
 		Integer[] basisIndizees = new Integer[loesungen.size()];
 
-		// MIt allen Lösungen
+		// MIt allen Lï¿½sungen
 		for (int iLoesung = 0; iLoesung < this.loesungen.size(); iLoesung++) {
 			Loesung loesung = loesungen.get(iLoesung);
 			VersuchStarts versuchStarts = loesung.gibVersuchStarts();
@@ -50,7 +50,7 @@ public class Loesungen {
 
 				// Mit immer weniger VersuchStarts ein Basis-Sudoku suchen
 				for (int nStarts = versuchStarts.gibAnzahl() - 1; nStarts > 0; nStarts--) {
-					// Mit allen Lösungen vor loesung
+					// Mit allen Lï¿½sungen vor loesung
 					for (int iBasis = 0; iBasis < iLoesung; iBasis++) {
 						Loesung basisLoesung = loesungen.get(iBasis);
 						VersuchStarts basisStarts = basisLoesung.gibVersuchStarts();
@@ -58,11 +58,11 @@ public class Loesungen {
 							basisIndex = new Integer(iBasis);
 							break;
 						}
-					}// for (int iBasis
+					} // for (int iBasis
 					if (basisIndex != null) {
 						break;
 					}
-				}// for (nStarts
+				} // for (nStarts
 
 				if (basisIndex == null) {
 					basisIndizees[iLoesung] = new Integer(0);
@@ -77,22 +77,22 @@ public class Loesungen {
 				if (basisIndex != null) {
 					sBasis = String.format("hat Basis %2d", basisIndex);
 				}
-				System.out.println(String.format("Lösung %2d %s", iLoesung, sBasis));
+				System.out.println(String.format("Lï¿½sung %2d %s", iLoesung, sBasis));
 			}
 		} // for (int i = 0; i < this.loesungen.size()
 		return basisIndizees;
 	}
 
 	/**
-	 * @return Für jede Lösung in loesungen das Sudoku.
-	 * 					Der Index im Rückgabe-Array entspricht genau dem der loesungen.
+	 * @return Fï¿½r jede Lï¿½sung in loesungen das Sudoku.
+	 * 					Der Index im Rï¿½ckgabe-Array entspricht genau dem der loesungen.
 	 * 					Die Titel der Sudokus verweisen auf ihr Basis-Sudoku
 	 */
 	public InfoSudoku[] gibInfoSudokusMitDifferenzTitel() {
 		InfoSudoku[] sudokus = new InfoSudoku[loesungen.size()];
 		Integer[] basisSudokuIndizees = gibBasisSudokuIndizees();
 
-		// MIt allen Lösungen
+		// MIt allen Lï¿½sungen
 		for (int iLoesung = 0; iLoesung < this.loesungen.size(); iLoesung++) {
 			InfoSudoku sudoku = loesungen.get(iLoesung).gibSudoku();
 
@@ -108,14 +108,14 @@ public class Loesungen {
 	}
 
 	/**
-	 * @return Für jede Lösung in loesungen das Basis-Sudoku
-	 * 					Der Index im Rückgabe-Array entspricht genau dem der loesungen.
+	 * @return Fï¿½r jede Lï¿½sung in loesungen das Basis-Sudoku
+	 * 					Der Index im Rï¿½ckgabe-Array entspricht genau dem der loesungen.
 	 */
 	public InfoSudoku[] gibBasisSudokus() {
 		Integer[] indizees = gibBasisSudokuIndizees();
 
 		InfoSudoku[] basisSudokus = new InfoSudoku[loesungen.size()];
-		// MIt allen Lösungen
+		// MIt allen Lï¿½sungen
 		for (int iLoesung = 0; iLoesung < this.loesungen.size(); iLoesung++) {
 			Integer iBasis = indizees[iLoesung];
 

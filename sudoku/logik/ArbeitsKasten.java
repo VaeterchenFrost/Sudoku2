@@ -4,7 +4,7 @@ import sudoku.kern.feldmatrix.FeldListe;
 
 class ArbeitsKasten {
 	/**
-	 * Die Kasten, zu denen die Felder gehören: Hier können die Gruppen-Infos abgefragt werden.
+	 * Die Kasten, zu denen die Felder gehï¿½ren: Hier kï¿½nnen die Gruppen-Infos abgefragt werden.
 	 */
 	Kasten kasten;
 	/**
@@ -16,6 +16,5 @@ class ArbeitsKasten {
 		this.kasten = kasten;
 		arbeitsFelder = null;
 	}
-
 
 }

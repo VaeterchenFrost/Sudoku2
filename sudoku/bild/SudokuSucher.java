@@ -124,11 +124,11 @@ public class SudokuSucher { // implements LangerProzess{
 	}
 
 	/**
-	 * Ermittelt die Veränderung der weissAnzahlen von Index zu Index+1.
+	 * Ermittelt die Verï¿½nderung der weissAnzahlen von Index zu Index+1.
 	 * @param weissAnzahlen
 	 * @param minStrichLaenge 
 	 * @param linienName
-	 * @return Alle Sprünge, deren abs(Höhe) größer/gleich minStrichLaenge sind.
+	 * @return Alle Sprï¿½nge, deren abs(Hï¿½he) grï¿½ï¿½er/gleich minStrichLaenge sind.
 	 */
 	private static List<Sprung> gibSprunghoehen(int[] weissAnzahlen, int minStrichLaenge, String linienName) {
 		ArrayList<Sprung> spruenge = new ArrayList<Sprung>();
@@ -142,7 +142,7 @@ public class SudokuSucher { // implements LangerProzess{
 			}
 		}
 
-		// systemOut(String.format("%s: %s Länge=%d",
+		// systemOut(String.format("%s: %s Lï¿½nge=%d",
 		// SudokuSucher.class.getName(), linienName, linienLaenge));
 		// Iterator<Sprung> iterator = spruenge.iterator();
 		// while(iterator.hasNext()){
@@ -157,8 +157,8 @@ public class SudokuSucher { // implements LangerProzess{
 
 	/**
 	 * @param spruenge
-	 *            Nur Sprünge, deren Absolutwert der Sprunghöhe > 0 ist.
-	 * @return Striche, die aus den Sprüngen erkennbar sind. Also ev. auch eine
+	 *            Nur Sprï¿½nge, deren Absolutwert der Sprunghï¿½he > 0 ist.
+	 * @return Striche, die aus den Sprï¿½ngen erkennbar sind. Also ev. auch eine
 	 *         leere Liste.
 	 */
 	private static StrichListe gibLinienStriche(List<Sprung> spruenge, String titel, String linienName) {
@@ -166,9 +166,9 @@ public class SudokuSucher { // implements LangerProzess{
 
 		StrichListe striche = new StrichListe();
 
-		// Die beiden letzten als relevant erkannten Sprünge
-		Sprung weissSchwarzSprung = null; // Sprunghöhe < 0
-		Sprung schwarzWeissSprung = null; // Sprunghöhe > 0
+		// Die beiden letzten als relevant erkannten Sprï¿½nge
+		Sprung weissSchwarzSprung = null; // Sprunghï¿½he < 0
+		Sprung schwarzWeissSprung = null; // Sprunghï¿½he > 0
 		for (Sprung sprung : spruenge) {
 			int sprungHoehe = sprung.gibSprungHoehe();
 			if (sprungHoehe < 0) {
@@ -215,7 +215,7 @@ public class SudokuSucher { // implements LangerProzess{
 	 *            Das Array mit der Weiss-Pixel-Anzahl: Wie oft tritt ein
 	 *            Weiss-Pixel auf Spalte[i] bzw. Zeile[i] auf?
 	 * @param linienLaenge
-	 *            Länge von Spalte bzw. Zeile
+	 *            Lï¿½nge von Spalte bzw. Zeile
 	 * @param linienName
 	 *            "Spalte" bzw. "Zeile"
 	 * @return Die Striche, die als Sudoku-Striche erkannt wurden. 
@@ -235,12 +235,12 @@ public class SudokuSucher { // implements LangerProzess{
 	 * @param stricheKreuz
 	 * 			null falls noch garkeine Striche erkannt wurden oder
 	 * 			stricheKreuz mit nur senkrechten oder waagerechten Strichen (die wurden schon erfolgreich erkannt).
-	 * 			Die bereits erkannten Striche der einen Richtung werden übernommen. 
+	 * 			Die bereits erkannten Striche der einen Richtung werden ï¿½bernommen. 
 	 * 			Sie werden nicht neu erstellt!  
 	 * @param minStrichLaengeSenkrecht
-	 * 			Die kleinste erlaubte Länge eines senkrechten Striches 
+	 * 			Die kleinste erlaubte Lï¿½nge eines senkrechten Striches 
 	 * @param minStrichLaengeWaagerecht
-	 * 			Die kleinste erlaubte Länge eines waagerechten Striches 
+	 * 			Die kleinste erlaubte Lï¿½nge eines waagerechten Striches 
 	 * @param titel 
 	 * @return Die Sudoku-Striche, die im Schwarz-Weiss-Bild erkannt wurden
 	 */
@@ -264,10 +264,12 @@ public class SudokuSucher { // implements LangerProzess{
 		// Senkrechte Sudoku-Striche
 		StrichListe[] spaltenSudokuStriche = null;
 		if (spaltenErstellen) {
-			systemOut(String.format("%s Spalten-Strich-Erstellung mit Min-Strich-Länge=%d Pixel", titel,
+			systemOut(String.format("%s Spalten-Strich-Erstellung mit Min-Strich-Lï¿½nge=%d Pixel", titel,
 					minStrichLaengeSenkrecht));
-			systemOut(" ------------------------------------------------------------------------------------------------------");
-			spaltenSudokuStriche = gibSudokuStriche(linienWeiss.spaltenWeiss, minStrichLaengeSenkrecht, titel, "Spalte");
+			systemOut(
+					" ------------------------------------------------------------------------------------------------------");
+			spaltenSudokuStriche = gibSudokuStriche(linienWeiss.spaltenWeiss, minStrichLaengeSenkrecht, titel,
+					"Spalte");
 		} else {
 			spaltenSudokuStriche = stricheKreuz.spaltenStriche;
 		}
@@ -275,9 +277,10 @@ public class SudokuSucher { // implements LangerProzess{
 		// Waagerechte Sudoku-Striche
 		StrichListe[] zeilenSudokuStriche = null;
 		if (zeilenErstellen) {
-			systemOut(String.format("%s Zeilen-Strich-Erstellung mit Min-Strich-Länge=%d Pixel", titel,
+			systemOut(String.format("%s Zeilen-Strich-Erstellung mit Min-Strich-Lï¿½nge=%d Pixel", titel,
 					minStrichLaengeWaagerecht));
-			systemOut(" ------------------------------------------------------------------------------------------------------");
+			systemOut(
+					" ------------------------------------------------------------------------------------------------------");
 			zeilenSudokuStriche = gibSudokuStriche(linienWeiss.zeilenWeiss, minStrichLaengeWaagerecht, titel, "Zeile");
 		} else {
 			zeilenSudokuStriche = stricheKreuz.zeilenStriche;
@@ -308,7 +311,7 @@ public class SudokuSucher { // implements LangerProzess{
 
 		LinienWeiss linienWeiss = new LinienWeiss(image, null);
 
-		// Mehrere Suchläufe mit immer kürzeren erlaubten Strichen
+		// Mehrere Suchlï¿½ufe mit immer kï¿½rzeren erlaubten Strichen
 		// Das hilft bei Bildern mit schiefen Sudokus oder auch bei miesen Bildern
 		for (int nSuchLauf = 1; nSuchLauf < 3; nSuchLauf++) {
 			boolean b = suchen(linienWeiss, nSuchLauf); // , fortschrittZeiger);
@@ -321,20 +324,20 @@ public class SudokuSucher { // implements LangerProzess{
 	/**
 	 * Sucht im Bild nach Sudokus
 	 * @param linienWeiss Info zu den Weiss-Anteilen der Spalten bzw. Zeilen
-	 * @param nSuchLauf Eine größere Zahl verkleinert die geforderte Strichlänge 
+	 * @param nSuchLauf Eine grï¿½ï¿½ere Zahl verkleinert die geforderte Strichlï¿½nge 
 	 * @param fortschrittZeiger
 	 * @return true wenn Sudokus gefunden wurden
 	 */
 	private boolean suchen(LinienWeiss linienWeiss, int nSuchLauf) {
-		systemOut(String.format("%s.suchen(): Untersuchung Gesamtbild mit Breite=%d und Höhe=%d, Lauf %d",
+		systemOut(String.format("%s.suchen(): Untersuchung Gesamtbild mit Breite=%d und Hï¿½he=%d, Lauf %d",
 				SudokuSucher.class.getName(), image.getWidth(), image.getHeight(), nSuchLauf));
 		systemOut(" ==========================================================================");
 		returnImage = image;
 
-		// Erstellung der minimal geforderten Strichlängen:
+		// Erstellung der minimal geforderten Strichlï¿½ngen:
 		// Es wird davon ausgegangen, dass auf der schmalen Bildseite max 3 Sudokus liegen,
 		// auf der langen Seite max 6 Sudokus.
-		// Die Zwischenräume zwischen den Sudokus berücksichtigen heisst: jeweils + 1.
+		// Die Zwischenrï¿½ume zwischen den Sudokus berï¿½cksichtigen heisst: jeweils + 1.
 		int minStrichLaengeProzentKurz = 25 / nSuchLauf;
 		int minStrichLaengeProzentLang = 13 / nSuchLauf;
 
@@ -360,8 +363,8 @@ public class SudokuSucher { // implements LangerProzess{
 			image = Bild.gibBildAusschnitt(image, stricheKreuzRechteck);
 			stricheKreuz.transformiereIndizees(stricheKreuzRechteck.getLocation());
 
-			// Es wird vorausgesetzt, dass sämtliche Striche richtige Sudoku-Striche
-			// BildFeldGruppen (je 1 für 1 Sudoku) erstellen
+			// Es wird vorausgesetzt, dass sï¿½mtliche Striche richtige Sudoku-Striche
+			// BildFeldGruppen (je 1 fï¿½r 1 Sudoku) erstellen
 			ArrayList<BildFeldGruppe> bildFeldGruppeListe = new ArrayList<>();
 
 			for (int iZeilenStrich = 0; iZeilenStrich < stricheKreuz.zeilenStriche.length; iZeilenStrich++) {
@@ -384,8 +387,8 @@ public class SudokuSucher { // implements LangerProzess{
 				}
 			}
 		} else {
-			// Das Sudoku muss schon ordentlich groß auf dem Monitor sein, damit die Zahlen sicher erkannt werden.
-			// Deswegen ist der Versuch mit dem Bildausschnitt nicht nötig.
+			// Das Sudoku muss schon ordentlich groï¿½ auf dem Monitor sein, damit die Zahlen sicher erkannt werden.
+			// Deswegen ist der Versuch mit dem Bildausschnitt nicht nï¿½tig.
 
 			// if (stricheKreuz.istEineRichtungBekannt()) {
 			// // kleineren Bildteil nehmen und nochmal...
@@ -402,7 +405,7 @@ public class SudokuSucher { // implements LangerProzess{
 			//
 			// // Im Bildausschnitt ist der Kick, dass die zu erkennenden Striche alle sehr lang sind:
 			// int minStrichLaenge = 50;
-			// //stricheKreuz: die bekannten Striche müssen jetzt auf den Ausschnitt transformiert werden!
+			// //stricheKreuz: die bekannten Striche mï¿½ssen jetzt auf den Ausschnitt transformiert werden!
 			// stricheKreuz.transformiereIndizees(bessererBildAusschnitt.getLocation());
 			//
 			//
@@ -413,11 +416,11 @@ public class SudokuSucher { // implements LangerProzess{
 			// returnImage = gibBildAusschnitt(besseresBild, stricheKreuz2);
 			// systemOut("Ferttschsch per Ausschnitt");
 			// } else {
-			// systemOut("Kein Glück gehabt mit Ausschnitt !?");
+			// systemOut("Kein Glï¿½ck gehabt mit Ausschnitt !?");
 			// }
 			// } else {
-			// da läßt sich nichts machen
-			systemOut("Kein Glück gehabt !?");
+			// da lï¿½ï¿½t sich nichts machen
+			systemOut("Kein Glï¿½ck gehabt !?");
 			// }
 		} // if (stricheKreuz.istOK()) {
 		return sudokus != null;

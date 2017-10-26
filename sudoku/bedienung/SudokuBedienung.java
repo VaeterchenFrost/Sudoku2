@@ -37,14 +37,14 @@ import sudoku.varianz.Loesungen;
 import sudoku.varianz.Varianz;
 
 public class SudokuBedienung {
-	// Für Fehlersuche
+	// Fï¿½r Fehlersuche
 	private static boolean istPrintoutProtokoll = false;
 
 	// Das aktuell in Bearbeitung befindliche Sudoku
 	private SudokuLogik sudokuLogik;
-	// Die Klugheit, die für das Lösen des aktuell in Bearbeitung befindlichen Sudoku genutzt wird
+	// Die Klugheit, die fï¿½r das Lï¿½sen des aktuell in Bearbeitung befindlichen Sudoku genutzt wird
 	private Klugheit klugheit;
-	// protokolliert den Lösungsvorgang des aktuell in Bearbeitung befindlichen Sudoku
+	// protokolliert den Lï¿½sungsvorgang des aktuell in Bearbeitung befindlichen Sudoku
 	private Protokoll protokoll;
 	// Name des aktuell in Bearbeitung befindlichen Sudoku
 	private String name;
@@ -53,7 +53,7 @@ public class SudokuBedienung {
 	// Schwierigkeit des aktuell in Bearbeitung befindlichen Sudoku
 	private SudokuSchwierigkeit schwierigkeit;
 
-	// Ist der Liererant für neue Sudokus: Im besten Fall sind immer welche vorrätig
+	// Ist der Liererant fï¿½r neue Sudokus: Im besten Fall sind immer welche vorrï¿½tig
 	private SudokuPool sudokuPool;
 
 	// Alle Anzeigeelemente, die sich angemeldet haben, werden hier vermerkt.
@@ -72,7 +72,7 @@ public class SudokuBedienung {
 
 	/**
 	 * @param externeAusnahmeBehandlung falls != null wird im internen Thread 
-	 * 				diese Ausnahmebehandlung für nicht gefangene Ausnahmen eingeklinkt, 
+	 * 				diese Ausnahmebehandlung fï¿½r nicht gefangene Ausnahmen eingeklinkt, 
 	 * 				ansonsten die Standardbehandlung des genannten Typs. 
 	 * @throws Exc
 	 */
@@ -88,7 +88,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Setzt alle internen Zwischenspeicher zurück: In Grundstellung
+	 * Setzt alle internen Zwischenspeicher zurï¿½ck: In Grundstellung
 	 */
 	private void initZwischenspeicher() {
 		problem = null;
@@ -112,7 +112,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Löscht das Sudoku und stellt es aus der Datei
+	 * Lï¿½scht das Sudoku und stellt es aus der Datei
 	 */
 	public void reset(String nameVerzeichnis, String nameDatei) {
 		aktionVorbereiten();
@@ -136,7 +136,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Löscht das Sudoku und stellt es aus dem InfoSudoku
+	 * Lï¿½scht das Sudoku und stellt es aus dem InfoSudoku
 	 * @param vorgaben 
 	 * @param name des Sudoku
 	 */
@@ -153,16 +153,16 @@ public class SudokuBedienung {
 
 	/**
 	 * Bewegt die Vorgaben des Sudoku unkritisch.
-	 * Diese einfache Implementation ist nur möglich ohne Einträge, denn sie trägt einfach die Vorgaben hin und her!
-	 * Eine Implementation mit Einträgen muss neben dem jeweiligen Umtragen der Vorgaben 
-	 * auch	das Protokoll animieren und dann die Einträge wieder einspielen!
+	 * Diese einfache Implementation ist nur mï¿½glich ohne Eintrï¿½ge, denn sie trï¿½gt einfach die Vorgaben hin und her!
+	 * Eine Implementation mit Eintrï¿½gen muss neben dem jeweiligen Umtragen der Vorgaben 
+	 * auch	das Protokoll animieren und dann die Eintrï¿½ge wieder einspielen!
 	 * Plan: Ohne jedes reset() und initZwischenspeicher.
 	 * 	0. protokoll: Markierung setzen.
-	 * 	1. protokoll: Alles zurückgehen bedeutet alle Einträge verschwinden lassen.
-	 * 	2. protokoll: Sperren: Ist das überhaupt nötig?
+	 * 	1. protokoll: Alles zurï¿½ckgehen bedeutet alle Eintrï¿½ge verschwinden lassen.
+	 * 	2. protokoll: Sperren: Ist das ï¿½berhaupt nï¿½tig?
 	 * 	3. FeldMatrix: Vorgaben animieren
 	 * 	4. protokoll: animieren der FeldNummern 
-	 * 	5. protokoll: Zur Markierung wieder vorgehen. Geht VOR-Gehen - bis jetzt war wohl bloß Rückwärts-Gehen!?
+	 * 	5. protokoll: Zur Markierung wieder vorgehen. Geht VOR-Gehen - bis jetzt war wohl bloï¿½ Rï¿½ckwï¿½rts-Gehen!?
 	 * @param vorgaben 
 	 * @param name des Sudoku
 	 */
@@ -170,12 +170,12 @@ public class SudokuBedienung {
 		aktionVorbereiten();
 		try {
 			int protokollMarkierung = protokoll.markierungSetzen();
-			// Einträge verschwinden lassen, schon löschen
+			// Eintrï¿½ge verschwinden lassen, schon lï¿½schen
 			protokoll.gehe(Schrittweite.ALLES, /* vorwaerts= */false);
 			// Vorgaben animieren
 			this.sudokuLogik.animiere(animator);
 			protokoll.animiere(animator);
-			// Einträge wieder setzen
+			// Eintrï¿½ge wieder setzen
 			protokoll.markierungAnsteuern(protokollMarkierung);
 			// this.schwierigkeit = Analysator.gibSchwierigkeit(vorgaben);
 			auffrischen(true);
@@ -189,7 +189,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Löscht das Sudoku und stellt es aus dem text
+	 * Lï¿½scht das Sudoku und stellt es aus dem text
 	 * @param vorgaben 
 	 * @param name1
 	 */
@@ -264,7 +264,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Wird gerufen nach einer Veränderung des Sudoku
+	 * Wird gerufen nach einer Verï¿½nderung des Sudoku
 	 * @param mitAnzeige bei true werden die angemeldeten AnzeigeElemente angesprochen
 	 */
 	private void auffrischen(boolean mitAnzeige) {
@@ -308,14 +308,14 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Gibt die Vorgaben des Sudoku zurück. 
+	 * Gibt die Vorgaben des Sudoku zurï¿½ck. 
 	 */
 	public InfoSudoku gibVorgaben() {
 		return sudokuLogik.gibVorgaben();
 	}
 
 	/**
-	 * Gibt einen Schnappschuss des Sudoku zurück. 
+	 * Gibt einen Schnappschuss des Sudoku zurï¿½ck. 
 	 */
 	public InfoSudoku gibSchnappschuss() {
 		InfoSudoku schnappschuss = this.sudokuLogik.gibFeldInfos();
@@ -334,7 +334,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * @return true wenn die Logik zur Erstellung von möglichen Zahlen (schon) läuft
+	 * @return true wenn die Logik zur Erstellung von mï¿½glichen Zahlen (schon) lï¿½uft
 	 */
 	public boolean istMoeglichLogik() {
 		return gibAnzahlVorgaben() >= SudokuLogik.gibAnzahlVorgabenMin();
@@ -350,7 +350,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * @return true wenn es Einträge gibt
+	 * @return true wenn es Eintrï¿½ge gibt
 	 */
 	public boolean ebeneLaeuftEine() {
 		return sudokuLogik.ebeneLaeuftEine();
@@ -379,7 +379,7 @@ public class SudokuBedienung {
 	/**
 	 * @param zeile 1 bis 9
 	 * @param spalte 1 bis 9
-	 * @param eintrag 1 bis 9 oder 0 löscht den Eintrag
+	 * @param eintrag 1 bis 9 oder 0 lï¿½scht den Eintrag
 	 */
 	public void setzeEintrag(FeldNummer feldNummer, int eintrag) {
 		aktionVorbereiten();
@@ -398,7 +398,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Ein (!) freies Feld, in dem die Logik erkennt, dass nur eine Zahl möglich ist, erhält diese mögliche Zahl als Eintrag
+	 * Ein (!) freies Feld, in dem die Logik erkennt, dass nur eine Zahl mï¿½glich ist, erhï¿½lt diese mï¿½gliche Zahl als Eintrag
 	 * @throws Problem 
 	 */
 	public void setzeEintrag() {
@@ -415,7 +415,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Freie Felder, in denen die Logik erkennt, dass nur eine Zahl möglich ist, erhalten diese mögliche Zahl als Eintrag
+	 * Freie Felder, in denen die Logik erkennt, dass nur eine Zahl mï¿½glich ist, erhalten diese mï¿½gliche Zahl als Eintrag
 	 * @throws Problem 
 	 */
 	public void setzeEintraegeAufKlare() {
@@ -463,7 +463,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Versucht das Sudoku zu knacken (zu lösen).
+	 * Versucht das Sudoku zu knacken (zu lï¿½sen).
 	 * Wenn das Sudoku fertig ist, sieht man das in den Feldern, 
 	 * ansonsten wird bei gibProblem() (im Rahmen der Anzeige) das Dilemma genannt.
 	  */
@@ -478,7 +478,7 @@ public class SudokuBedienung {
 				// Zwischenspeicher bis gibSchwierigkeit();
 				this.schwierigkeit = Analysator.gibSchwierigkeit(sudokuLogik.gibVorgaben());
 			} else {
-				// Folgende auffrischen() sollen nicht ein vom Automaten genanntes Problem zerstören:
+				// Folgende auffrischen() sollen nicht ein vom Automaten genanntes Problem zerstï¿½ren:
 				// Deshalb wird es hier zwischengespeichert.
 				String s = Knacker.gibText(ergebnis);
 				problem = new Problem(s);
@@ -491,7 +491,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Ermittelt die Anzahl der Lösungen des Sudoku 
+	 * Ermittelt die Anzahl der Lï¿½sungen des Sudoku 
 	  */
 	public Loesungen ermittleLoesungen(int maxAnzahl) {
 		aktionVorbereiten();
@@ -525,7 +525,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Versucht das Sudoku zu lösen.
+	 * Versucht das Sudoku zu lï¿½sen.
 	 * Wenn das gelingt, wird die TipZahl intern vermerkt. 
 	 * Die TipZahl kann im Rahmen der Anzeige mit gibTipZahl() abgefragt werden.
 	*/
@@ -546,7 +546,7 @@ public class SudokuBedienung {
 			}
 
 			if ((zahlErgebnis.zahl == null) & (zahlErgebnis.problem == null)) {
-				problem = new Problem("Das Sudoku scheint nicht lösbar");
+				problem = new Problem("Das Sudoku scheint nicht lï¿½sbar");
 			}
 
 			anzeige();
@@ -558,7 +558,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Läßt die Sudoku-Logik.setzeMoegliche() laufen.
+	 * Lï¿½ï¿½t die Sudoku-Logik.setzeMoegliche() laufen.
 	 * Wenn dabei ein Tip entsteht, wird dieser im TipBericht intern vermerkt. 
 	 * Der TipBericht kann im Rahmen der Anzeige mit gibTipBericht() abgefragt werden.
 	*/
@@ -572,7 +572,7 @@ public class SudokuBedienung {
 			sudokuLogik.registriereTipKurier(tipBericht);
 			// tipBericht vollschreiben
 			auffrischen(false);
-			// Die Tip-Erstellung hinterläßt leider irgendwas untypisches. Deshalb hier hinterher nochmal der Standard:
+			// Die Tip-Erstellung hinterlï¿½ï¿½t leider irgendwas untypisches. Deshalb hier hinterher nochmal der Standard:
 			// auffrischen( true); // mit Anzeige
 			if (!istNurLogik) {
 				aktionNachbereiten(null);
@@ -608,7 +608,7 @@ public class SudokuBedienung {
 	 * @param option
 	 * @param vorlage != null bei NeuTyp.Typ.VORLAGE
 	 * @param fortschrittAnzeige != null bei NeuTyp.Typ.VORLAGE
-	 * @return null wenn kein neues zur Verfügung steht
+	 * @return null wenn kein neues zur Verfï¿½gung steht
 	 */
 	public InfoSudoku gibNeues(NeuTyp neuTyp, NeuTypOption option, InfoSudoku vorlage,
 			FortschrittAnzeige fortschrittAnzeige) {
@@ -639,15 +639,15 @@ public class SudokuBedienung {
 		return poolInfo;
 	}
 
-	public PoolInfoEntnommene gibSudokuPoolInfoEntnommene(){
+	public PoolInfoEntnommene gibSudokuPoolInfoEntnommene() {
 		this.sperreBedienElemente(true);
 		PoolInfoEntnommene poolInfo = this.sudokuPool.gibPoolInfoEntnommene();
 		aktionNachbereiten(null);
 		return poolInfo;
 	}
-	
+
 	/**
-	 * Speichert das Sudoku komplett: seine Vorgaben und auch seine Einträge.
+	 * Speichert das Sudoku komplett: seine Vorgaben und auch seine Eintrï¿½ge.
 	 * @param nameVerzeichnis
 	 * @param nameDatei
 	 * @throws IOException

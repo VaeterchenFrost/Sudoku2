@@ -9,10 +9,10 @@ class KriteriumFelder implements KriteriumBildInfo {
 	 * @param soll Sollwert
 	 * @param ist Istwert
 	 * @param erfuellung0Min Bei diesem Wert, der kleiner als der Sollwert ist, 
-	 * 			ist das Kriterium zu 0 Prozent erfüllt, also nicht erfüllt.
-	 * @param erfuellung0Max Bei diesem Wert, der größer als der Sollwert ist, 
-	 * 			ist das Kriterium zu 0 Prozent erfüllt, also nicht erfüllt.
-	 * @return Erfüllungsgrad des Sollwertes durch den Istwert in Prozent
+	 * 			ist das Kriterium zu 0 Prozent erfï¿½llt, also nicht erfï¿½llt.
+	 * @param erfuellung0Max Bei diesem Wert, der grï¿½ï¿½er als der Sollwert ist, 
+	 * 			ist das Kriterium zu 0 Prozent erfï¿½llt, also nicht erfï¿½llt.
+	 * @return Erfï¿½llungsgrad des Sollwertes durch den Istwert in Prozent
 	 */
 	static float gibErfuellungsGrad(SollSchwarz sollSchwarz, float ist) {
 		float erfuellungsGrad = 0;
@@ -142,7 +142,7 @@ class KriteriumFelder implements KriteriumBildInfo {
 				sErgebnisse += String.format(" %s=%1.1f=>%1.1f%%", feldErgebnis.feldNummer, feldErgebnis.ist,
 						feldErgebnis.erfuellungsGrad);
 			}
-			System.out.println(String.format("Erfüllt=%1.1f%%  %s: %s %s", durchschnitt, this.name, sErgebnisse, this));
+			System.out.println(String.format("Erfï¿½llt=%1.1f%%  %s: %s %s", durchschnitt, this.name, sErgebnisse, this));
 		}
 
 		return durchschnitt;
@@ -155,8 +155,7 @@ class KriteriumFelder implements KriteriumBildInfo {
 		// FeldNummer feldNummer = felder[i];
 		// sFelder += " " + feldNummer.toString();
 		// }
-		return "Kriterium [" + name + ":"
-				+ // sFelder +
+		return "Kriterium [" + name + ":" + // sFelder +
 				", 0Min=" + sollSchwarz.erfuellung0Min + ", soll=" + sollSchwarz.soll + ", 0Max="
 				+ sollSchwarz.erfuellung0Max + "]";
 	}

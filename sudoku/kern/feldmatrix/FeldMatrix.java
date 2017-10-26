@@ -66,14 +66,14 @@ public class FeldMatrix {
 	}
 
 	/**
-	 * Ist die minimale Vorbereitung für Mehrfachsudoku: 
-	 * Offset wird schon bei Anzeigen berücksichtigt.
+	 * Ist die minimale Vorbereitung fï¿½r Mehrfachsudoku: 
+	 * Offset wird schon bei Anzeigen berï¿½cksichtigt.
 	 */
 	protected FeldNummer gibOffset() {
 		return null;
 	}
 
-	// gibt true zurück wenn es keine freien Felder mehr gibt
+	// gibt true zurï¿½ck wenn es keine freien Felder mehr gibt
 	/**
 	 * @return true wenn es noch freie Felder gibt
 	 */
@@ -110,7 +110,7 @@ public class FeldMatrix {
 	}
 
 	/**
-	 * @return Alle Felder, die die große Anzahl Möglicher besitzen
+	 * @return Alle Felder, die die groï¿½e Anzahl Mï¿½glicher besitzen
 	 */
 	public FeldInfoListe gibFelderMitDenMeistenMoeglichen() {
 		int nMaxMoegliche = felder.gibMoeglicheAnzahlMax();
@@ -123,7 +123,7 @@ public class FeldMatrix {
 	}
 
 	/**
-	 * @return Für alle Felder die Vorgabe: Felder ohne Vorgabe kommen mit "0" zurück.
+	 * @return Fï¿½r alle Felder die Vorgabe: Felder ohne Vorgabe kommen mit "0" zurï¿½ck.
 	 */
 	public InfoSudoku gibVorgaben() {
 		FeldInfoListe infos = new FeldInfoListe();
@@ -143,7 +143,7 @@ public class FeldMatrix {
 		return f;
 	}
 
-	/** Löscht alle Vorgaben und Einträge
+	/** Lï¿½scht alle Vorgaben und Eintrï¿½ge
 	 */
 	public void reset() {
 		for (int i = 0; i < felder.size(); i++) {
@@ -153,8 +153,8 @@ public class FeldMatrix {
 	}
 
 	/**
-	 * Löscht das sudoku und stellt die Vorgaben aus dem InfoSudoku
-	 * @param vorgaben InfoSudoku: Es werden nur seine Vorgaben übernommen
+	 * Lï¿½scht das sudoku und stellt die Vorgaben aus dem InfoSudoku
+	 * @param vorgaben InfoSudoku: Es werden nur seine Vorgaben ï¿½bernommen
 	 * @throws Exc falls der Text nicht gelesen werden kann
 	 */
 	public void reset(InfoSudoku vorgaben) throws Exc {
@@ -166,11 +166,11 @@ public class FeldMatrix {
 	}
 
 	/**
-	 * Verändert das Sudoku durch (unkritisches) Bewegen der Vorgaben, z.B. Drehen des Sudoku.
-	 * Diese einfache Implementation ist nur möglich ohne Einträge, denn sie trägt einfach die Vorgaben hin und her!
-	 * Eine Implementation mit Einträgen muss jeweils den gesamten FeldInhalt tauschen...
+	 * Verï¿½ndert das Sudoku durch (unkritisches) Bewegen der Vorgaben, z.B. Drehen des Sudoku.
+	 * Diese einfache Implementation ist nur mï¿½glich ohne Eintrï¿½ge, denn sie trï¿½gt einfach die Vorgaben hin und her!
+	 * Eine Implementation mit Eintrï¿½gen muss jeweils den gesamten FeldInhalt tauschen...
 	 * @param animator
-	 * @throws Exc U.a. wenn Einträge existieren
+	 * @throws Exc U.a. wenn Eintrï¿½ge existieren
 	 */
 	public void animiere(Animator animator) throws Exc {
 		if (this.ebeneLaeuftEine()) {
@@ -187,7 +187,7 @@ public class FeldMatrix {
 		}
 	}
 
-	// Gibt die Anzahl der Vorgaben zurück
+	// Gibt die Anzahl der Vorgaben zurï¿½ck
 	public int gibAnzahlVorgaben() {
 		return felder.gibAnzahlVorgaben();
 	}
@@ -201,7 +201,7 @@ public class FeldMatrix {
 	}
 
 	/**
-	 * @param zahlen Setzt diese unbeingt als Mögliche
+	 * @param zahlen Setzt diese unbeingt als Mï¿½gliche
 	 */
 	public void setzeMoeglicheUnbedingt(ZahlenListe zahlen) {
 		if (zahlen == null) {
@@ -248,9 +248,9 @@ public class FeldMatrix {
 
 	/**
 	 * Setzt in dem genannten Feld den Eintrag.
-	 * Es ist zu beachten, dass in dem Falle, dass mehr als diese eine Zahl möglich sind,
-	 * eine neue Eintrags-Ebene eröffnet wird!
-	 * Wenn das nicht erwünscht ist: Zuvor feld.setzeMoeglichEinzig(zahl) rufen. 
+	 * Es ist zu beachten, dass in dem Falle, dass mehr als diese eine Zahl mï¿½glich sind,
+	 * eine neue Eintrags-Ebene erï¿½ffnet wird!
+	 * Wenn das nicht erwï¿½nscht ist: Zuvor feld.setzeMoeglichEinzig(zahl) rufen. 
 	 * @param eintrag
 	 * @throws Exc Es wird hier vorausgesetzt, dass es sich um einen "ordentlichen" wirklich setzbaren Eintrag handelt.
 	 * 							Falls dem nicht so sein sollte, wird es per Exc gemeldet.
@@ -277,7 +277,7 @@ public class FeldMatrix {
 
 	/**
 	 * Setzt den Eintrag. 
-	 * Zuvor werden die Möglichen des Feldes auf die Zahl gesetzt, 
+	 * Zuvor werden die Mï¿½glichen des Feldes auf die Zahl gesetzt, 
 	 * sodass kein Versuch entstehen kann. 
 	 * @param feldNummer Zeile 1 bis 9, Spalte 1 bis 9
 	 * @param eintrag
@@ -316,7 +316,7 @@ public class FeldMatrix {
 
 		System.out.println(wo);
 
-		String s = String.format("==== === ====         Vorgaben=%d, Einträge=%d, Ebene=%d mit %d Einträgen",
+		String s = String.format("==== === ====         Vorgaben=%d, Eintrï¿½ge=%d, Ebene=%d mit %d Eintrï¿½gen",
 				this.gibAnzahlVorgaben(), felder.gibAnzahlEintraege(), this.ebeneGibNummer(),
 				felder.gibAnzahlEbenenEintraege(this.ebeneGibNummer()));
 		System.out.println(s);
@@ -355,7 +355,7 @@ public class FeldMatrix {
 		System.out.println(s);
 
 		for (int ebene = 0; ebene <= ebenen.gibNummer(); ebene++) {
-			// Sammle alle Einträge dieser Ebenen-Nummer
+			// Sammle alle Eintrï¿½ge dieser Ebenen-Nummer
 			FeldListe ebenenFelder = felder.gibEbenenEintraege(ebene);
 			if (!ebenenFelder.isEmpty()) {
 				String sEbene = "E " + ebene + ": ";
@@ -364,10 +364,10 @@ public class FeldMatrix {
 					Feld feld = ebenenFelder.get(iFeld);
 					String sFeld = String.format(" [%d%d]%d", feld.gibZeile(), feld.gibSpalte(), feld.gibEintrag());
 					sEbene += sFeld;
-				}// for( int zeile
+				} // for( int zeile
 
 				System.out.println(sEbene);
-			}// if (! ebenenFelder.isEmpty()
+			} // if (! ebenenFelder.isEmpty()
 		}
 	}
 

@@ -2,13 +2,13 @@ package sudoku.neu.pool;
 
 import sudoku.neu.pool.Pool0.AblageVorschrift;
 
-public class InfoTopf extends Info{
+public class InfoTopf extends Info {
 	public final AblageVorschrift ablageVorschrift;
 	/**
 	 * Anzahl der zweiten Sudokus mit gleicher Schwierigkeit 
 	 */
 	private int anzahlDoppel;
-	
+
 	public InfoTopf(AblageVorschrift ablageVorschrift) {
 		super();
 		this.ablageVorschrift = ablageVorschrift;
@@ -24,9 +24,10 @@ public class InfoTopf extends Info{
 	 * @param aeltestes
 	 * @param juengstes
 	 */
-	public InfoTopf( AblageVorschrift ablageVorschrift, int anzahl, int anzahlDoppel, long groesse, Integer leichtestes, Integer schwerstes,
-			Long aeltestes, Long juengstes) {
-		super(anzahl, groesse, leichtestes, schwerstes, Info.gibDatumMitZeit(aeltestes), Info.gibDatumMitZeit(juengstes));
+	public InfoTopf(AblageVorschrift ablageVorschrift, int anzahl, int anzahlDoppel, long groesse, Integer leichtestes,
+			Integer schwerstes, Long aeltestes, Long juengstes) {
+		super(anzahl, groesse, leichtestes, schwerstes, Info.gibDatumMitZeit(aeltestes),
+				Info.gibDatumMitZeit(juengstes));
 		this.ablageVorschrift = ablageVorschrift;
 		this.anzahlDoppel = anzahlDoppel;
 	}
@@ -36,7 +37,7 @@ public class InfoTopf extends Info{
 	}
 
 	/**
-	 * @return Füllstand des Topfes in % der max. möglichen Anzahl Sudokus in diesem Topfe
+	 * @return Fï¿½llstand des Topfes in % der max. mï¿½glichen Anzahl Sudokus in diesem Topfe
 	 */
 	static private int gibFuellstand(int maxAnzahl, int anzahl) {
 		int fuellstand = 0;
@@ -51,14 +52,14 @@ public class InfoTopf extends Info{
 	}
 
 	/**
-	 * @return Füllstand der Basis-Sudokus des Topfes in % der max. möglichen Anzahl Bais-Sudokus in diesem Topfe
+	 * @return Fï¿½llstand der Basis-Sudokus des Topfes in % der max. mï¿½glichen Anzahl Bais-Sudokus in diesem Topfe
 	 */
 	public int gibFuellstand1() {
 		int fuellstand = 0;
 
 		if ((gibSchwerstes() != null) & (gibLeichtestes() != null)) {
 			int maxAnzahl = gibSchwerstes() - gibLeichtestes() + 1;
-			if (ablageVorschrift == AblageVorschrift.HALB){
+			if (ablageVorschrift == AblageVorschrift.HALB) {
 				maxAnzahl /= 2;
 			}
 			int meineAnzahl = gibAnzahl() - anzahlDoppel;
@@ -68,7 +69,7 @@ public class InfoTopf extends Info{
 	}
 
 	/**
-	 * @return Füllstand der Doppel-Sudokus des Topfes in % der max. möglichen Anzahl Basis-Sudokus in diesem Topfe
+	 * @return Fï¿½llstand der Doppel-Sudokus des Topfes in % der max. mï¿½glichen Anzahl Basis-Sudokus in diesem Topfe
 	 */
 	public int gibFuellstand2() {
 		int fuellstand = 0;
@@ -81,7 +82,7 @@ public class InfoTopf extends Info{
 	}
 
 	/**
-	 * @param topf2 Fügt die Werte der Info2 zu meinen dazu. Meine AblageVorschrift bleibt unverändert.
+	 * @param topf2 Fï¿½gt die Werte der Info2 zu meinen dazu. Meine AblageVorschrift bleibt unverï¿½ndert.
 	 */
 	public void add(InfoTopf info2) {
 		super.add(info2);

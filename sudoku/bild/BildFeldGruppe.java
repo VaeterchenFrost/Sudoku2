@@ -16,7 +16,7 @@ import sudoku.logik.SudokuLogik;
 
 /**
  * @author heroe
- * Die BildFelder für ein Sudoku
+ * Die BildFelder fï¿½r ein Sudoku
  */
 @SuppressWarnings("serial")
 class BildFeldGruppe extends ArrayList<BildFeld> {
@@ -69,12 +69,12 @@ class BildFeldGruppe extends ArrayList<BildFeld> {
 			// }
 		}
 
-		// Großen Weiss-Anteil (der leeren Felder) erkennen
+		// Groï¿½en Weiss-Anteil (der leeren Felder) erkennen
 		int toleranz = 4;
 		WerteGruppe weissAnteilLeer = WerteGruppe.gibHaeufigstenWert(weissAnteile, toleranz);
 		int kleinsterWeissAnteilLeer = weissAnteilLeer.gibMinimum();
 
-		// Die leeren Felder anhand des großen Weiss-Anteils erkennen und entfernen
+		// Die leeren Felder anhand des groï¿½en Weiss-Anteils erkennen und entfernen
 		for (Map.Entry<BildFeld, Integer> entry : felderWeiss.entrySet()) {
 			BildFeld bildFeld = entry.getKey();
 			if (entry.getValue() >= kleinsterWeissAnteilLeer) {
@@ -117,7 +117,7 @@ class BildFeldGruppe extends ArrayList<BildFeld> {
 	}
 
 	/**
-	 * Falls die Zahlenrechtecke im Querformat vorliegen, werden die Bildfelder-Feldnummern gedreht um 90° im Uhrzeigersinn.
+	 * Falls die Zahlenrechtecke im Querformat vorliegen, werden die Bildfelder-Feldnummern gedreht um 90ï¿½ im Uhrzeigersinn.
 	 * Dabei werden auch die ZahlBildInfos transformiert.
 	 * Bildfelder mit einem besonderen Zahlenrechteck, z.B. die Gewinnzahl-Kennzeichnungen von Prisma-Sudokus,
 	 * werden von der weiteren Bearbeitung ausgeschlossen
@@ -145,7 +145,7 @@ class BildFeldGruppe extends ArrayList<BildFeld> {
 
 		boolean istHochFormat = zahlHoch > zahlQuer;
 
-		// 90° Rechtsdrehen
+		// 90ï¿½ Rechtsdrehen
 		if (!istHochFormat) {
 			hoehen = breiten;
 
@@ -210,8 +210,8 @@ class BildFeldGruppe extends ArrayList<BildFeld> {
 		}
 
 		if (ZahlLeser.istSystemOut()) {
-			System.out.println(String.format("%s.setzeZahlen() in: ----------------------------------", getClass()
-					.getName()));
+			System.out.println(
+					String.format("%s.setzeZahlen() in: ----------------------------------", getClass().getName()));
 			for (int i = 0; i < this.size(); i++) {
 				BildFeld bildFeld = this.get(i);
 				Integer zahl = bildFeld.gibZahl();
@@ -224,7 +224,7 @@ class BildFeldGruppe extends ArrayList<BildFeld> {
 	}
 
 	/**
-	 * Setzt die Zahl anhand der Ausgänge in den Zahlenbildern
+	 * Setzt die Zahl anhand der Ausgï¿½nge in den Zahlenbildern
 	 * @param image
 	 */
 	private void setzeZahlen(BufferedImage image) {
@@ -235,8 +235,8 @@ class BildFeldGruppe extends ArrayList<BildFeld> {
 		}
 
 		if (ZahlLeser.istSystemOut()) {
-			System.out.println(String.format("%s.setzeZahl() in: ----------------------------------", getClass()
-					.getName()));
+			System.out.println(
+					String.format("%s.setzeZahl() in: ----------------------------------", getClass().getName()));
 			for (int i = 0; i < this.size(); i++) {
 				BildFeld bildFeld = this.get(i);
 				System.out.println(String.format("%s in %s", bildFeld.gibZahl(), bildFeld.gibFeldNummer()));
@@ -276,11 +276,11 @@ class BildFeldGruppe extends ArrayList<BildFeld> {
 	}
 
 	private InfoSudoku gibSudokuIntern() {
-		// Alle leeren Felder von der weiteren Betrachtung ausschließen
+		// Alle leeren Felder von der weiteren Betrachtung ausschlieï¿½en
 		entferneLeereFelder(image);
 
 		// Die Zahlen-Rechtecke (und ZahlBild-Info) je BildFeld erstellen.
-		// Das ist separat nötig für die Ermittlung des Seitenformates der Zahlen-Rechtecke
+		// Das ist separat nï¿½tig fï¿½r die Ermittlung des Seitenformates der Zahlen-Rechtecke
 		// Hier als leer erkannte Felder werden von der weiteren Betrachtung ausgeschlossen
 		setzeZahlenRechtecke(image);
 
@@ -315,7 +315,7 @@ class BildFeldGruppe extends ArrayList<BildFeld> {
 		}
 
 		if (anzahlZahlen >= anzahlZahlenMin) {
-			// Zahlen setzen anhand der Ausgänge der Zahlbilder
+			// Zahlen setzen anhand der Ausgï¿½nge der Zahlbilder
 			setzeZahlen(image);
 		}
 

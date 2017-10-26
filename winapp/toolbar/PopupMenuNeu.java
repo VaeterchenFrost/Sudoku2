@@ -18,14 +18,14 @@ public class PopupMenuNeu extends JPopupMenu {
 		String toolTip = null;
 		switch (neuTyp.gibTyp()) {
 		case LEER: {
-			String[] toolTipArray = { "Leeres Sudoku zum Abschreiben:", "  - Um hier einen Tip zu bekommen zur Lösung",
-					"  - Zum Ermitteln der Schwierigkeit", "Maus-Rechtsklick: Bringt die Pool-Info-Entnahme"  };
+			String[] toolTipArray = { "Leeres Sudoku zum Abschreiben:", "  - Um hier einen Tip zu bekommen zur Lï¿½sung",
+					"  - Zum Ermitteln der Schwierigkeit", "Maus-Rechtsklick: Bringt die Pool-Info-Entnahme" };
 			toolTip = ToolTip.gibToolTip(toolTipArray);
 		}
 			break;
 		case VOLL: {
-			String[] toolTipArray = { "Sudoku komplett gefüllt mit Vorgaben: Zum Selberbasteln eines Geschenk-Sudoku",
-					"  - mit schöner Form (Diagonale, Kreuz, Spirale...)", "  - mit bestimmter Schwierigkeit",
+			String[] toolTipArray = { "Sudoku komplett gefï¿½llt mit Vorgaben: Zum Selberbasteln eines Geschenk-Sudoku",
+					"  - mit schï¿½ner Form (Diagonale, Kreuz, Spirale...)", "  - mit bestimmter Schwierigkeit",
 					"Maus-Rechtsklick: Bringt die Pool-Info" };
 			toolTip = ToolTip.gibToolTip(toolTipArray);
 		}

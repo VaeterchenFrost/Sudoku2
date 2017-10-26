@@ -25,12 +25,12 @@ public class Analysator {
 
 	/**
 	 * @param vorgaben Definiert die Vorgaben des Sudoku
-	 * @param knackerBericht, der soeben erstellt wurde für das Sudoku oder null
+	 * @param knackerBericht, der soeben erstellt wurde fï¿½r das Sudoku oder null
 	 * @return Schwierigkeit des Sudoku
 	 * @throws Exc
 	 */
 	public static SudokuSchwierigkeit gibSchwierigkeit(InfoSudoku vorgaben, BerichtKnacker knackerBericht) throws Exc {
-		// Bei trivialer Nutzung der max. Klugheit ist es durchaus typisch, dass eine falsche (zu große)
+		// Bei trivialer Nutzung der max. Klugheit ist es durchaus typisch, dass eine falsche (zu groï¿½e)
 		// Schwierigkeit erkannt wird.
 		Analysator analisator = new Analysator();
 		if (knackerBericht == null) {
@@ -77,9 +77,9 @@ public class Analysator {
 		feldmatrix.reset(vorgaben);
 		klugheit.setzeExtrem(true);
 
-		// Die Schwierigkeitsermittlung erfolgt für normale Sudoku: Deshalb nur VersuchsEbenen.EINE.
-		// Unbestimmte werden als solche benannt: Nämlich wenn sie hier nicht lösbar sind.
-		// Mit "Knacke" können (typisch) auch diese Sudoku gelöst werden.
+		// Die Schwierigkeitsermittlung erfolgt fï¿½r normale Sudoku: Deshalb nur VersuchsEbenen.EINE.
+		// Unbestimmte werden als solche benannt: Nï¿½mlich wenn sie hier nicht lï¿½sbar sind.
+		// Mit "Knacke" kï¿½nnen (typisch) auch diese Sudoku gelï¿½st werden.
 		VersuchsEbenen versuchsEbenen = VersuchsEbenen.EINE;
 
 		Ergebnis ergebnis = knacker.loese(versuchsEbenen, "Schwierigkeitsermittlung", true);
@@ -91,7 +91,7 @@ public class Analysator {
 	}
 
 	/**
-	 *	Diese Schwierigkeitsermittlung erfolgt für logisch lösbare Sudokus: Deshalb nur VersuchsEbenen.KEINE.
+	 *	Diese Schwierigkeitsermittlung erfolgt fï¿½r logisch lï¿½sbare Sudokus: Deshalb nur VersuchsEbenen.KEINE.
 	 * Es wird die kleinste erfolgreiche Klugheit ermittelt.
 	 * @param vorgaben
 	 * @return bericht, kann leer sein
@@ -102,8 +102,8 @@ public class Analysator {
 		klugheit.setzeExtrem(false);
 
 		do {
-			Ergebnis ergebnis = knacker.loese(VersuchsEbenen.KEINE, "Schwierigkeitsermittlung Ohne Versuch Klugheit "
-					+ klugheit, true);
+			Ergebnis ergebnis = knacker.loese(VersuchsEbenen.KEINE,
+					"Schwierigkeitsermittlung Ohne Versuch Klugheit " + klugheit, true);
 			if (ergebnis.gibArt() == Ergebnis.Art.FERTIG) {
 				return knacker.gibBericht();
 			}

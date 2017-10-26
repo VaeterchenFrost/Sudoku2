@@ -16,7 +16,7 @@ import sudoku.tools.Verzeichnis;
 class DateiPoolInfo {
 
 	/**
-	 * @return Alle Entnahmen aus dem Pool zeitlich geordnet: Auf Index 0 die ältesten 
+	 * @return Alle Entnahmen aus dem Pool zeitlich geordnet: Auf Index 0 die ï¿½ltesten 
 	 */
 	static InfoEntnommene[] gibInfoEntnommene() {
 		String verzeichnisName = DateiPoolEntnahmeProtokoll.gibPfadName();
@@ -36,20 +36,19 @@ class DateiPoolInfo {
 				LocalDateTime protokollZeit = DateiPoolEntnahmeProtokoll.gibProtokollZeit(file.getAbsolutePath());
 				InfoEntnommene dateiInfo = new InfoEntnommene(schwierigkeit, 1, fGroesse, fLoesungsZeit, fLoesungsZeit,
 						protokollZeit, protokollZeit);
-				
+
 				boolean istNeueEntnahme = true;
-				if (!entnommene.isEmpty()){
-					InfoEntnommene letzteInfo = entnommene.get(entnommene.size()-1);
-					if (letzteInfo.istGleicheEntnahme(dateiInfo)){
+				if (!entnommene.isEmpty()) {
+					InfoEntnommene letzteInfo = entnommene.get(entnommene.size() - 1);
+					if (letzteInfo.istGleicheEntnahme(dateiInfo)) {
 						istNeueEntnahme = false;
 					}
 				}
-				
-				if (istNeueEntnahme){
+
+				if (istNeueEntnahme) {
 					entnommene.add(dateiInfo);
-				}
-				else{
-					entnommene.get(entnommene.size()-1).add(dateiInfo);
+				} else {
+					entnommene.get(entnommene.size() - 1).add(dateiInfo);
 				}
 			} // if (istSudoku){
 		} // for (int iFile = 0; iFile < fArray.length; iFile++) {
@@ -96,7 +95,7 @@ class DateiPoolInfo {
 
 	/**
 	 * @param anzahlIntervalle
-	 * @return Die Zeit-Intervalle über alle Dateien
+	 * @return Die Zeit-Intervalle ï¿½ber alle Dateien
 	 */
 	static private AnzahlJeZeit[] gibIntervalleAbgelegte(Pool0 pool, int anzahlIntervalle) {
 		// Gesamtbereich der Zeiten des Ablegens ermitteln
@@ -146,8 +145,8 @@ class DateiPoolInfo {
 
 	/**
 	 * @param dateiZeit Datei-Zeit
-	 * @param anzahlen In diesem Array der Anzahlen soll eine Anzahl um 1 erhöht werden.
-	 * @param intervalle In einem der Intervalle liegt die Datei-Zeit. Sein Index ist derjenige, der bestimmt welche Anzahl erhöht wird.
+	 * @param anzahlen In diesem Array der Anzahlen soll eine Anzahl um 1 erhï¿½ht werden.
+	 * @param intervalle In einem der Intervalle liegt die Datei-Zeit. Sein Index ist derjenige, der bestimmt welche Anzahl erhï¿½ht wird.
 	 */
 	static private void setzeErstellung(long dateiZeit, int[] anzahlen, AnzahlJeZeit[] intervalle) {
 		Calendar cal = Calendar.getInstance();
@@ -192,7 +191,7 @@ class DateiPoolInfo {
 				} // if (istSudoku){
 			} // for (int iFile = 0; iFile < fArray.length; iFile++) {
 
-			// Häufigkeiten erstellen
+			// Hï¿½ufigkeiten erstellen
 			AnzahlJeZeit[] haeufigkeiten = new AnzahlJeZeit[anzahlIntervalle];
 			for (int i = 0; i < haeufigkeiten.length; i++) {
 				AnzahlJeZeit haeufigkeit = new AnzahlJeZeit(intervalle[i].bis, anzahlen[i]);

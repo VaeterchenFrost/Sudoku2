@@ -60,19 +60,19 @@ class Logik_XYFluegel implements Logik__Interface {
 
 		public EinTipText[] gibTip() {
 			FeldNummerListe zahlenFeldNummern = gibAktiveFelder();
-			String s1a = "In den 3 verknüpften Feldern " + zahlenFeldNummern.gibKette("+");
-			String s1b = " sind insgesamt nur 3 Zahlen möglich.";
+			String s1a = "In den 3 verknï¿½pften Feldern " + zahlenFeldNummern.gibKette("+");
+			String s1b = " sind insgesamt nur 3 Zahlen mï¿½glich.";
 			EinTipText t1 = new EinTipText(s1a, s1b);
 
 			String s2a = String.format("Feld%s und Feld%s liegen %s.", verbindungsFeld, basisFeld2,
 					basisLinie.gibInText(false));
 			EinTipText t2a = new EinTipText(s2a, null);
 
-			String s2b = String
-					.format("Feld%s und Feld%s liegen %s.", verbindungsFeld, feld3, gruppe2.gibInText(false));
+			String s2b = String.format("Feld%s und Feld%s liegen %s.", verbindungsFeld, feld3,
+					gruppe2.gibInText(false));
 			EinTipText t2b = new EinTipText(s2b, null);
 
-			String s3 = String.format("Feld%s %s und %s verknüpft beide Gruppen.", verbindungsFeld,
+			String s3 = String.format("Feld%s %s und %s verknï¿½pft beide Gruppen.", verbindungsFeld,
 					basisLinie.gibInText(false), gruppe2.gibInText(false));
 			EinTipText t3 = new EinTipText(s3, null);
 
@@ -84,7 +84,7 @@ class Logik_XYFluegel implements Logik__Interface {
 			if (loeschFelder.size() > 1) {
 				s5a = "in den Feldern";
 			}
-			String s5 = String.format("Die Zahl %d ist daher %s %s nicht möglich.", loeschZahl, s5a,
+			String s5 = String.format("Die Zahl %d ist daher %s %s nicht mï¿½glich.", loeschZahl, s5a,
 					loeschFelder.gibKette("+"));
 			EinTipText t5 = new EinTipText(s5, null);
 
@@ -182,14 +182,14 @@ class Logik_XYFluegel implements Logik__Interface {
 
 	@Override
 	public String gibName() {
-		return "XY-Flügel";
+		return "XY-Flï¿½gel";
 	}
 
 	@Override
 	public String[] gibWo() {
-		return new String[] { "Nur Felder mit 2 möglichen Zahlen.", "3 Felder mit insgesamt 3 möglichen Zahlen.",
-				"Jede mögliche Zahl tritt innerhalb der 3 Felder genau zweimal auf.",
-				"3 Felder: 2 Felder davon auf 1er Zeile bzw. Spalte, 2 Felder davon in einer verknüpften Gruppe." };
+		return new String[] { "Nur Felder mit 2 mï¿½glichen Zahlen.", "3 Felder mit insgesamt 3 mï¿½glichen Zahlen.",
+				"Jede mï¿½gliche Zahl tritt innerhalb der 3 Felder genau zweimal auf.",
+				"3 Felder: 2 Felder davon auf 1er Zeile bzw. Spalte, 2 Felder davon in einer verknï¿½pften Gruppe." };
 	}
 
 	@Override
@@ -199,16 +199,16 @@ class Logik_XYFluegel implements Logik__Interface {
 
 	@Override
 	public String[] gibSituation() {
-		return new String[] { "Die gemeinsame mögliche Zahl der beiden nicht verknüpfenden Felder",
+		return new String[] { "Die gemeinsame mï¿½gliche Zahl der beiden nicht verknï¿½pfenden Felder",
 				"verbietet diese Zahl im Kreuzungs-Feld dieser Felder." };
 	}
 
 	@Override
 	public String[] gibErgebnis() {
 		return new String[] {
-				"Im Kreuzungsfeld der nicht verknüpfenden Felder ist deren gemeinsame Zahl nicht möglich.",
-				"In dem Fall, die verknüpfte Gruppe ist ein Kasten, ist diese Zahl außerdem nicht möglich:",
-				" - im Kasten auf der Linie des Verknüpfungsfeldes",
+				"Im Kreuzungsfeld der nicht verknï¿½pfenden Felder ist deren gemeinsame Zahl nicht mï¿½glich.",
+				"In dem Fall, die verknï¿½pfte Gruppe ist ein Kasten, ist diese Zahl auï¿½erdem nicht mï¿½glich:",
+				" - im Kasten auf der Linie des Verknï¿½pfungsfeldes",
 				" - und im Kasten des 2. Feldes dieser Linie auf der Linie des Kreuzungsfeldes." };
 	}
 
@@ -219,7 +219,7 @@ class Logik_XYFluegel implements Logik__Interface {
 
 	// =============================================================
 	/**
-	 * @param linien Ihre Arbeitsfelder werden gesetzt mit den Feldern, die 2 mögliche Zahlen besitzen
+	 * @param linien Ihre Arbeitsfelder werden gesetzt mit den Feldern, die 2 mï¿½gliche Zahlen besitzen
 	 */
 	static private void setzeArbeitsFelder(ArbeitsLinien linien) {
 		for (int linienNr = 1; linienNr < FeldMatrix.feldNummerMax; linienNr++) {
@@ -229,7 +229,7 @@ class Logik_XYFluegel implements Logik__Interface {
 	}
 
 	/**
-	 * @param kastenMap Ihre Arbeitsfelder werden gesetzt mit den Feldern, die 2 mögliche Zahlen besitzen
+	 * @param kastenMap Ihre Arbeitsfelder werden gesetzt mit den Feldern, die 2 mï¿½gliche Zahlen besitzen
 	 */
 	static private void setzeArbeitsFelder(Map<KastenIndex, ArbeitsKasten> kastenMap) {
 		Collection<ArbeitsKasten> arbeitskaesten = kastenMap.values();
@@ -241,11 +241,11 @@ class Logik_XYFluegel implements Logik__Interface {
 	/**
 	 * @param feld1
 	 * @param feld2
-	 * @return != null falls die beiden Felder feld1 und feld2 gemeinsam 3 mögliche Zahlen beinhalten. 
-	 * 					In diesem Fall werden die beiden möglichen Zahlen zurückgegeben, 
-	 * 					die das dritte zu suchende Feld besitzen muss für diese Logik. 
-	 * 					Die Reihenfolge der möglichen Zahlen in der Rückgabeliste entspricht der von BasisLogik.setzeMoegliche(),
-	 * 					um einen direkten Vergleich der möglichen Zahlen per ...equals() zu ermöglichen.
+	 * @return != null falls die beiden Felder feld1 und feld2 gemeinsam 3 mï¿½gliche Zahlen beinhalten. 
+	 * 					In diesem Fall werden die beiden mï¿½glichen Zahlen zurï¿½ckgegeben, 
+	 * 					die das dritte zu suchende Feld besitzen muss fï¿½r diese Logik. 
+	 * 					Die Reihenfolge der mï¿½glichen Zahlen in der Rï¿½ckgabeliste entspricht der von BasisLogik.setzeMoegliche(),
+	 * 					um einen direkten Vergleich der mï¿½glichen Zahlen per ...equals() zu ermï¿½glichen.
 	 */
 	static private ArrayList<Integer> gibFehlendeMoeglicheZahlen(Feld feld1, Feld feld2) {
 		ArrayList<Integer> moegliche1 = feld1.gibMoegliche();
@@ -269,7 +269,7 @@ class Logik_XYFluegel implements Logik__Interface {
 			}
 		}
 
-		// aufsteigende Sortierung der möglichen Zahlen garantieren:
+		// aufsteigende Sortierung der mï¿½glichen Zahlen garantieren:
 		if (fehlende.get(0) > fehlende.get(1)) {
 			fehlende.add(fehlende.get(0));
 			fehlende.remove(0);
@@ -278,10 +278,10 @@ class Logik_XYFluegel implements Logik__Interface {
 	}
 
 	/**
-	 * Es wird vorausgesetzt, dass die beiden Felder insgesamt 3 mögliche Zahlen beinhalten, jedes Feld 2 davon. 
+	 * Es wird vorausgesetzt, dass die beiden Felder insgesamt 3 mï¿½gliche Zahlen beinhalten, jedes Feld 2 davon. 
 	 * @param feld1
 	 * @param feld2
-	 * @return Die in den beiden Feldern gemeinsame mögliche Zahl. 
+	 * @return Die in den beiden Feldern gemeinsame mï¿½gliche Zahl. 
 	 */
 	static private int gibLoeschZahl(Feld feld1, Feld feld2) {
 		for (Integer zahl : feld1.gibMoegliche()) {
@@ -293,11 +293,11 @@ class Logik_XYFluegel implements Logik__Interface {
 	}
 
 	/**
-	 * @param loeschZahl Die mögliche Zahl, die zu löschen wäre.
-	 * @param feld Dies Feld soll von der Betrachtung ausgeschlossen werden. Kann auch null übergeben worden sein. 
+	 * @param loeschZahl Die mï¿½gliche Zahl, die zu lï¿½schen wï¿½re.
+	 * @param feld Dies Feld soll von der Betrachtung ausgeschlossen werden. Kann auch null ï¿½bergeben worden sein. 
 	 * @param basisLinie Die Felder dieser Gruppe, die auch im kasten liegen, sollen betrachtet werden.
 	 * @param kasten
-	 * @return Leere Liste oder die Nummern der betrachteten Felder, die die loeschZahl als mögliche Zahl enthalten.
+	 * @return Leere Liste oder die Nummern der betrachteten Felder, die die loeschZahl als mï¿½gliche Zahl enthalten.
 	 */
 	static private FeldNummerListe gibLoeschFelder(int loeschZahl, Feld feld, Gruppe basisLinie, Kasten kasten) {
 		FeldListe schnittMenge = basisLinie.schnittMenge(kasten);
@@ -316,7 +316,7 @@ class Logik_XYFluegel implements Logik__Interface {
 	}
 
 	/**
-	 * @param loeschZahl Die mögliche Zahl, die in dieser Konstellation zu löschen wäre.
+	 * @param loeschZahl Die mï¿½gliche Zahl, die in dieser Konstellation zu lï¿½schen wï¿½re.
 	 * @param feld1 Das Feld auf der BasisLinie, liegt auch im Kasten kasten13
 	 * @param feld2 Das Feld auf der BasisLinie, liegt auch im Kasten kasten2
 	 * @param feld3 Das Feld liegt im Kasten kasten13. Es liegt NICHT auf der BasisLinie. 
@@ -324,9 +324,9 @@ class Logik_XYFluegel implements Logik__Interface {
 	 * @param kasten13 Mit den Feldern 1 und 3
 	 * @param kasten2 Mit dem Feld 2
 	 * @param parallele Die Parallelen zur BasisLinie
-	 * @return Die Nummern der Felder, in denen die mögliche Zahl <loeschZahl> zu löschen ist (oder leere Liste).
+	 * @return Die Nummern der Felder, in denen die mï¿½gliche Zahl <loeschZahl> zu lï¿½schen ist (oder leere Liste).
 	 * 					Das sind maximal:
-	 * 						a) Die Felder, die sowohl auf der BasisLinie als auch im Kasten13 liegen außer feld1.
+	 * 						a) Die Felder, die sowohl auf der BasisLinie als auch im Kasten13 liegen auï¿½er feld1.
 	 * 						b) Die Felder, die auf der zur BasisLinie durch feld3 definierten Parallelen und Kasten2 liegen.
 	 */
 	static private FeldNummerListe gibLoeschFelder(int loeschZahl, Feld feld1, Feld feld2, Feld feld3,
@@ -341,13 +341,13 @@ class Logik_XYFluegel implements Logik__Interface {
 	}
 
 	/**
-	 * @param loeschZahl Die mögliche Zahl, die in dieser Konstellation zu löschen wäre.
-	 * 					Das Feld des Kreuzungspunktes der beiden Felder feld1 und feld2 kann eventuell das Löschfeld sein.
+	 * @param loeschZahl Die mï¿½gliche Zahl, die in dieser Konstellation zu lï¿½schen wï¿½re.
+	 * 					Das Feld des Kreuzungspunktes der beiden Felder feld1 und feld2 kann eventuell das Lï¿½schfeld sein.
 	 * @param feld1 
 	 * @param feld2 Dieses Feld liegt auf einer anderen linie als das feld1
-	 * @param linien Die Arbeitslinien, in denen auch das Lösch-Feld zu finden ist.
-	 * @return null oder die Nummer des Feldes, in dem die mögliche Zahl <loeschZahl> zu löschen ist.
-	 * 					null kommt zurück, wenn die <loeschZahl> nicht als mögliche Zahl in dem Feld des Kreuzungspunktes der beiden Felder existiert.
+	 * @param linien Die Arbeitslinien, in denen auch das Lï¿½sch-Feld zu finden ist.
+	 * @return null oder die Nummer des Feldes, in dem die mï¿½gliche Zahl <loeschZahl> zu lï¿½schen ist.
+	 * 					null kommt zurï¿½ck, wenn die <loeschZahl> nicht als mï¿½gliche Zahl in dem Feld des Kreuzungspunktes der beiden Felder existiert.
 	 */
 	static private FeldNummer gibLoeschFeld(int loeschZahl, Feld feld1, Feld feld2, ArbeitsLinien linien) {
 		FeldNummer loeschFeldNummer = null;
@@ -371,7 +371,7 @@ class Logik_XYFluegel implements Logik__Interface {
 	 * @param kastenMap 
 	 * @param senkrechte
 	 * @return Die TipInfo wenn ein passendes 3. Feld zu feld1 und feld2 entsprechend dieser Logik gefunden wurde
-	 * 					und dadurch zu löschende mögliche Zahlen erkannt wurden. 
+	 * 					und dadurch zu lï¿½schende mï¿½gliche Zahlen erkannt wurden. 
 	 */
 	private TipInfoXYFluegel gibErgebnis(ArbeitsLinien.Linie basisLinie, Feld feld1, Feld feld2,
 			ArrayList<Integer> fehlendeMoeglicheZahlen, Map<KastenIndex, ArbeitsKasten> kastenMap,
@@ -389,15 +389,15 @@ class Logik_XYFluegel implements Logik__Interface {
 					Feld feld3 = arbeitsFelder.get(iArbeitsFelder);
 					ArrayList<Integer> testMoegliche = feld3.gibMoegliche();
 					if (fehlendeMoeglicheZahlen.equals(testMoegliche)) {
-						// Das sieht schon mal gut aus: Die Möglichen des Arbeitsfeldes stimmen.
+						// Das sieht schon mal gut aus: Die Mï¿½glichen des Arbeitsfeldes stimmen.
 						int loeschZahl = gibLoeschZahl(feld2, feld3);
 						ArbeitsKasten kasten2 = kastenMap.get(Kasten.gibKastenIndex(feld2.gibFeldNummer()));
 						FeldNummerListe loeschFelder = gibLoeschFelder(loeschZahl, feld1, feld2, feld3,
 								basisLinie.gruppe, kasten1.kasten, kasten2.kasten, parallele);
 						if (!loeschFelder.isEmpty()) {
 							// Hurra: erfolgreiche Logik
-							TipInfoXYFluegel tipInfo = new TipInfoXYFluegel(basisLinie.gruppe, kasten1.kasten, feld1.gibFeldNummer(),
-									feld2.gibFeldNummer(), kasten2.kasten, feld3.gibFeldNummer(),
+							TipInfoXYFluegel tipInfo = new TipInfoXYFluegel(basisLinie.gruppe, kasten1.kasten,
+									feld1.gibFeldNummer(), feld2.gibFeldNummer(), kasten2.kasten, feld3.gibFeldNummer(),
 									loeschZahl, loeschFelder);
 							return tipInfo;
 						}
@@ -418,7 +418,7 @@ class Logik_XYFluegel implements Logik__Interface {
 
 					ArrayList<Integer> testMoegliche = feld3.gibMoegliche();
 					if (fehlendeMoeglicheZahlen.equals(testMoegliche)) {
-						// Das sieht schon mal gut aus: Die Möglichen des Arbeitsfeldes stimmen.
+						// Das sieht schon mal gut aus: Die Mï¿½glichen des Arbeitsfeldes stimmen.
 						int loeschZahl = gibLoeschZahl(feld2, feld3);
 						FeldNummer loeschFeld = gibLoeschFeld(loeschZahl, feld2, feld3, parallele);
 						if (loeschFeld != null) {
@@ -426,8 +426,8 @@ class Logik_XYFluegel implements Logik__Interface {
 							FeldNummerListe loeschFelder = new FeldNummerListe();
 							loeschFelder.add(loeschFeld);
 							TipInfoXYFluegel tipInfo = new TipInfoXYFluegel(basisLinie.gruppe, senkrechte1.gruppe,
-									feld1.gibFeldNummer(), feld2.gibFeldNummer(), null, feld3.gibFeldNummer(), loeschZahl,
-									loeschFelder);
+									feld1.gibFeldNummer(), feld2.gibFeldNummer(), null, feld3.gibFeldNummer(),
+									loeschZahl, loeschFelder);
 							return tipInfo;
 						}
 					}
@@ -441,8 +441,8 @@ class Logik_XYFluegel implements Logik__Interface {
 
 	/**
 	 * @param gruppenLaeufeListe
-	 * @param basisLinien Benennen die Arbeitsfelder: Jedes der Felder besitzt 2 mögliche Zahlen.
-	 * @param kastenMap Die Kästen greifbar über ihren Kasten-Index.
+	 * @param basisLinien Benennen die Arbeitsfelder: Jedes der Felder besitzt 2 mï¿½gliche Zahlen.
+	 * @param kastenMap Die Kï¿½sten greifbar ï¿½ber ihren Kasten-Index.
 	 * @param senkrechte Senkrechte Linien zu den Arbeitslinien, ebenfalls mit den Arbeitsfeldern. 
 	 * @param ignorierTips
 	 * @return
@@ -454,7 +454,7 @@ class Logik_XYFluegel implements Logik__Interface {
 			if (basisLinie != null) {
 				if (basisLinie.arbeitsFelder != null) {
 					if (basisLinie.arbeitsFelder.size() > 1) {
-						// Die Basis-Linie besitzt mindestens 2 Felder mit 2 möglichen Zahlen.
+						// Die Basis-Linie besitzt mindestens 2 Felder mit 2 mï¿½glichen Zahlen.
 						gruppenLaeufeListe.add(basisLinie.gruppe.gibTyp());
 						for (int iArbeitsFeld = 0; iArbeitsFeld < basisLinie.arbeitsFelder.size() - 1; iArbeitsFeld++) {
 							Feld arbeitsFeld = basisLinie.arbeitsFelder.get(iArbeitsFeld);
@@ -465,11 +465,11 @@ class Logik_XYFluegel implements Logik__Interface {
 								// Liegt das TestFeld in einem anderen Kasten?
 								KastenIndex testFeldKastenIndex = Kasten.gibKastenIndex(testFeld.gibFeldNummer());
 								if (!arbeitsFeldKastenIndex.equals(testFeldKastenIndex)) {
-									// arbeitsFeld und TestFeld liegen in unterschiedlichen Kästen
-									ArrayList<Integer> fehlendeMoeglicheZahlen = gibFehlendeMoeglicheZahlen(
-											arbeitsFeld, testFeld);
+									// arbeitsFeld und TestFeld liegen in unterschiedlichen Kï¿½sten
+									ArrayList<Integer> fehlendeMoeglicheZahlen = gibFehlendeMoeglicheZahlen(arbeitsFeld,
+											testFeld);
 									if (fehlendeMoeglicheZahlen != null) {
-										// Arbeits- und Test-Feld besitzen zusammen genau 3 mögliche Zahlen.
+										// Arbeits- und Test-Feld besitzen zusammen genau 3 mï¿½gliche Zahlen.
 										TipInfoXYFluegel tipInfo = gibErgebnis(basisLinie, arbeitsFeld, testFeld,
 												fehlendeMoeglicheZahlen, kastenMap, senkrechte, basisLinien);
 										if (tipInfo == null) {

@@ -13,9 +13,9 @@ import winapp.EintragsModus;
 import winapp.Optionen;
 
 @SuppressWarnings("serial")
-public class PopupMenuZahlen extends JPopupMenu implements ActionListener // Erhält die PopupMenu-Ereignisse
+public class PopupMenuZahlen extends JPopupMenu implements ActionListener // Erhï¿½lt die PopupMenu-Ereignisse
 {
-	// Das (ständig neu erstellte) PopupMenü
+	// Das (stï¿½ndig neu erstellte) PopupMenï¿½
 	private static PopupMenuZahlen popupMenu;
 	private static EintragsModus eintragsModus;
 	private static FeldAnzeige feld;
@@ -27,9 +27,10 @@ public class PopupMenuZahlen extends JPopupMenu implements ActionListener // Erh
 	}
 
 	/**
-	 * Erstellt das PopupMenu: Entweder für Modus Eintrag oder Modus Vorgaben
+	 * Erstellt das PopupMenu: Entweder fï¿½r Modus Eintrag oder Modus Vorgaben
 	 */
-	public static void erstellen(FeldAnzeige aFeld, EintragsModus aEintragsModus, Optionen optionen, Point componentPos) {
+	public static void erstellen(FeldAnzeige aFeld, EintragsModus aEintragsModus, Optionen optionen,
+			Point componentPos) {
 		popupMenu = new PopupMenuZahlen();
 		eintragsModus = aEintragsModus;
 		feld = aFeld;
@@ -54,7 +55,7 @@ public class PopupMenuZahlen extends JPopupMenu implements ActionListener // Erh
 				aEintragsModus.gibEintragsModusString(aEintragsModus.gibEintragsModus()));
 		popupMenu.add(menuItemTitel);
 
-		// Löschen
+		// Lï¿½schen
 		if (istBelegt) {
 			if (feldBesitztEinenEintragDiesesModus) {
 				erstelleMenuItem(0);
@@ -63,7 +64,7 @@ public class PopupMenuZahlen extends JPopupMenu implements ActionListener // Erh
 			if (resetVorgabe != null) {
 				erstelleMenuItem(resetVorgabe.intValue());
 			}
-			// SetzeMöglichkeiten
+			// SetzeMï¿½glichkeiten
 			ArrayList<Integer> weitereZahlen = new ArrayList<>();
 			if (optionen.istZeigeMoegliche()) {
 				weitereZahlen.addAll(feldInfo.gibMoegliche());
@@ -93,11 +94,11 @@ public class PopupMenuZahlen extends JPopupMenu implements ActionListener // Erh
 	 * (non-Javadoc)
 	 * 
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent) Implementation der abstrakten Methode des Interfaces ActionListener: Behandelt die Aktionen
-	 * des PopupMenüs
+	 * des PopupMenï¿½s
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// Die Behandlung der PopupMenü-Ereignisse
+		// Die Behandlung der PopupMenï¿½-Ereignisse
 		if (e.getSource() instanceof JMenuItem) {
 			String cmd = e.getActionCommand();
 			int zahl = Integer.valueOf(cmd);

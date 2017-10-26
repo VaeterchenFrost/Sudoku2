@@ -10,34 +10,34 @@ import sudoku.logik.Schwierigkeit;
 
 public class PoolInfoEntnommene {
 	/**
-	 * @param maxTage Der Rückgabewert soll nicht größer sein als maxTage
+	 * @param maxTage Der Rï¿½ckgabewert soll nicht grï¿½ï¿½er sein als maxTage
 	 * @return alleTagesEntnahmen komprimiert auf maxTage 
 	 * 			Das Array kann kleiner sein als maxTage!
-	 * 			Wenn mehr als maxTage Tage entnommen wurde, so enthält das Array auf Index 0 alle ältesten Entnahmen
-	 * 			und als Datumsangabe die jüngste dieser Entnahmen. 
+	 * 			Wenn mehr als maxTage Tage entnommen wurde, so enthï¿½lt das Array auf Index 0 alle ï¿½ltesten Entnahmen
+	 * 			und als Datumsangabe die jï¿½ngste dieser Entnahmen. 
 	 */
 	static public TagesEntnahme[] gibTageweise(TagesEntnahme[] alleTagesEntnahmen, int maxTage) {
-		if (alleTagesEntnahmen.length <= maxTage){
+		if (alleTagesEntnahmen.length <= maxTage) {
 			return alleTagesEntnahmen;
 		}
-		
+
 		// Es liegen mehr als maxTage Entnahmen vor:
 		TagesEntnahme[] komprimierteEntnahmen = new TagesEntnahme[maxTage];
 		int quellStartIndex = alleTagesEntnahmen.length - maxTage;
 		TagesEntnahme tagesEntnahme0 = alleTagesEntnahmen[quellStartIndex];
-		
-		// Die ältesten Entnahmen zusammenfassen
+
+		// Die ï¿½ltesten Entnahmen zusammenfassen
 		for (int iQuelle = 0; iQuelle < quellStartIndex; iQuelle++) {
 			tagesEntnahme0.add(alleTagesEntnahmen[iQuelle]);
 		}
 		komprimierteEntnahmen[0] = tagesEntnahme0;
-		
-		// Die restlichen Entnahmen 1:1 anhängen
+
+		// Die restlichen Entnahmen 1:1 anhï¿½ngen
 		int iZiel = 0;
 		for (int iQuelle = quellStartIndex + 1; iQuelle < alleTagesEntnahmen.length; iQuelle++) {
 			komprimierteEntnahmen[++iZiel] = alleTagesEntnahmen[iQuelle];
 		}
-		
+
 		return komprimierteEntnahmen;
 	}
 
@@ -49,6 +49,7 @@ public class PoolInfoEntnommene {
 	public class TagesEntnahme {
 		public final LocalDateTime datum;
 		public final EnumMap<Schwierigkeit, InfoEntnommene> entnahme;
+
 		/**
 		 * @param datum
 		 * @param entnahme
@@ -58,32 +59,31 @@ public class PoolInfoEntnommene {
 			this.datum = datum;
 			this.entnahme = entnahme;
 		}
-		
+
 		/**
 		 * @param info
-		 * Fügt die info hinzu
+		 * Fï¿½gt die info hinzu
 		 */
-		void add(InfoEntnommene info){
+		void add(InfoEntnommene info) {
 			InfoEntnommene tagesInfo = this.entnahme.get(info.schwierigkeit);
-			
-			if (tagesInfo == null){
+
+			if (tagesInfo == null) {
 				// Neue SchwierigkeitsInfo
 				this.entnahme.put(info.schwierigkeit, info);
-			}
-			else{
-				// entnommen in bestehende SchwierigkeitsInfo einfügen
+			} else {
+				// entnommen in bestehende SchwierigkeitsInfo einfï¿½gen
 				tagesInfo.add(info);
 			}
 		}
-		
+
 		/**
 		 * @param tagesEntnahme
-		 * Fügt die Entnahmen der tagesEntnahme hinzu. Mein datum bleibt unverändert.
+		 * Fï¿½gt die Entnahmen der tagesEntnahme hinzu. Mein datum bleibt unverï¿½ndert.
 		 */
-		void add(TagesEntnahme tagesEntnahme){
+		void add(TagesEntnahme tagesEntnahme) {
 			Collection<InfoEntnommene> entnahmen = tagesEntnahme.entnahme.values();
-			
-			for(InfoEntnommene info: entnahmen){
+
+			for (InfoEntnommene info : entnahmen) {
 				this.add(info);
 			}
 		}
@@ -116,21 +116,21 @@ public class PoolInfoEntnommene {
 			}
 
 			if (istNeueEntnahme) {
-				// entnommen als neue TagesEntnahme anhängen
+				// entnommen als neue TagesEntnahme anhï¿½ngen
 				EnumMap<Schwierigkeit, InfoEntnommene> entnahme = new EnumMap<>(Schwierigkeit.class);
 				entnahme.put(entnommen.schwierigkeit, entnommen);
 				TagesEntnahme tagesEntnahme = new TagesEntnahme(diesDatum, entnahme);
 				tagesEntnahmen.add(tagesEntnahme);
 			} else {
-				// entnommen in letzte TagesEntnahme einfügen
-				TagesEntnahme tagesEntnahme = tagesEntnahmen.get(tagesEntnahmen.size()-1);
+				// entnommen in letzte TagesEntnahme einfï¿½gen
+				TagesEntnahme tagesEntnahme = tagesEntnahmen.get(tagesEntnahmen.size() - 1);
 				tagesEntnahme.add(entnommen);
 			}
 		}
 
-		TagesEntnahme[] tagesArray = new TagesEntnahme [tagesEntnahmen.size()];
+		TagesEntnahme[] tagesArray = new TagesEntnahme[tagesEntnahmen.size()];
 		tagesEntnahmen.toArray(tagesArray);
-		
+
 		return tagesArray;
 	}
 

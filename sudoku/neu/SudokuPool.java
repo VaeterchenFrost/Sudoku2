@@ -21,7 +21,7 @@ public class SudokuPool {
 
 	/**
 	 * @param externeAusnahmeBehandlung falls != null wird im internen Thread 
-	 * 				diese Ausnahmebehandlung für nicht gefangene Ausnahmen eingeklinkt, 
+	 * 				diese Ausnahmebehandlung fï¿½r nicht gefangene Ausnahmen eingeklinkt, 
 	 * 				ansonsten die Standardbehandlung des genannten Typs. 
 	 * @throws Exc
 	 */
@@ -43,7 +43,7 @@ public class SudokuPool {
 
 	/**
 	 * @param neuTyp
-	 * @return Sudoku oder null wenn keines des angeforderten Typs zur Verfügung steht
+	 * @return Sudoku oder null wenn keines des angeforderten Typs zur Verfï¿½gung steht
 	 */
 	public InfoSudoku gibSudoku(NeuTyp neuTyp, NeuTypOption option) {
 		InfoSudoku sudoku = pool.gibSudoku(neuTyp, option);
@@ -62,13 +62,11 @@ public class SudokuPool {
 		return poolInfo;
 	}
 
-	public PoolInfoEntnommene gibPoolInfoEntnommene	() {
+	public PoolInfoEntnommene gibPoolInfoEntnommene() {
 		PoolInfoEntnommene poolInfo = this.pool.gibPoolInfoEntnommene();
 		return poolInfo;
 	}
 
-	
-	
 	public String gibTopfName(NeuTyp neuTyp) {
 		String s = this.pool.gibTopfName(neuTyp);
 		return s;

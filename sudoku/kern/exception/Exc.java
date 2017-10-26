@@ -32,7 +32,7 @@ public class Exc extends Exception {
 	}
 
 	static public Exc setzeMoeglicheNicht(ArrayList<Integer> moegliche, ArrayList<Integer> neueMoegliche) {
-		String text = String.format("setze Mögliche nicht: meine=%s, neue=%s", moegliche, neueMoegliche);
+		String text = String.format("setze Mï¿½gliche nicht: meine=%s, neue=%s", moegliche, neueMoegliche);
 
 		return new Exc(text);
 	}
@@ -61,8 +61,9 @@ public class Exc extends Exception {
 		return new Exc(text);
 	}
 
-	static public Exc protokollMarkierungIstOhneNachfolger(int markierungId, int markierungKursor, int anzahlEintraege) {
-		String text = String.format("Protokoll-Markierung (id=%d, kursor=%d) ist ohne Nachfolger: Anzahl Einträge=%d",
+	static public Exc protokollMarkierungIstOhneNachfolger(int markierungId, int markierungKursor,
+			int anzahlEintraege) {
+		String text = String.format("Protokoll-Markierung (id=%d, kursor=%d) ist ohne Nachfolger: Anzahl Eintrï¿½ge=%d",
 				markierungId, markierungKursor, anzahlEintraege);
 
 		return new Exc(text);
@@ -76,7 +77,7 @@ public class Exc extends Exception {
 	}
 
 	static public Exc setzeVorgabeNurOhneEintraege(Feld feld, int vorgabe, int aktuelleEbene) {
-		String text = String.format("%s: Setze Vorgabe %d nur ohne Einträge (Ebene=%d)", feld.gibName(), vorgabe,
+		String text = String.format("%s: Setze Vorgabe %d nur ohne Eintrï¿½ge (Ebene=%d)", feld.gibName(), vorgabe,
 				aktuelleEbene);
 
 		return new Exc(text);
@@ -108,7 +109,7 @@ public class Exc extends Exception {
 	}
 
 	static public Exc loescheEintragNichtAufEbene(Feld feld, int aktuelleEbene) {
-		String text = String.format("%s: Lösche Eintrag %d nicht: EintragsEbene=%d aktuelle Ebene=%d", feld.gibName(),
+		String text = String.format("%s: Lï¿½sche Eintrag %d nicht: EintragsEbene=%d aktuelle Ebene=%d", feld.gibName(),
 				feld.gibEintrag(), feld.gibEintragEbene(), aktuelleEbene);
 
 		return new Exc(text);
@@ -123,21 +124,21 @@ public class Exc extends Exception {
 	}
 
 	static public Exc setzeEintragNichtOhneMoegliche(Feld feld, int zahl) {
-		String text = String.format("%s: Setze Eintrag %d nicht ohne mögliche Zahlen", feld.gibName(), zahl,
+		String text = String.format("%s: Setze Eintrag %d nicht ohne mï¿½gliche Zahlen", feld.gibName(), zahl,
 				feld.gibVorgabe());
 
 		return new Exc(text);
 	}
 
 	static public Exc setzeEintragNichtOhneDieseMoegliche(Feld feld, int zahl) {
-		String text = String.format("%s: Setze Eintrag %d nicht: Ist nicht unter den Möglichen %s", feld.gibName(),
+		String text = String.format("%s: Setze Eintrag %d nicht: Ist nicht unter den Mï¿½glichen %s", feld.gibName(),
 				zahl, feld.gibVorgabe(), feld.gibMoeglicheAlsString());
 
 		return new Exc(text);
 	}
 
 	static public Exc ebeneSpieltNichtMit(Feld feld, Eintrag neuerEintrag, int neueEbene) {
-		String text = String.format("%s (Mögliche=%s): EintragsObjekt (Ebene=%d, Zahl=%d) erzeugt falsche Ebene=%d",
+		String text = String.format("%s (Mï¿½gliche=%s): EintragsObjekt (Ebene=%d, Zahl=%d) erzeugt falsche Ebene=%d",
 				feld.gibName(), feld.gibMoeglicheAlsString(), neuerEintrag.gibEbene(), neuerEintrag.gibZahl(),
 				neueEbene);
 
@@ -158,7 +159,7 @@ public class Exc extends Exception {
 	}
 
 	static public Exc aktionnurOhneEintrag(String aktionsName) {
-		String text = String.format("Die Aktion '%s' ist nur im Sudoku ohne Einträge möglich", aktionsName);
+		String text = String.format("Die Aktion '%s' ist nur im Sudoku ohne Eintrï¿½ge mï¿½glich", aktionsName);
 		return new Exc(text);
 	}
 

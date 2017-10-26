@@ -18,7 +18,7 @@ import sudoku.logik.tipinfo.TipInfo0;
  * @author heroe
  * Die Logik KastenLinie hat, wie sich zeigte die identische Wirkung wie die Logik Kasten2.
  * Anders gesagt: Sie kommt nie zur Wirkung wenn Logik Kasten2 eingeschalten ist.
- * Das kam mir zwar nicht im Gedanken, aber sehr schön beim Ansehen von entsprechenden Tips.
+ * Das kam mir zwar nicht im Gedanken, aber sehr schï¿½n beim Ansehen von entsprechenden Tips.
  * Deshalb ist diese Logik nicht eingeordnet!
  */
 class ZMist_Logik_KastenLinie implements Logik__Interface {
@@ -64,8 +64,8 @@ class ZMist_Logik_KastenLinie implements Logik__Interface {
 				texte.add(tipText1);
 			}
 			{
-				String s1 = String
-						.format("Deshalb wird die Zahl %d in den anderen Feldern des Kastens gelöscht.", zahl);
+				String s1 = String.format("Deshalb wird die Zahl %d in den anderen Feldern des Kastens gelï¿½scht.",
+						zahl);
 				EinTipText tipText1 = new EinTipText(s1, null);
 				texte.add(tipText1);
 			}
@@ -132,17 +132,20 @@ class ZMist_Logik_KastenLinie implements Logik__Interface {
 
 	@Override
 	public String[] gibSituationAbstrakt() {
-		return new String[] { "1 Zahl ist in einer Zeile bzw. Spalte nur auf Feldern innerhald eines Kastens möglich." };
+		return new String[] {
+				"1 Zahl ist in einer Zeile bzw. Spalte nur auf Feldern innerhald eines Kastens mï¿½glich." };
 	}
 
 	@Override
 	public String[] gibSituation() {
-		return new String[] { "1 Zahl ist in einer Zeile bzw. Spalte nur auf Feldern innerhald eines Kastens möglich." };
+		return new String[] {
+				"1 Zahl ist in einer Zeile bzw. Spalte nur auf Feldern innerhald eines Kastens mï¿½glich." };
 	}
 
 	@Override
 	public String[] gibErgebnis() {
-		return new String[] {"Diese 1 Zahl ist innerhalb des Kastens nirgendwoanders möglich. Auf den anderen Feldern wird die Zahl also gelöscht."};
+		return new String[] {
+				"Diese 1 Zahl ist innerhalb des Kastens nirgendwoanders mï¿½glich. Auf den anderen Feldern wird die Zahl also gelï¿½scht." };
 	}
 
 	@Override
@@ -200,14 +203,15 @@ class ZMist_Logik_KastenLinie implements Logik__Interface {
 						KastenIndex kastenIndex = gibKastenIndex(felderDerMoeglichenLinienZahl);
 
 						if (kastenIndex != null) {
-							// Alle Felder liegen in einem Kasten: Gibt es zu löschende Zahlen im Kasten
+							// Alle Felder liegen in einem Kasten: Gibt es zu lï¿½schende Zahlen im Kasten
 							Kasten kasten = Kasten.gibKasten(kastenIndex, kaesten);
 							FeldListe felderDerMoeglichenZahlImKasten = kasten.gibFelderDerMoeglichenZahl(zahl);
 
 							if (anzahlMoeglicherFelderDerLinienZahl < felderDerMoeglichenZahlImKasten.size()) {
-								// Es gibt zu löschende Zahlen im Kasten
+								// Es gibt zu lï¿½schende Zahlen im Kasten
 								FeldNummerListe loeschFeldNummern = new FeldNummerListe();
-								for (int iFeldImKasten = 0; iFeldImKasten < felderDerMoeglichenZahlImKasten.size(); iFeldImKasten++) {
+								for (int iFeldImKasten = 0; iFeldImKasten < felderDerMoeglichenZahlImKasten
+										.size(); iFeldImKasten++) {
 									Feld feld = felderDerMoeglichenZahlImKasten.get(iFeldImKasten);
 									if (!felderDerMoeglichenLinienZahl.contains(feld)) {
 										loeschFeldNummern.add(feld.gibFeldNummer());

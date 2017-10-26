@@ -6,42 +6,44 @@ import java.util.Calendar;
 public class Info {
 	/**
 	 * @param dateiZeit
-	 * @return Das Datum der übergebenen (Datei-)Zeit. Genauer gesagt: LocalDateTime mit allen Zeitangaben == 0.
+	 * @return Das Datum der ï¿½bergebenen (Datei-)Zeit. Genauer gesagt: LocalDateTime mit allen Zeitangaben == 0.
 	 */
 	public static LocalDateTime gibDatum(Long dateiZeit) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTimeInMillis(dateiZeit);
-		LocalDateTime datum = LocalDateTime.of(cal.get(Calendar.YEAR), (cal.get(Calendar.MONTH) + 1), cal.get(Calendar.DAY_OF_MONTH), 0, 0);
+		LocalDateTime datum = LocalDateTime.of(cal.get(Calendar.YEAR), (cal.get(Calendar.MONTH) + 1),
+				cal.get(Calendar.DAY_OF_MONTH), 0, 0);
 		return datum;
 	}
 
 	/**
 	 * @param dateiZeit
-	 * @return Datum und Zeit Sekunden-genau der übergebenen (Datei-)Zeit. 
+	 * @return Datum und Zeit Sekunden-genau der ï¿½bergebenen (Datei-)Zeit. 
 	 */
 	static LocalDateTime gibDatumMitZeit(Long dateiZeit) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTimeInMillis(dateiZeit);
-		LocalDateTime datum = LocalDateTime.of(cal.get(Calendar.YEAR), (cal.get(Calendar.MONTH) + 1), cal.get(Calendar.DAY_OF_MONTH),
-				cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE), cal.get(Calendar.SECOND));
+		LocalDateTime datum = LocalDateTime.of(cal.get(Calendar.YEAR), (cal.get(Calendar.MONTH) + 1),
+				cal.get(Calendar.DAY_OF_MONTH), cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE),
+				cal.get(Calendar.SECOND));
 		return datum;
 	}
 
 	// ===============================================================
 	/**
-	 * Anzahl aller Sudokus, die diese Info repräsentiert
+	 * Anzahl aller Sudokus, die diese Info reprï¿½sentiert
 	 */
 	private int anzahl;
 	/**
-	 * Größe auf Dateträger aller Sudokus, die diese Info repräsentiert
+	 * Grï¿½ï¿½e auf Datetrï¿½ger aller Sudokus, die diese Info reprï¿½sentiert
 	 */
 	private long groesse;
 	/**
-	 * Lösungszeit des leichtesten Sudoku
+	 * Lï¿½sungszeit des leichtesten Sudoku
 	 */
 	private Integer leichtestes;
 	/**
-	 * Lösungszeit des schwersten Sudoku
+	 * Lï¿½sungszeit des schwersten Sudoku
 	 */
 	private Integer schwerstes;
 	/**
@@ -74,8 +76,8 @@ public class Info {
 	 * @param aeltestes
 	 * @param juengstes
 	 */
-	public Info( int anzahl, long groesse, Integer leichtestes, Integer schwerstes,
-			LocalDateTime aeltestes, LocalDateTime juengstes) {
+	public Info(int anzahl, long groesse, Integer leichtestes, Integer schwerstes, LocalDateTime aeltestes,
+			LocalDateTime juengstes) {
 		super();
 		this.anzahl = anzahl;
 		this.groesse = groesse;
@@ -110,7 +112,7 @@ public class Info {
 	}
 
 	/**
-	 * @param info2 Fügt die Werte der Info2 zu meinen dazu. 
+	 * @param info2 Fï¿½gt die Werte der Info2 zu meinen dazu. 
 	 */
 	public void add(Info info2) {
 		this.anzahl += info2.anzahl;

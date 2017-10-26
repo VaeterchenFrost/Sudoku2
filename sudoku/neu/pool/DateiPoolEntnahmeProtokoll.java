@@ -21,7 +21,7 @@ public class DateiPoolEntnahmeProtokoll {
 	/** Name des Unterverzeichnisses im DateiPool 
 	 */
 	private static String unterVerzeichnisName = "Entnahme";
-	/** Größte Anzahl der Sudokus im Speicher
+	/** Grï¿½ï¿½te Anzahl der Sudokus im Speicher
 	 */
 	private static int nMax = 100;
 	/** Format der Protokoll-Zeit im Dateinamen
@@ -37,7 +37,7 @@ public class DateiPoolEntnahmeProtokoll {
 	}
 
 	/**
-	 * @return Vollständiger Pfad
+	 * @return Vollstï¿½ndiger Pfad
 	 */
 	static String gibPfadName() {
 		return pfadName;
@@ -67,14 +67,14 @@ public class DateiPoolEntnahmeProtokoll {
 	/**
 	 * @param wieSchwer
 	 * @param loesungsZeit in Minuten
-	 * @return Vollständiger Pfad
+	 * @return Vollstï¿½ndiger Pfad
 	 */
 	private static String gibDateiName(Schwierigkeit wieSchwer, int loesungsZeit) {
 		String wieSchwerName = Schwierigkeit.gibName(wieSchwer);
 		int zeitGerastert = AnalysatorKlare.gibAnzeigeZeit(loesungsZeit * 60, true);
 		String protokollZeitString = gibProtokollZeitString();
-		String zielDateiName = String
-				.format("%s%s %s %3d", pfadName, protokollZeitString, wieSchwerName, zeitGerastert);
+		String zielDateiName = String.format("%s%s %s %3d", pfadName, protokollZeitString, wieSchwerName,
+				zeitGerastert);
 		String zielDateiPfad = gibDateiNameFrei(zielDateiName, InfoSudoku.dateiErweiterung);
 		return zielDateiPfad;
 	}
@@ -90,8 +90,8 @@ public class DateiPoolEntnahmeProtokoll {
 	}
 
 	/**
-	 * @param dateiName vollständiger Pfad
-	 * @return Die im dateiNamen dokumentierte Zeit der Übernahme des Sudoku in das Entnahmeprotokoll
+	 * @param dateiName vollstï¿½ndiger Pfad
+	 * @return Die im dateiNamen dokumentierte Zeit der ï¿½bernahme des Sudoku in das Entnahmeprotokoll
 	 */
 	static LocalDateTime gibProtokollZeit(String dateiName) {
 		int indexUnterVerzeichnis = dateiName.indexOf(unterVerzeichnisName);
@@ -118,7 +118,7 @@ public class DateiPoolEntnahmeProtokoll {
 	static void kontrolliereAnzahl() {
 		File f = new File(pfadName);
 		File[] fArray = f.listFiles();
-		// Sortieren aufsteigend: Auf Index=0 älteste Entnahme
+		// Sortieren aufsteigend: Auf Index=0 ï¿½lteste Entnahme
 		Arrays.sort(fArray);
 		if (fArray.length > nMax) {
 			int loeschMax = fArray.length - nMax;
@@ -145,10 +145,10 @@ public class DateiPoolEntnahmeProtokoll {
 	}
 
 	/**
-	 * @param dateiName vollständiger Pfad
+	 * @param dateiName vollstï¿½ndiger Pfad
 	 * @return Die im dateiNamen dokumentierte Schwierigkeit
 	 */
-	static Schwierigkeit gibSchwierigkeit(String dateiName){
+	static Schwierigkeit gibSchwierigkeit(String dateiName) {
 		Schwierigkeit[] schwierigkeiten = Schwierigkeit.values();
 		for (int j = 0; j < schwierigkeiten.length; j++) {
 			Schwierigkeit wieSchwer = schwierigkeiten[j];
@@ -156,7 +156,7 @@ public class DateiPoolEntnahmeProtokoll {
 			int schwerIndex = dateiName.indexOf(wieSchwerString);
 
 			if (schwerIndex >= 0) {
-				return wieSchwer; 
+				return wieSchwer;
 			}
 		}
 		return null;
@@ -165,8 +165,8 @@ public class DateiPoolEntnahmeProtokoll {
 	/**
 	 * @param f Datei
 	 * @param wieSchwer Das Sudoku der Datei soll diese Schwierigkeit besitzen
-	 * @param loesungsZeit Das Sudoku der Datei soll diese Lösungszeit besitzen.
-	 * 					Falls null übergeben wird, bleibt die Lösungszeit unberücksichtigt.
+	 * @param loesungsZeit Das Sudoku der Datei soll diese Lï¿½sungszeit besitzen.
+	 * 					Falls null ï¿½bergeben wird, bleibt die Lï¿½sungszeit unberï¿½cksichtigt.
 	 * @return
 	 */
 	static boolean istGesucht(File f, Schwierigkeit wieSchwer, Integer loesungsZeit) {
@@ -179,7 +179,7 @@ public class DateiPoolEntnahmeProtokoll {
 		}
 
 		if (loesungsZeit == null) {
-			return true; // Lösungszeit soll egal sein
+			return true; // Lï¿½sungszeit soll egal sein
 		}
 
 		int fLoesungsZeit = gibLoesungsZeit(name);
@@ -196,7 +196,7 @@ public class DateiPoolEntnahmeProtokoll {
 	public static InfoSudoku[] gibEntnommene(Schwierigkeit wieSchwer, Integer loesungsZeit) {
 		File dir = new File(pfadName);
 		File[] fArray = dir.listFiles();
-		// Sortieren aufsteigend: Auf Index=0 älteste Entnahme
+		// Sortieren aufsteigend: Auf Index=0 ï¿½lteste Entnahme
 		Arrays.sort(fArray);
 		if (fArray.length == 0) {
 			return null;

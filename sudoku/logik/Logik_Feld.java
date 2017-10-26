@@ -57,7 +57,7 @@ class Logik_Feld implements Logik__Interface {
 		// }
 
 		public EinTipText[] gibTip() {
-			String s1 = String.format("Im Feld %s ist einzig die Zahl %d möglich.",
+			String s1 = String.format("Im Feld %s ist einzig die Zahl %d mï¿½glich.",
 					this.feldNummerMitZahl.gibFeldNummer(), feldNummerMitZahl.gibZahl());
 			EinTipText[] sArray = new EinTipText[] { new EinTipText(s1, null) };
 			return sArray;
@@ -123,17 +123,19 @@ class Logik_Feld implements Logik__Interface {
 
 	@Override
 	public String[] gibSituationAbstrakt() {
-		return new String[] { "In 1 Feld ist 1 Zahl festgelegt aufgrund der Belegung seiner Gruppen (Zeile, Spalte und Kasten)." };
+		return new String[] {
+				"In 1 Feld ist 1 Zahl festgelegt aufgrund der Belegung seiner Gruppen (Zeile, Spalte und Kasten)." };
 	}
 
 	@Override
 	public String[] gibSituation() {
-		return new String[] { "In 1 Feld ist nur 1 Zahl möglich aufgrund der Belegung seiner Gruppen (Zeile, Spalte und Kasten)." };
+		return new String[] {
+				"In 1 Feld ist nur 1 Zahl mï¿½glich aufgrund der Belegung seiner Gruppen (Zeile, Spalte und Kasten)." };
 	}
 
 	@Override
 	public String[] gibErgebnis() {
-		return new String[] {"Diese Zahl wird ein Eintrag."};
+		return new String[] { "Diese Zahl wird ein Eintrag." };
 	}
 
 	@Override

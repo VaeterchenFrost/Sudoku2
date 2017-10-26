@@ -22,8 +22,8 @@ public class ToolBarGruppeExtras {
 		protected SudokuBedienung sudoku;
 		protected StatusBar statusBar;
 
-		public ButtonExtra(String titel, String toolTip, JFrame frame, String applikationsTitel,
-				SudokuBedienung sudoku, StatusBar statusBar) {
+		public ButtonExtra(String titel, String toolTip, JFrame frame, String applikationsTitel, SudokuBedienung sudoku,
+				StatusBar statusBar) {
 			super(titel);
 			this.setToolTipText(toolTip);
 			this.frame = frame;
@@ -62,14 +62,14 @@ public class ToolBarGruppeExtras {
 	// Drucke6
 	public class ButtonDrucke6 extends ButtonExtra implements ActionListener {
 		public ButtonDrucke6(JFrame frame, String applikationsTitel, SudokuBedienung sudoku, StatusBar statusBar) {
-			super("Drucke 6...", "6 Sudokus einer gewünschten Schwierigkeit drucken", frame, applikationsTitel, sudoku,
+			super("Drucke 6...", "6 Sudokus einer gewï¿½nschten Schwierigkeit drucken", frame, applikationsTitel, sudoku,
 					statusBar);
 			this.addActionListener(this);
 			Drucke6.vorbereiten();
 		}
 
 		public void actionPerformed(ActionEvent e) {
-			// Typ über PopupMenü auswählen lassen
+			// Typ ï¿½ber PopupMenï¿½ auswï¿½hlen lassen
 			Drucke6.erstelle(sudoku, this, statusBar);
 		}
 	}

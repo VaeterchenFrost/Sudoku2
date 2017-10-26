@@ -8,7 +8,7 @@ import sudoku.kern.feldmatrix.FeldNummer;
 
 /**
  * @author Hendrick
- * Die Gruppe von 9 Feldern, in denen alle Zahlen von 1 bis 9 einmal vorkommen müssen
+ * Die Gruppe von 9 Feldern, in denen alle Zahlen von 1 bis 9 einmal vorkommen mï¿½ssen
  */
 @SuppressWarnings("serial")
 public class Gruppe extends FeldListe {
@@ -33,7 +33,8 @@ public class Gruppe extends FeldListe {
 		spalteMax++;
 		spalteMax *= 3;
 
-		return ((feldNummer.zeile >= zeileMin) && (feldNummer.spalte >= spalteMin) && (feldNummer.zeile <= zeileMax) && (feldNummer.spalte <= spalteMax));
+		return ((feldNummer.zeile >= zeileMin) && (feldNummer.spalte >= spalteMin) && (feldNummer.zeile <= zeileMax)
+				&& (feldNummer.spalte <= spalteMax));
 	}
 
 	/**
@@ -55,8 +56,8 @@ public class Gruppe extends FeldListe {
 			mitglied = (istKastenFeld(basisFeldNummer, feldNummer));
 			break;
 		case MIX:
-			mitglied = ((basisFeldNummer.zeile == feldNummer.zeile) || (basisFeldNummer.spalte == feldNummer.spalte) || istKastenFeld(
-					basisFeldNummer, feldNummer));
+			mitglied = ((basisFeldNummer.zeile == feldNummer.zeile) || (basisFeldNummer.spalte == feldNummer.spalte)
+					|| istKastenFeld(basisFeldNummer, feldNummer));
 			break;
 		}
 		return mitglied;
@@ -115,7 +116,7 @@ public class Gruppe extends FeldListe {
 			return s;
 		case KASTEN:
 			KastenIndex kastenIndex = Kasten.gibKastenIndex(gruppen[0].get(0).gibFeldNummer());
-			s = String.format("%cn den Kästen %s", textStart, Kasten.gibNameVomKastenIndex(kastenIndex));
+			s = String.format("%cn den Kï¿½sten %s", textStart, Kasten.gibNameVomKastenIndex(kastenIndex));
 			for (int i = 1; i < gruppen.length; i++) {
 				KastenIndex kastenIndex1 = Kasten.gibKastenIndex(gruppen[i].get(0).gibFeldNummer());
 				String sKasten = Kasten.gibNameVomKastenIndex(kastenIndex1);
@@ -136,7 +137,7 @@ public class Gruppe extends FeldListe {
 	private Typ typ;
 
 	/**
-	 * Sammelt für aTyp und basisFeldNummer alle Felder der Gruppe zusammen
+	 * Sammelt fï¿½r aTyp und basisFeldNummer alle Felder der Gruppe zusammen
 	 * @param aTyp
 	 * @param basisFeldNummer
 	 * @param mitBasisFeld

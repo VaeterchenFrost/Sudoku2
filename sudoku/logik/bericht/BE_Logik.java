@@ -26,16 +26,16 @@ public class BE_Logik {
 	@Override
 	public String toString() {
 		String sEintrag = eintrag == null ? "" : " Eintrag=" + eintrag;
-		String sLoeschZahlen = loeschZahlen == null ? "" : " Löschzahlen=" + loeschZahlen;
+		String sLoeschZahlen = loeschZahlen == null ? "" : " Lï¿½schzahlen=" + loeschZahlen;
 		return "BE_Logik [logik=" + logik + " " + gruppenlaeufeListe + sEintrag + sLoeschZahlen + "]";
 	}
 
 	public String gibKurzText() {
 		String sLogikKurz = SudokuLogik.gibNameKurz(logik);
 		String sEintrag = eintrag == null ? "" : " Eintrag=" + eintrag;
-		String sLoeschZahlen = loeschZahlen == null ? "" : " Löschzahlen=" + loeschZahlen;
-		return "BE_Logik [" + sLogikKurz + " " + gruppenlaeufeListe.gibKurzText() + " " + sEintrag + " "
-				+ sLoeschZahlen + "]";
+		String sLoeschZahlen = loeschZahlen == null ? "" : " Lï¿½schzahlen=" + loeschZahlen;
+		return "BE_Logik [" + sLogikKurz + " " + gruppenlaeufeListe.gibKurzText() + " " + sEintrag + " " + sLoeschZahlen
+				+ "]";
 	}
 
 }

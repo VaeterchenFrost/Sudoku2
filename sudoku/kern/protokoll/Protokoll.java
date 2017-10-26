@@ -15,9 +15,9 @@ import sudoku.logik.SudokuLogik;
 /**
  * @author Hendrick
  * - Das Protokoll schreibt alle Feld.setzeEintrag() mit.
- * - In dem Mitgeschriebenen besteht dann die Möglichkeit sich schrittweise vor bzw. zurück zu bewegen.
- * - Es besteht die Möglichkeit, auf Protokollpunkte eine Markierung zu setzen 
- * 		und später das Protokoll auf diesen Punkt zurückgehen zu lassen.
+ * - In dem Mitgeschriebenen besteht dann die Mï¿½glichkeit sich schrittweise vor bzw. zurï¿½ck zu bewegen.
+ * - Es besteht die Mï¿½glichkeit, auf Protokollpunkte eine Markierung zu setzen 
+ * 		und spï¿½ter das Protokoll auf diesen Punkt zurï¿½ckgehen zu lassen.
  */
 public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 	public enum Schrittweite {
@@ -33,8 +33,8 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 	private boolean warVorwaerts;
 	private ArrayList<ProtokollEintrag> eintraege;
 	/**
-	 * Ist nicht nötig zum restaurieren eines Eintrags (spezielle Methode Feld.setzeEintragObjekt()).
-	 * Aber für das restaurieren des Auffrischens! 
+	 * Ist nicht nï¿½tig zum restaurieren eines Eintrags (spezielle Methode Feld.setzeEintragObjekt()).
+	 * Aber fï¿½r das restaurieren des Auffrischens! 
 	 */
 	private boolean istGesperrt;
 
@@ -98,7 +98,7 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 	}
 
 	/**
-	 * Im Sudoku ein Feld verändern
+	 * Im Sudoku ein Feld verï¿½ndern
 	 * @param feldInfo
 	 * @throws Exc
 	 */
@@ -132,7 +132,7 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 		case VERSUCH:
 			int vergleichsEbene = 0;
 			// Der kursor kann hier auch -1 sein bei eintraege.size() >0 !!
-			// Die Vergleichsebene ist die des Nächsten Eintrags, denn es soll ja vorwärts gehen!
+			// Die Vergleichsebene ist die des Nï¿½chsten Eintrags, denn es soll ja vorwï¿½rts gehen!
 			vergleichsEbene = gibEintragsEbene(kursor + 1);
 
 			while (kursor < (eintraege.size() - 1)) {
@@ -142,7 +142,7 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 				} else {
 					break;
 				}
-			}// while
+			} // while
 			break;
 		case EINTRAG:
 			geheEinenSchrittVorwaerts();
@@ -180,7 +180,7 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 				} else {
 					break;
 				}
-			}// while
+			} // while
 			break;
 		case EINTRAG:
 			geheEinenSchrittRueckwaerts();
@@ -192,7 +192,7 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 	}
 
 	public void gehe(Schrittweite schrittweite, boolean vorwaerts) throws Exc {
-		// Die durch mich durchgeführten Schritte schreibe ich nicht mit
+		// Die durch mich durchgefï¿½hrten Schritte schreibe ich nicht mit
 		istGesperrt = true;
 
 		if (vorwaerts) {
@@ -288,15 +288,15 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 			return;
 		}
 
-		// Wenn das Löschen auf Feldern, die gar keinen Eintrag besitzen durchgeführt werden darf:
-		// Benötigen wir hier dies if.. ,
-		// denn ich benötige immer eine FeldInfo mit Eintrag zum Ermitteln der Ebene
+		// Wenn das Lï¿½schen auf Feldern, die gar keinen Eintrag besitzen durchgefï¿½hrt werden darf:
+		// Benï¿½tigen wir hier dies if.. ,
+		// denn ich benï¿½tige immer eine FeldInfo mit Eintrag zum Ermitteln der Ebene
 		if ((eintragAlt == null) && (eintragNeu == null)) {
 			return;
 		}
 
 		// Wenn der Kursor nicht am Ende steht, will jemand irgendwo mittendrin weitermachen.
-		// Also werden alle Einträge über dem Kursor gelöscht.
+		// Also werden alle Eintrï¿½ge ï¿½ber dem Kursor gelï¿½scht.
 		if (istVorwaertsMoeglich()) {
 			while (kursor < (eintraege.size() - 1)) {
 				eintraege.remove(eintraege.size() - 1);
@@ -318,11 +318,11 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 
 		// Der kleinste Kursor wird auch als 0 gezeigt (zeigt auf keinen Eintrag)
 		int kursorEintrag = this.kursor + 1;
-		// min=0: Das heißt, dass keine (eben 0) Einträge vorhanden sind
+		// min=0: Das heiï¿½t, dass keine (eben 0) Eintrï¿½ge vorhanden sind
 		MinMax eintrag = new MinMax(0, eintraege.size());
 		;
 
-		// 0 heißt keine Ebene
+		// 0 heiï¿½t keine Ebene
 		int kursorEbene = 0;
 		int anzahlEbenen = 0;
 
@@ -377,14 +377,14 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 		String sKursor = "Kursor  :";
 		String sSetzen = String.format("gesetzt :%s", sLeer);
 		String sFeldNummer = String.format("FIndex  :%s", sLeer);
-		String sLoeschen = String.format("gelöscht:%s", sLeer);
+		String sLoeschen = String.format("gelï¿½scht:%s", sLeer);
 
 		if (kursor == -1) {
 			sKursor += sKursorZurueck;
 		} else {
 			sKursor += sKursorLeer;
 		}
-		// Mit allen Einträgen
+		// Mit allen Eintrï¿½gen
 		for (int iEintrag = 0; iEintrag < eintraege.size(); iEintrag++) {
 			// sEintragIndex
 			{
@@ -398,8 +398,8 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 
 			// sFeldNummer
 			{
-				String s = String.format(" %d%d", protokollEintrag.gibFeldNummer().gibZeile(), protokollEintrag
-						.gibFeldNummer().gibSpalte());
+				String s = String.format(" %d%d", protokollEintrag.gibFeldNummer().gibZeile(),
+						protokollEintrag.gibFeldNummer().gibSpalte());
 				sFeldNummer += s;
 			}
 
@@ -445,7 +445,7 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 	}
 
 	/**
-	 * Markierungen, die auf Einträge über dem Kursor zeigen werden gelöscht.
+	 * Markierungen, die auf Eintrï¿½ge ï¿½ber dem Kursor zeigen werden gelï¿½scht.
 	 */
 	private void markierungenUeberKursorLoeschen() {
 		ArrayList<Markierung> zuLoeschen = new ArrayList<Markierung>();
@@ -476,7 +476,7 @@ public class Protokoll implements ProtokollSchreiber, ProtokollMarkierer {
 	}
 
 	public void animiere(Animator animator) {
-		// Mit allen Einträgen
+		// Mit allen Eintrï¿½gen
 		for (int iEintrag = 0; iEintrag < eintraege.size(); iEintrag++) {
 			ProtokollEintrag protokollEintrag = eintraege.get(iEintrag);
 			protokollEintrag.animiere(animator);

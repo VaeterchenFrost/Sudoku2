@@ -36,16 +36,16 @@ public class Knacker {
 
 	/**
 	 * @author Hendrick 
-	 * 	KEINE Es sollen gar keine Versuche (Eintrag auf Felder mit mehreren möglichen Zahlen) gestartet werden. 
+	 * 	KEINE Es sollen gar keine Versuche (Eintrag auf Felder mit mehreren mï¿½glichen Zahlen) gestartet werden. 
 	 *  EINE Es darf eine VersuchsEbene gestartet werden 
-	 *  UNBEGRENZT Es dürfen beliebig viele Versuche gestartet werden
+	 *  UNBEGRENZT Es dï¿½rfen beliebig viele Versuche gestartet werden
 	 */
 	public enum VersuchsEbenen {
 		KEINE, EINE, UNBEGRENZT
 	};
 
 	/**
-	 * @author Hendrick Diese Klasse für den Ausstieg aus der kompletten Logik,
+	 * @author Hendrick Diese Klasse fï¿½r den Ausstieg aus der kompletten Logik,
 	 *         denn es ist nichts mehr zu tun.
 	 */
 	@SuppressWarnings("serial")
@@ -67,7 +67,7 @@ public class Knacker {
 		case FERTIG:
 			return null; // "Das Sudoku ist fertig";
 		case UNGELOEST:
-			return "Das Sudoku scheint nicht lösbar";
+			return "Das Sudoku scheint nicht lï¿½sbar";
 		case PROBLEM:
 			return "Das Sudoku beinhaltet eine falsche Zahl";
 		default:
@@ -95,16 +95,16 @@ public class Knacker {
 	}
 
 	/**
-	 * Solange freie Felder mit nur einer möglichen Zahl vorhanden sind,
+	 * Solange freie Felder mit nur einer mï¿½glichen Zahl vorhanden sind,
 	 * erhalten diese ihren Eintrag.
 	 * 
-	 * @return Es gibt 3 mögliche Zustände nach treibeKlare():
+	 * @return Es gibt 3 mï¿½gliche Zustï¿½nde nach treibeKlare():
 	 * 		- Problem: Wenn zuvor eine falsche Zahl gesetzt wurde, 
-	 * 		- null: Ungelöst: Wenn es keine weiteren Solisten mehr gibt. 
+	 * 		- null: Ungelï¿½st: Wenn es keine weiteren Solisten mehr gibt. 
 	 * 		- Fertig: Dies wird per throw SudokuFertig() gemeldet.
 	 * @throws Exc
 	 * @throws SudokuFertig
-	 *             Falls das Sudoku Fertig gelöst ist
+	 *             Falls das Sudoku Fertig gelï¿½st ist
 	 */
 	private Problem treibeKlare(boolean hatZeit, boolean schreibeBericht) throws Exc, SudokuFertig {
 		boolean istFertig = false;
@@ -134,7 +134,7 @@ public class Knacker {
 				break; // =======================>
 			}
 			if (eintrag == null) {
-				// Für diesen Zustand gibt es keine logisch eindeutige Lösung (mit der Klugheit)
+				// Fï¿½r diesen Zustand gibt es keine logisch eindeutige Lï¿½sung (mit der Klugheit)
 				break; // =======================>
 			}
 
@@ -152,7 +152,7 @@ public class Knacker {
 
 	/**
 	 * Setzt auf den aktuellen SudokuStand im Protokoll eine Markierung, auf die
-	 * im weiteren der Stand des Sudoku zurückgedreht werden kann
+	 * im weiteren der Stand des Sudoku zurï¿½ckgedreht werden kann
 	 * 
 	 * @return id
 	 */
@@ -202,10 +202,10 @@ public class Knacker {
 	}
 
 	private void setzePaarAlternativen(KnackerPartner aPartner) throws Exc {
-		// Hier werden unter Umständen mehrere Felder gesetzt.
-		// Diese könnten also auch mehrere Ebenen erzeugen.
+		// Hier werden unter Umstï¿½nden mehrere Felder gesetzt.
+		// Diese kï¿½nnten also auch mehrere Ebenen erzeugen.
 		// Deshalb wird hier vorgebeugt mit sudoku.setzeEintragOhneVersuch().
-		// Diese müssen in der richtigen Reihenfolge wieder abgebaut werden.
+		// Diese mï¿½ssen in der richtigen Reihenfolge wieder abgebaut werden.
 		ZahlenListe sollList = aPartner.gibAlternativen();
 
 		for (int iPartner = 0; iPartner < sollList.size(); iPartner++) {
@@ -214,8 +214,8 @@ public class Knacker {
 			FeldNummer feldNummer = sollEintrag.gibFeldNummer();
 			if (iPartner == 0) {
 				if (BerichtKnacker.istSystemOut()) {
-					System.out.println("   Knacke.setzePaarAlternativen(): " + sollEintrag.gibZahl() + " in "
-							+ feldNummer);
+					System.out.println(
+							"   Knacke.setzePaarAlternativen(): " + sollEintrag.gibZahl() + " in " + feldNummer);
 				}
 				sudoku.setzeEintrag(new FeldNummerMitZahl(feldNummer, sollEintrag.gibZahl()));
 			} else {
@@ -228,7 +228,8 @@ public class Knacker {
 		}
 	}
 
-	private Problem kontrolliereEintragVersuch(boolean hatZeit, ArrayList<KnackerPartner> partnerListe) throws Exc, SudokuFertig {
+	private Problem kontrolliereEintragVersuch(boolean hatZeit, ArrayList<KnackerPartner> partnerListe)
+			throws Exc, SudokuFertig {
 
 		if (BerichtKnacker.istSystemOut()) {
 			System.out.println("Knacke.kontrolliereEintragVersuch(): " + partnerListe);
@@ -250,7 +251,7 @@ public class Knacker {
 
 	/**
 	 * Es wurde zuvor ein Versuch gestartet: 
-	 * Es wurde ein Eintrag auf ein Feld mit mehreren möglichen Zahlen gesetzt.
+	 * Es wurde ein Eintrag auf ein Feld mit mehreren mï¿½glichen Zahlen gesetzt.
 	 * Hier wird kontrolliert, ob dieser Eintrag ein Problem im Sudoku erzeugt.
 	 * Ein Problem kann feststellt werden:
 	 *  - entweder durch treibeKlare()
@@ -288,19 +289,20 @@ public class Knacker {
 	}
 
 	/**
-	 * Versucht mit diesem Eintrag (eines Paares) per Solisten zur Lösung zu
+	 * Versucht mit diesem Eintrag (eines Paares) per Solisten zur Lï¿½sung zu
 	 * kommen
 	 * 
 	 * @param eintrag
 	 * @return @see treibeSolisten()
 	 * @throws Problem
-	 *             maximal wenn das Löschen der Einträge am Ende nicht
+	 *             maximal wenn das Lï¿½schen der Eintrï¿½ge am Ende nicht
 	 *             funktioniert
 	 * @throws Exc
 	 * @throws SudokuFertig
-	 *             Falls Sudoku fertig gelöst ist
+	 *             Falls Sudoku fertig gelï¿½st ist
 	 */
-	private Problem versuchePaarEintrag(boolean hatZeit, KnackerPartner aPartner, boolean istVersuchErlaubt) throws Exc, SudokuFertig {
+	private Problem versuchePaarEintrag(boolean hatZeit, KnackerPartner aPartner, boolean istVersuchErlaubt)
+			throws Exc, SudokuFertig {
 		int markierungsID = setzeMarkierung();
 
 		// Das erzeugt eine neue Ebene:
@@ -317,24 +319,24 @@ public class Knacker {
 	}
 
 	/**
-	 * Versucht mit diesen Alternativen (eines Paares) per Solisten zur Lösung
+	 * Versucht mit diesen Alternativen (eines Paares) per Solisten zur Lï¿½sung
 	 * zu kommen
 	 * 
 	 * @return @see treibeSolisten()
 	 * @throws Problem
-	 *             maximal wenn das Löschen der Einträge am Ende nicht
+	 *             maximal wenn das Lï¿½schen der Eintrï¿½ge am Ende nicht
 	 *             funktioniert
 	 * @throws Exc
 	 * @throws SudokuFertig
-	 *             Falls Sudoku fertig gelöst ist
+	 *             Falls Sudoku fertig gelï¿½st ist
 	 */
-	private Problem versuchePaarAlternativen(boolean hatZeit, KnackerPartner aPartner, boolean istVersuchErlaubt) throws Exc,
-			SudokuFertig {
+	private Problem versuchePaarAlternativen(boolean hatZeit, KnackerPartner aPartner, boolean istVersuchErlaubt)
+			throws Exc, SudokuFertig {
 		int markierungsID = setzeMarkierung();
 
-		// Hier werden unter Umständen mehrere Felder gesetzt.
-		// Diese können also auch mehrere Ebenen erzeugen.
-		// Diese müssen in der richtigen Reihenfolge wieder abgebaut werden.
+		// Hier werden unter Umstï¿½nden mehrere Felder gesetzt.
+		// Diese kï¿½nnen also auch mehrere Ebenen erzeugen.
+		// Diese mï¿½ssen in der richtigen Reihenfolge wieder abgebaut werden.
 		setzePaarAlternativen(aPartner);
 		Problem problem = kontrolliereEintrag(hatZeit, istVersuchErlaubt);
 
@@ -344,11 +346,11 @@ public class Knacker {
 	}
 
 	/**
-	 * Es werden Versuche durchgeführt in der Hoffnung einen Eintrag eines
-	 * Partners setzen zu können, der kein Problem verursacht.
+	 * Es werden Versuche durchgefï¿½hrt in der Hoffnung einen Eintrag eines
+	 * Partners setzen zu kï¿½nnen, der kein Problem verursacht.
 	 * 
 	 * @param partnerListe
-	 *            Diese Partner werden für Versuche genutzt.
+	 *            Diese Partner werden fï¿½r Versuche genutzt.
 	 * @param istKontrollVersuchErlaubt
 	 *            Bei true sind Versuche zur Kontrolle eines Eintrags erlaubt.
 	 * @return true wenn ein Eintrag gesetzt wurde
@@ -356,8 +358,8 @@ public class Knacker {
 	 * @throws MeldeTip 
 	 * @throws SudokuFertig 
 	 */
-	private boolean versuchePaare(boolean hatZeit, ArrayList<KnackerPartner> partnerListe, boolean istKontrollVersuchErlaubt)
-			throws Exc, MeldeTip, SudokuFertig {
+	private boolean versuchePaare(boolean hatZeit, ArrayList<KnackerPartner> partnerListe,
+			boolean istKontrollVersuchErlaubt) throws Exc, MeldeTip, SudokuFertig {
 		schreiber.versuchePaare(partnerListe, istKontrollVersuchErlaubt);
 
 		if (partnerListe.isEmpty()) {
@@ -378,7 +380,7 @@ public class Knacker {
 			Problem problemEintrag = versuchePaarEintrag(hatZeit, aPartner, istKontrollVersuchErlaubt);
 
 			if (problemEintrag != null) {
-				// Es müssen die Alternativen richtig sein!
+				// Es mï¿½ssen die Alternativen richtig sein!
 				istAlternativeRichtig = true;
 				break;
 			}
@@ -430,7 +432,7 @@ public class Knacker {
 	 * @throws MeldeTip 
 	 */
 	private Ergebnis loeseIntern(boolean hatZeit) throws Exc, MeldeTip {
-		// Falls das Lösen des Sudoku nicht gelingt: Den Ursprungszustand
+		// Falls das Lï¿½sen des Sudoku nicht gelingt: Den Ursprungszustand
 		// wiederherstellen
 		int markierungsID = setzeMarkierung();
 		Ergebnis ergebnis = Ergebnis.ungeloest();
@@ -453,7 +455,7 @@ public class Knacker {
 						break; // Problem
 					}
 				}
-				// Ungelöst
+				// Ungelï¿½st
 				if (optionen.gibMaxErlaubteVersuchsEbene().ordinal() >= VersuchsEbenen.EINE.ordinal()) {
 					// Versuchen mit einer Versuchs-Ebene
 
@@ -463,7 +465,7 @@ public class Knacker {
 
 					// Partner versuchen mit Kontrolle per treibeKlare();
 					wurdeEintragGesetzt = versuchePaare(hatZeit, felderMit2Moeglichen, false);
-					systemOutZeit("War Versuche 1 Ebene mit 2 möglichen im Feld");
+					systemOutZeit("War Versuche 1 Ebene mit 2 mï¿½glichen im Feld");
 					if (!wurdeEintragGesetzt) {
 						feldPaare = sudoku.gibKnackerPartnerFeldPaare();
 						wurdeEintragGesetzt = versuchePaare(hatZeit, feldPaare, false);
@@ -476,7 +478,7 @@ public class Knacker {
 					//
 					// // Partner versuchen mit Kontrolle per Versuch();
 					// wurdeEintragGesetzt = versuchePaare(felderMit2Moeglichen, true);
-					// systemOutZeit("War Versuche n Ebenen mit 2 möglichen im Feld");
+					// systemOutZeit("War Versuche n Ebenen mit 2 mï¿½glichen im Feld");
 					// if (!wurdeEintragGesetzt) {
 					// if (feldPaare == null) {
 					// feldPaare = sudoku.gibPartnerFeldPaare();
@@ -486,13 +488,14 @@ public class Knacker {
 					// }
 					// } // if VERSUCHINVERSUCH
 
-					if ((!wurdeEintragGesetzt) && (optionen.gibMaxErlaubteVersuchsEbene() == VersuchsEbenen.UNBEGRENZT)) {
-						// Varianz bemühen
+					if ((!wurdeEintragGesetzt)
+							&& (optionen.gibMaxErlaubteVersuchsEbene() == VersuchsEbenen.UNBEGRENZT)) {
+						// Varianz bemï¿½hen
 						boolean istFertig = Varianz.loese(sudoku, protokollMarkierer);
 						if (istFertig) {
 							ergebnis = Ergebnis.fertig();
 						} else {
-							ergebnis = Ergebnis.problem(new Problem("Das Sudoku besitzt keine Lösung"));
+							ergebnis = Ergebnis.problem(new Problem("Das Sudoku besitzt keine Lï¿½sung"));
 						}
 						systemOutZeit("War unbegrenzte Versuche-Anzahl mit Varianz");
 						break;

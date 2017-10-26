@@ -19,7 +19,7 @@ import sudoku.varianz.Varianz;
 /**
  * @author heroe
  * Neues Sudoku nach einer Vorlage erstellen.
- * Das kann natürlich eventuell dauern... Deshalb läuft die Sudoku-Erstellung im Thread mit FortschrittAnzeige
+ * Das kann natï¿½rlich eventuell dauern... Deshalb lï¿½uft die Sudoku-Erstellung im Thread mit FortschrittAnzeige
  */
 class SudokuNachVorlage implements LangerProzess {
 	private static boolean istSystemOut = false;
@@ -114,11 +114,11 @@ class SudokuNachVorlage implements LangerProzess {
 			// Hierin fehlen noch Fortschrittanzeige und der Abbruch
 			while (true) {
 				if (Thread.currentThread().isInterrupted()) {
-					systemOut("Abbruch durch Thread-Interrupt während des Wartens auf das volle Sudoku");
+					systemOut("Abbruch durch Thread-Interrupt wï¿½hrend des Wartens auf das volle Sudoku");
 					break;
 				}
 				if (fortschrittZeiger.istAbbruchGefordert()) {
-					systemOut("Abbruch durch Fortschritt-Zeiger während des Wartens auf das volle Sudoku");
+					systemOut("Abbruch durch Fortschritt-Zeiger wï¿½hrend des Wartens auf das volle Sudoku");
 					break;
 				}
 				NeuTyp erzeugeTyp = new NeuTyp(NeuTyp.Typ.VOLL);
@@ -174,7 +174,7 @@ class SudokuNachVorlage implements LangerProzess {
 			} // if (neuesSudoku != null){
 			neuesSudoku = null;
 		} // for (nLauf
-		// systemOut(String.format("SudokuBedienung.gibNeuesNachVorlage(): %d Läufe", nLauf));
+			// systemOut(String.format("SudokuBedienung.gibNeuesNachVorlage(): %d Lï¿½ufe", nLauf));
 		if (bestesSudoku != null) {
 			bestesSudoku.setzeTitel(vorlage.gibTitel1());
 		}

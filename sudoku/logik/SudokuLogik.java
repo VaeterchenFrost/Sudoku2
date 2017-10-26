@@ -24,7 +24,7 @@ import sudoku.logik.tipinfo.TipInfo0;
 import sudoku.logik.tipinfo.TipKurier;
 
 public class SudokuLogik extends FeldMatrix {
-	// ab dieser Anzahl an Vorgaben könnte das Sudoku ausreichend festgelegt sein
+	// ab dieser Anzahl an Vorgaben kï¿½nnte das Sudoku ausreichend festgelegt sein
 	static private int nVorgabenLogik = 17;
 	static private EnumMap<Logik_ID, Logik__Infos> logikenInfos = gibLogiken();
 
@@ -80,7 +80,7 @@ public class SudokuLogik extends FeldMatrix {
 				logikMap.put(logikArray[iLogik], new Logik_XYFluegel(null, null, null, null));
 				break;
 			default:
-				// Für eine Exception ist es zu dieser (static) Stunde noch ein bischen früh. Deshanlb dies unten.
+				// Fï¿½r eine Exception ist es zu dieser (static) Stunde noch ein bischen frï¿½h. Deshanlb dies unten.
 				// throw new UnerwarteteLogik(logikArray[iLogik].toString());
 			}
 		}
@@ -146,7 +146,7 @@ public class SudokuLogik extends FeldMatrix {
 	}
 
 	/**
-	 * @return true wenn die Logik zur Erstellung von möglichen Zahlen (schon) läuft
+	 * @return true wenn die Logik zur Erstellung von mï¿½glichen Zahlen (schon) lï¿½uft
 	 */
 	static public int gibAnzahlVorgabenMin() {
 		return nVorgabenLogik;
@@ -199,7 +199,7 @@ public class SudokuLogik extends FeldMatrix {
 	// interne Klassen
 	/**
 	 * @author heroe
-	 * Enthält das Ergebnis von setzeMoegliche(): Entweder ein erkanntes Problem 
+	 * Enthï¿½lt das Ergebnis von setzeMoegliche(): Entweder ein erkanntes Problem 
 	 * oder ein zu setzender Eintrag oder leer.
 	 */
 	public class SetzeMoeglicheErgebnis {
@@ -252,7 +252,7 @@ public class SudokuLogik extends FeldMatrix {
 		@Override
 		public EinTipText[] gibTip() {
 			if (this.eintrag != null) {
-				String s1 = String.format("Im Feld %s ist einzig die Zahl %d möglich.", this.eintrag.gibFeldNummer(),
+				String s1 = String.format("Im Feld %s ist einzig die Zahl %d mï¿½glich.", this.eintrag.gibFeldNummer(),
 						this.eintrag.gibZahl());
 
 				EinTipText[] sArray = new EinTipText[] { new EinTipText(s1, null) };
@@ -263,10 +263,10 @@ public class SudokuLogik extends FeldMatrix {
 					return sArray;
 				} else {
 					EinTipText[] erfolglosTip = {
-							new EinTipText("Entweder muß die Klugheit (rechts oben) vergrößert werden", null),
-							new EinTipText("oder das Sudoku ist nicht ohne Versuche lösbar:", null),
+							new EinTipText("Entweder muï¿½ die Klugheit (rechts oben) vergrï¿½ï¿½ert werden", null),
+							new EinTipText("oder das Sudoku ist nicht ohne Versuche lï¿½sbar:", null),
 							new EinTipText("   - 'Gib Zahl' benutzen", null),
-							new EinTipText("   - oder die Lösung durch 'Knacke' erstellen.", null) };
+							new EinTipText("   - oder die Lï¿½sung durch 'Knacke' erstellen.", null) };
 					return erfolglosTip;
 				}
 			}
@@ -277,7 +277,7 @@ public class SudokuLogik extends FeldMatrix {
 			if (this.eintrag != null) {
 				s = String.format("%d. Tip: Jetzt steht ein Eintrag fest:", tipNummer);
 			} else {
-				s = String.format("%d. Tip: Es ist kein Tip möglich:", tipNummer);
+				s = String.format("%d. Tip: Es ist kein Tip mï¿½glich:", tipNummer);
 			}
 			return s;
 		}
@@ -355,8 +355,8 @@ public class SudokuLogik extends FeldMatrix {
 			kasten.setzeNachbarn(kaesten);
 		}
 
-		// gruppen erstellen: 1. Kästen, 2. Zeile, 3. Spalten
-		// Diese Reihenfolge soll der Reihenfolge in Gruppe.Typ entsprechen: Für die Lösungs-Zeit-Errechnung!
+		// gruppen erstellen: 1. Kï¿½sten, 2. Zeile, 3. Spalten
+		// Diese Reihenfolge soll der Reihenfolge in Gruppe.Typ entsprechen: Fï¿½r die Lï¿½sungs-Zeit-Errechnung!
 		// Muss also korrespondieren mit gibStartNummer().
 		gruppen = new ArrayList<Gruppe>();
 		gruppen.addAll(kaesten);
@@ -398,7 +398,7 @@ public class SudokuLogik extends FeldMatrix {
 
 		// FeldListe0Bis9 moeglicheFelderJeZahl = gruppe.gibMoeglicheFelderJeZahl();
 		//
-		// // Wenn eine Zahl n mögliche Felder hat, müssen in diesen n Feldern auch mindestens n Zahlen möglich sein
+		// // Wenn eine Zahl n mï¿½gliche Felder hat, mï¿½ssen in diesen n Feldern auch mindestens n Zahlen mï¿½glich sein
 		// // Mit jedem Kulgheitsgrad bzw. Anzahl Felder je Zahl
 		// for (int anzahlFelder = 2; anzahlFelder<9; anzahlFelder++){
 		//
@@ -454,7 +454,7 @@ public class SudokuLogik extends FeldMatrix {
 	}
 
 	/**
-	 * @return Anzahl der Kästen mit einem oder mehr freien Feldern
+	 * @return Anzahl der Kï¿½sten mit einem oder mehr freien Feldern
 	 */
 	private int gibAnzahlFreieKaesten(ArrayList<Kasten> kaesten) {
 		int n = 0;
@@ -468,9 +468,9 @@ public class SudokuLogik extends FeldMatrix {
 	}
 
 	/**
-	 * Falls ein freies Feld mit nur einer möglichen Zahl (durch die Logik) erkannt wird, erhält dieses ihren Eintrag.
-	 * Das Sudoku muss danach nicht gelöst sein: 
-	 *  - Wenn es nämlich kein eindeutiges ist!
+	 * Falls ein freies Feld mit nur einer mï¿½glichen Zahl (durch die Logik) erkannt wird, erhï¿½lt dieses ihren Eintrag.
+	 * Das Sudoku muss danach nicht gelï¿½st sein: 
+	 *  - Wenn es nï¿½mlich kein eindeutiges ist!
 	 *  - Oder die Klugheit nicht ausreicht
 	 * @throws Exc
 	 * @return Problem falls das Sudoku zuvor einen falschen Eintrag erhielt, sonst null.
@@ -489,9 +489,9 @@ public class SudokuLogik extends FeldMatrix {
 	}
 
 	/**
-	 * Solange freie Felder mit nur einer möglichen Zahl (durch die Logik) erkannt werden, erhalten diese ihren Eintrag.
-	 * Das Sudoku muss danach nicht gelöst sein: 
-	 *  - Wenn es nämlich kein eindeutiges ist!
+	 * Solange freie Felder mit nur einer mï¿½glichen Zahl (durch die Logik) erkannt werden, erhalten diese ihren Eintrag.
+	 * Das Sudoku muss danach nicht gelï¿½st sein: 
+	 *  - Wenn es nï¿½mlich kein eindeutiges ist!
 	 *  - Oder die Klugheit nicht ausreicht
 	 * @throws Exc
 	 * @return Problem falls das Sudoku zuvor einen falschen Eintrag erhielt, sonst null.
@@ -537,9 +537,9 @@ public class SudokuLogik extends FeldMatrix {
 	}
 
 	/**
-	 * Die Ansiedelung dieser Funktionalität an dieser Stelle hat den bedeutenden Effekt,
+	 * Die Ansiedelung dieser Funktionalitï¿½t an dieser Stelle hat den bedeutenden Effekt,
 	 * dass die Liste der Felder private bleibt!
-	 * @return Die Liste von FeldNummerMitZahl, die Felder benennt, die jeweils genau zwei mögliche Zahlen beinhalten. 
+	 * @return Die Liste von FeldNummerMitZahl, die Felder benennt, die jeweils genau zwei mï¿½gliche Zahlen beinhalten. 
 	 * @throws Exc
 	 */
 	public ArrayList<KnackerPartner> gibFelderMit2Moeglichen() throws Exc {
@@ -572,24 +572,25 @@ public class SudokuLogik extends FeldMatrix {
 	}
 
 	/**
-	 * Ziel ist das Erkennen bzw. Erreichen eines freien Feldes mit nur einer möglichen Zahl: Dass kann dann ein Eintrag werden. 
-	 * Für freie Felder werden die möglichen Zahlen neu ermittelt:
-	 *   1. Jedes Feld setzt seine möglichen Zahlen
-	 *   2. Soweit es die Logik hergibt werden von diesen Zahlen gelöscht, 
-	 *   		um Felder mit nur einer möglichen Zahl zu erreichen. 
+	 * Ziel ist das Erkennen bzw. Erreichen eines freien Feldes mit nur einer mï¿½glichen Zahl: Dass kann dann ein Eintrag werden. 
+	 * Fï¿½r freie Felder werden die mï¿½glichen Zahlen neu ermittelt:
+	 *   1. Jedes Feld setzt seine mï¿½glichen Zahlen
+	 *   2. Soweit es die Logik hergibt werden von diesen Zahlen gelï¿½scht, 
+	 *   		um Felder mit nur einer mï¿½glichen Zahl zu erreichen. 
 	 *   3. Es werden Probleme gesucht.
-	 * @param hatZeit Bei true wird die "menschliche" Lösung genutzt 
+	 * @param hatZeit Bei true wird die "menschliche" Lï¿½sung genutzt 
 	 * @param feldPaareSetzen Mit true werden die in jedem Feld gesetzen FeldPaare angefordert
-	 * @return SetzeMoeglicheErgebnis: Mit einem von 4 denkbaren Zuständen:
+	 * @return SetzeMoeglicheErgebnis: Mit einem von 4 denkbaren Zustï¿½nden:
 	 * 					1. Mit dem zu setzenden Eintrag oder
 	 * 					2. Mit einem erkannten Problem wenn das Sudoku eine falsche Zahl beinhaltet oder
 	 * 					- Leeres Ergebnis 
-	 * 						3. wenn die Lösung nicht weiter vorangetrieben werden kann oder
-	 * 						4. das Sudoku bereits vollständig gelöst war. 
+	 * 						3. wenn die Lï¿½sung nicht weiter vorangetrieben werden kann oder
+	 * 						4. das Sudoku bereits vollstï¿½ndig gelï¿½st war. 
 	 * @throws Exc
 	 */
-	public SetzeMoeglicheErgebnis setzeMoegliche(Klugheit klugheit, boolean hatZeit, boolean feldPaareSetzen) throws Exc {
-		// Der Schreiber läuft nur wenn er gebraucht wird:
+	public SetzeMoeglicheErgebnis setzeMoegliche(Klugheit klugheit, boolean hatZeit, boolean feldPaareSetzen)
+			throws Exc {
+		// Der Schreiber lï¿½uft nur wenn er gebraucht wird:
 		Schreiber berichtSchreiber = null;
 		if (Schreiber.istSystemOut() || (berichtKurier != null)) {
 			berichtSchreiber = new Schreiber();
@@ -603,7 +604,7 @@ public class SudokuLogik extends FeldMatrix {
 			berichtSchreiber.addStart(new Klugheit(klugheit), nFreieFelder, nFreieZeilen, nFreieSpalten, nFreieKaesten);
 		}
 
-		// Jedes freie Feld ermittelt die Möglichen anhand seiner Gruppe (Zeile+Spalte+Kasten) neu
+		// Jedes freie Feld ermittelt die Mï¿½glichen anhand seiner Gruppe (Zeile+Spalte+Kasten) neu
 		basisLogik.setzeMoegliche();
 
 		int durchLauf = 0;
@@ -615,11 +616,11 @@ public class SudokuLogik extends FeldMatrix {
 				break;
 			}
 			if (null != eintrag) {
-				// Das Erkennen eines freien klaren Feldes (mit nur einer möglichen Zahl) war das Ziel
+				// Das Erkennen eines freien klaren Feldes (mit nur einer mï¿½glichen Zahl) war das Ziel
 				break;
 			}
 			if (anzahlGeloeschterZahlen == 0) {
-				// Es gibt keine Erfolge mehr beim Löschen von (Un-) Möglichen
+				// Es gibt keine Erfolge mehr beim Lï¿½schen von (Un-) Mï¿½glichen
 				break;
 			}
 
@@ -652,7 +653,7 @@ public class SudokuLogik extends FeldMatrix {
 					if (logikErgebnis != null) {
 						// Tip setzen
 						if (tipKurier != null) {
-							// Es gibt Logikläufe, die gar keine entsprechende Logik-Situation vorfinden!
+							// Es gibt Logiklï¿½ufe, die gar keine entsprechende Logik-Situation vorfinden!
 							if (logikErgebnis.tipInfo != null) {
 								logikErgebnis.tipInfo.setzeSudoku(this.gibFeldInfos());
 								tipKurier.add(logikErgebnis.tipInfo);
@@ -665,7 +666,7 @@ public class SudokuLogik extends FeldMatrix {
 									logikErgebnis.eintrag, logikErgebnis.loeschZahlen);
 						}
 
-						// Das Löschen der vorgeschlagenen möglichen Zahlen realisieren
+						// Das Lï¿½schen der vorgeschlagenen mï¿½glichen Zahlen realisieren
 						if (logikErgebnis.loeschZahlen != null) {
 							for (FeldNummerMitZahl loeschZahl : logikErgebnis.loeschZahlen) {
 								Feld loeschFeld = this.gibFeld(loeschZahl.gibFeldNummer());
@@ -676,11 +677,11 @@ public class SudokuLogik extends FeldMatrix {
 						// Bewertung des Eintrags
 						if (logikErgebnis.eintrag != null) {
 							eintrag = logikErgebnis.eintrag;
-							// Ein für einen Eintrag vorgesehenes Feld besitzt im Allgemeinen mehr als nur eine mögliche Zahl:
+							// Ein fï¿½r einen Eintrag vorgesehenes Feld besitzt im Allgemeinen mehr als nur eine mï¿½gliche Zahl:
 							// Z.B. sieht Logik O1 in einer Gruppe die 8 einzig im einem Feld.
-							// Da können in diesem Feld noch andere mögliche Zahlen drin sein.
-							// Es muss noch dafür gesorgt werden, dass dieses Feld nur einzig die Eintrags-Zahl
-							// als mögliche Zahl besitzt:
+							// Da kï¿½nnen in diesem Feld noch andere mï¿½gliche Zahlen drin sein.
+							// Es muss noch dafï¿½r gesorgt werden, dass dieses Feld nur einzig die Eintrags-Zahl
+							// als mï¿½gliche Zahl besitzt:
 							Feld feld = this.gibFeld(eintrag.gibFeldNummer());
 							feld.setzeMoeglichEinzig(eintrag.gibZahl());
 
@@ -689,11 +690,11 @@ public class SudokuLogik extends FeldMatrix {
 							break; // for
 						}
 
-						// Bewertung der gelöschten Zahlen
+						// Bewertung der gelï¿½schten Zahlen
 						if (logikErgebnis.loeschZahlen != null) {
 							anzahlGeloeschterZahlen = logikErgebnis.loeschZahlen.size();
 							if (anzahlGeloeschterZahlen > 0) {
-								// Nach gelöschten Zahlen soll wieder ab der einfachsten Logik begonnen werden
+								// Nach gelï¿½schten Zahlen soll wieder ab der einfachsten Logik begonnen werden
 								break; // for
 							}
 						}
