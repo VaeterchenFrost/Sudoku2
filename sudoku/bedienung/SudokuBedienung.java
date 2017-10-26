@@ -37,14 +37,14 @@ import sudoku.varianz.Loesungen;
 import sudoku.varianz.Varianz;
 
 public class SudokuBedienung {
-	// F�r Fehlersuche
+	// Für Fehlersuche
 	private static boolean istPrintoutProtokoll = false;
 
 	// Das aktuell in Bearbeitung befindliche Sudoku
 	private SudokuLogik sudokuLogik;
-	// Die Klugheit, die f�r das L�sen des aktuell in Bearbeitung befindlichen Sudoku genutzt wird
+	// Die Klugheit, die für das Lösen des aktuell in Bearbeitung befindlichen Sudoku genutzt wird
 	private Klugheit klugheit;
-	// protokolliert den L�sungsvorgang des aktuell in Bearbeitung befindlichen Sudoku
+	// protokolliert den Lösungsvorgang des aktuell in Bearbeitung befindlichen Sudoku
 	private Protokoll protokoll;
 	// Name des aktuell in Bearbeitung befindlichen Sudoku
 	private String name;
@@ -53,7 +53,7 @@ public class SudokuBedienung {
 	// Schwierigkeit des aktuell in Bearbeitung befindlichen Sudoku
 	private SudokuSchwierigkeit schwierigkeit;
 
-	// Ist der Liererant f�r neue Sudokus: Im besten Fall sind immer welche vorr�tig
+	// Ist der Liererant für neue Sudokus: Im besten Fall sind immer welche vorrätig
 	private SudokuPool sudokuPool;
 
 	// Alle Anzeigeelemente, die sich angemeldet haben, werden hier vermerkt.
@@ -72,7 +72,7 @@ public class SudokuBedienung {
 
 	/**
 	 * @param externeAusnahmeBehandlung falls != null wird im internen Thread 
-	 * 				diese Ausnahmebehandlung f�r nicht gefangene Ausnahmen eingeklinkt, 
+	 * 				diese Ausnahmebehandlung für nicht gefangene Ausnahmen eingeklinkt, 
 	 * 				ansonsten die Standardbehandlung des genannten Typs. 
 	 * @throws Exc
 	 */
@@ -88,7 +88,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Setzt alle internen Zwischenspeicher zur�ck: In Grundstellung
+	 * Setzt alle internen Zwischenspeicher zurück: In Grundstellung
 	 */
 	private void initZwischenspeicher() {
 		problem = null;
@@ -112,7 +112,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * L�scht das Sudoku und stellt es aus der Datei
+	 * Löscht das Sudoku und stellt es aus der Datei
 	 */
 	public void reset(String nameVerzeichnis, String nameDatei) {
 		aktionVorbereiten();
@@ -136,7 +136,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * L�scht das Sudoku und stellt es aus dem InfoSudoku
+	 * Löscht das Sudoku und stellt es aus dem InfoSudoku
 	 * @param vorgaben 
 	 * @param name des Sudoku
 	 */
@@ -153,16 +153,16 @@ public class SudokuBedienung {
 
 	/**
 	 * Bewegt die Vorgaben des Sudoku unkritisch.
-	 * Diese einfache Implementation ist nur m�glich ohne Eintr�ge, denn sie tr�gt einfach die Vorgaben hin und her!
-	 * Eine Implementation mit Eintr�gen muss neben dem jeweiligen Umtragen der Vorgaben 
+	 * Diese einfache Implementation ist nur möglich ohne Eintr�ge, denn sie tr�gt einfach die Vorgaben hin und her!
+	 * Eine Implementation mit Einträgen muss neben dem jeweiligen Umtragen der Vorgaben 
 	 * auch	das Protokoll animieren und dann die Eintr�ge wieder einspielen!
 	 * Plan: Ohne jedes reset() und initZwischenspeicher.
 	 * 	0. protokoll: Markierung setzen.
-	 * 	1. protokoll: Alles zur�ckgehen bedeutet alle Eintr�ge verschwinden lassen.
-	 * 	2. protokoll: Sperren: Ist das �berhaupt n�tig?
+	 * 	1. protokoll: Alles zurückgehen bedeutet alle Eintr�ge verschwinden lassen.
+	 * 	2. protokoll: Sperren: Ist das überhaupt n�tig?
 	 * 	3. FeldMatrix: Vorgaben animieren
 	 * 	4. protokoll: animieren der FeldNummern 
-	 * 	5. protokoll: Zur Markierung wieder vorgehen. Geht VOR-Gehen - bis jetzt war wohl blo� R�ckw�rts-Gehen!?
+	 * 	5. protokoll: Zur Markierung wieder vorgehen. Geht VOR-Gehen - bis jetzt war wohl bloß R�ckw�rts-Gehen!?
 	 * @param vorgaben 
 	 * @param name des Sudoku
 	 */
@@ -170,12 +170,12 @@ public class SudokuBedienung {
 		aktionVorbereiten();
 		try {
 			int protokollMarkierung = protokoll.markierungSetzen();
-			// Eintr�ge verschwinden lassen, schon l�schen
+			// Einträge verschwinden lassen, schon l�schen
 			protokoll.gehe(Schrittweite.ALLES, /* vorwaerts= */false);
 			// Vorgaben animieren
 			this.sudokuLogik.animiere(animator);
 			protokoll.animiere(animator);
-			// Eintr�ge wieder setzen
+			// Einträge wieder setzen
 			protokoll.markierungAnsteuern(protokollMarkierung);
 			// this.schwierigkeit = Analysator.gibSchwierigkeit(vorgaben);
 			auffrischen(true);
@@ -189,7 +189,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * L�scht das Sudoku und stellt es aus dem text
+	 * Löscht das Sudoku und stellt es aus dem text
 	 * @param vorgaben 
 	 * @param name1
 	 */
@@ -264,7 +264,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Wird gerufen nach einer Ver�nderung des Sudoku
+	 * Wird gerufen nach einer Veränderung des Sudoku
 	 * @param mitAnzeige bei true werden die angemeldeten AnzeigeElemente angesprochen
 	 */
 	private void auffrischen(boolean mitAnzeige) {
@@ -308,14 +308,14 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Gibt die Vorgaben des Sudoku zur�ck. 
+	 * Gibt die Vorgaben des Sudoku zurück. 
 	 */
 	public InfoSudoku gibVorgaben() {
 		return sudokuLogik.gibVorgaben();
 	}
 
 	/**
-	 * Gibt einen Schnappschuss des Sudoku zur�ck. 
+	 * Gibt einen Schnappschuss des Sudoku zurück. 
 	 */
 	public InfoSudoku gibSchnappschuss() {
 		InfoSudoku schnappschuss = this.sudokuLogik.gibFeldInfos();
@@ -334,7 +334,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * @return true wenn die Logik zur Erstellung von m�glichen Zahlen (schon) l�uft
+	 * @return true wenn die Logik zur Erstellung von möglichen Zahlen (schon) l�uft
 	 */
 	public boolean istMoeglichLogik() {
 		return gibAnzahlVorgaben() >= SudokuLogik.gibAnzahlVorgabenMin();
@@ -350,7 +350,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * @return true wenn es Eintr�ge gibt
+	 * @return true wenn es Einträge gibt
 	 */
 	public boolean ebeneLaeuftEine() {
 		return sudokuLogik.ebeneLaeuftEine();
@@ -379,7 +379,7 @@ public class SudokuBedienung {
 	/**
 	 * @param zeile 1 bis 9
 	 * @param spalte 1 bis 9
-	 * @param eintrag 1 bis 9 oder 0 l�scht den Eintrag
+	 * @param eintrag 1 bis 9 oder 0 löscht den Eintrag
 	 */
 	public void setzeEintrag(FeldNummer feldNummer, int eintrag) {
 		aktionVorbereiten();
@@ -398,7 +398,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Ein (!) freies Feld, in dem die Logik erkennt, dass nur eine Zahl m�glich ist, erh�lt diese m�gliche Zahl als Eintrag
+	 * Ein (!) freies Feld, in dem die Logik erkennt, dass nur eine Zahl möglich ist, erh�lt diese m�gliche Zahl als Eintrag
 	 * @throws Problem 
 	 */
 	public void setzeEintrag() {
@@ -415,7 +415,7 @@ public class SudokuBedienung {
 	}
 
 	/**
-	 * Freie Felder, in denen die Logik erkennt, dass nur eine Zahl m�glich ist, erhalten diese m�gliche Zahl als Eintrag
+	 * Freie Felder, in denen die Logik erkennt, dass nur eine Zahl möglich ist, erhalten diese m�gliche Zahl als Eintrag
 	 * @throws Problem 
 	 */
 	public void setzeEintraegeAufKlare() {
