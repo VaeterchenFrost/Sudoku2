@@ -1,7 +1,11 @@
 # Sudoku2
-Windows-API Sudoku-Java-Program.
+Windows-GUI Java-Sudoku-Program.
 
-For creation, solving and printing own sudoku.
+For creation, solving and printing own sudokus.
 
-Uses the old java.awt framework, that is not as safe as newer frameworks.
+Uses the old javax.swing framework, that is not as safe (thread-safe) as newer frameworks.
+
+Author: Hendrick Röbke
+
+Commented in german only.
 
